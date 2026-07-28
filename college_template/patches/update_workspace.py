@@ -78,5 +78,6 @@ def execute():
                 "link_to": dt,
             })
 
+    ws.flags.ignore_links = True
     ws.save(ignore_permissions=True)
     frappe.db.commit()
