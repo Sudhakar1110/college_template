@@ -56,7 +56,7 @@
       {"label": "Exam Schedule", "link_type": "DocType", "link_to": "Exam Schedule", "type": "Card", "card": "Exams"},
       {"label": "Exam Hall", "link_type": "DocType", "link_to": "Exam Hall", "type": "Card", "card": "Exams"},
       {"label": "Hall Allocation", "link_type": "DocType", "link_to": "Hall Allocation", "type": "Card", "card": "Exams"},
-      {"label": "Hall Ticket", "link_type": "DocType", "link_to": "Hall Ticket", "type": "Card", "card": "Exams"},
+      {"label": "Hall ticket", "link_type": "DocType", "link_to": "Hall ticket", "type": "Card", "card": "Exams"},
       {"label": "Exam Attendance", "link_type": "DocType", "link_to": "Exam Attendance", "type": "Card", "card": "Exams"},
       {"label": "Assessment Result", "link_type": "DocType", "link_to": "Assessment Result", "type": "Card", "card": "Exams"},
       {"label": "Semester", "link_type": "DocType", "link_to": "Semester", "type": "Card", "card": "Exams"},
