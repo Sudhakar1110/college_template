@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "target_doc_type",
+      "fieldname": "target_doctype",
       "label": "Target DocType",
       "fieldtype": "Link",
       "options": "DocType",
