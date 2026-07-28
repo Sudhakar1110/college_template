@@ -102,7 +102,7 @@
       {"type": "Link", "label": "LMS Batch Enrollment", "link_type": "DocType", "link_to": "LMS Batch Enrollment"},
       {"type": "Link", "label": "LMS Quiz", "link_type": "DocType", "link_to": "LMS Quiz"},
       {"type": "Link", "label": "LMS Quiz Submission", "link_type": "DocType", "link_to": "LMS Quiz Submission"},
-      {"type": "Link", "label": "LMS Assessment", "link_type": "DocType", "link_to": "LMS Assessment"},
+
       {"type": "Link", "label": "Course Chapter", "link_type": "DocType", "link_to": "Course Chapter"},
       {"type": "Link", "label": "Course Lesson", "link_type": "DocType", "link_to": "Course Lesson"},
       {"type": "Card Break", "label": "Setup"},

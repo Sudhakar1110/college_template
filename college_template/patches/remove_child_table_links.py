@@ -9,7 +9,7 @@ def execute():
     ws = frappe.get_doc("Workspace", "College ERP")
 
     # Child table doctypes have no standalone page in Frappe
-    child_table_links = {"LMS Program Course", "LMS Program Member"}
+    child_table_links = {"LMS Program Course", "LMS Program Member", "LMS Assessment"}
     links_before = len(ws.links or [])
 
     ws.links = [
