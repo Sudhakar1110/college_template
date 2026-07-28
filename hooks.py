@@ -124,4 +124,4 @@ fixtures = [
 doctype_js = {}
 
 # Boot info
-before_tests = "college_template.install.before_tests"
+# before_tests hook removed - install.py not required for fixture-based app
