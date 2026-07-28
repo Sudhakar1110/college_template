@@ -1,0 +1,50 @@
+{
+  "doctype": {
+    "doctype": "DocType",
+    "name": "Academic Batch",
+    "module": "Education",
+    "custom": 1,
+    "is_submittable": 0,
+    "is_child_table": 0,
+    "is_single": 0,
+    "is_tree": 0,
+    "editable_grid": 1,
+    "quick_entry": 0,
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0,
+    "allow_rename": 1,
+    "allow_import": 0,
+    "max_attachments": 0,
+    "title_field": "",
+    "image_field": "",
+    "timeline_field": "",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "default_view": "",
+    "search_fields": "",
+    "naming_rule": "By fieldname",
+    "autoname": "field:batch_name",
+    "description": "",
+    "icon": "",
+    "color": ""
+  },
+  "fields": [],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1
+    }
+  ],
+  "links": [],
+  "states": [],
+  "actions": []
+}
