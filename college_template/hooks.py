@@ -20,7 +20,6 @@ fixtures = [
     "Notification",
     "Report",
     "Number Card",
-    "Dashboard Chart",
     "Workspace",
 ]
 
