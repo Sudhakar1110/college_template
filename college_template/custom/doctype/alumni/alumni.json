@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student_name",
       "label": "Student Name",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "register_number",
       "label": "Register Number",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Link",
       "options": "Academic Batch",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "passing_year",
       "label": "Passing Year",
       "fieldtype": "Int",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "graduation_date",
       "label": "Graduation Date",
       "fieldtype": "Date",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "email",
       "label": "Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "mobile",
       "label": "Mobile",
       "fieldtype": "Data",
       "options": "Phone",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_city",
       "label": "Current City",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_country",
       "label": "Current Country",
       "fieldtype": "Data",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "linked_in",
       "label": "LinkedIn",
       "fieldtype": "Data",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "personal_email",
       "label": "Personal Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "alumni_information",
       "label": "Alumni Information",
       "fieldtype": "Section Break",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "created_from_graduation",
       "label": "Created From Graduation",
       "fieldtype": "Check",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "notes",
       "label": "Notes",
       "fieldtype": "Small Text",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "degree_awarded",
       "label": "Degree Awarded",
       "fieldtype": "Data",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "convocation_attended",
       "label": "Convocation Attended",
       "fieldtype": "Check",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "alumni_photo",
       "label": "Alumni Photo",
       "fieldtype": "Attach Image",
       "options": "",

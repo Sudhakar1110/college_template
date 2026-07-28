@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "comments",
       "label": "Comments",
       "fieldtype": "Small Text",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "submitted_on",
       "label": "Submitted On",
       "fieldtype": "Datetime",
       "options": "",

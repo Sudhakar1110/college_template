@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_semester",
       "label": "Current Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "next_semester",
       "label": "Next Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_study_year",
       "label": "Current Study Year",
       "fieldtype": "Int",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "next_study_year",
       "label": "Next Study Year",
       "fieldtype": "Int",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "promotion_rule",
       "label": "Promotion Rule",
       "fieldtype": "Link",
       "options": "Promotion Rule",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "promotion_date",
       "label": "Promotion Date",
       "fieldtype": "Date",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approval",
       "label": "Approval",
       "fieldtype": "Section Break",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approved_by",
       "label": "Approved By",
       "fieldtype": "Link",
       "options": "User",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approved_on",
       "label": "Approved On",
       "fieldtype": "Datetime",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "students",
       "label": "Students",
       "fieldtype": "Section Break",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "students",
       "label": "Students",
       "fieldtype": "Table",
       "options": "Student Promotion Detail",

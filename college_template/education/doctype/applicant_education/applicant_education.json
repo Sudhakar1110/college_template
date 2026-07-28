@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "board_university",
       "label": "Board / University",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "institution",
       "label": "Institution",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "year_of_passing",
       "label": "Year of Passing",
       "fieldtype": "Int",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "percentage_cgpa",
       "label": "Percentage / CGPA",
       "fieldtype": "Float",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "register_number",
       "label": "Register Number",
       "fieldtype": "Data",
       "options": "",

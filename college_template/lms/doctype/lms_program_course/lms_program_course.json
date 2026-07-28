@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "course_title",
       "label": "Course Title",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "faculty",
       "label": "Faculty",
       "fieldtype": "Link",
       "options": "LMS Program",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course_mode",
       "label": "Course Mode",
       "fieldtype": "Data",
       "options": "",

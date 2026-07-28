@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Small Text",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "date",
       "label": "Date",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "achievement_title",
       "label": "Achievement Title",
       "fieldtype": "Data",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "website",
       "label": "Website",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hr_name",
       "label": "HR Name",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hr_email",
       "label": "HR Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hr_phone",
       "label": "HR Phone",
       "fieldtype": "Data",
       "options": "Phone",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "address",
       "label": "Address",
       "fieldtype": "Small Text",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "company_logo",
       "label": "Company Logo",
       "fieldtype": "Attach Image",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "contact_person_designation",
       "label": "Contact Person Designation",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hr_alternate_email",
       "label": "HR Alternate Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hr_alternate_phone",
       "label": "HR Alternate Phone",
       "fieldtype": "Data",
       "options": "Phone",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",

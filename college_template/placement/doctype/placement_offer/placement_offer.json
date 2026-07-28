@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "placement_drive",
       "label": "Placement Drive",
       "fieldtype": "Link",
       "options": "Placement Drive",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "company",
       "label": "Company",
       "fieldtype": "Link",
       "options": "Placement Company",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "package_lpa",
       "label": "Package (LPA)",
       "fieldtype": "Currency",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "role",
       "label": "Role",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "offer_date",
       "label": "Offer Date",
       "fieldtype": "Date",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "joining_date",
       "label": "Joining Date",
       "fieldtype": "Date",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "offer_letter",
       "label": "Offer Letter",
       "fieldtype": "Attach",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "offer_number",
       "label": "Offer Number",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "offer_accepted_on",
       "label": "Offer Accepted On",
       "fieldtype": "Date",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",

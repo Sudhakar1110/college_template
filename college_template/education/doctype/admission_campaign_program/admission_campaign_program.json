@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "total_seats",
       "label": "Total Seats",
       "fieldtype": "Int",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "available_seats",
       "label": "Available Seats",
       "fieldtype": "Int",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "fee",
       "label": "Fee",
       "fieldtype": "Currency",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "target_admissions",
       "label": "Target Admissions",
       "fieldtype": "Int",
       "options": "",

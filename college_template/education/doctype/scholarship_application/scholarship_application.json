@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "scheme",
       "label": "Scheme",
       "fieldtype": "Link",
       "options": "Scholarship Scheme",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_enrollment",
       "label": "Academic Enrollment",
       "fieldtype": "Link",
       "options": "Admission Program Enrollment",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applied_date",
       "label": "Applied Date",
       "fieldtype": "Date",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents",
       "label": "Documents",
       "fieldtype": "Section Break",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents",
       "label": "Documents",
       "fieldtype": "Table",
       "options": "Scholarship Application Document",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department_recommendation",
       "label": "Department Recommendation",
       "fieldtype": "Section Break",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "recommendations",
       "label": "Recommendations",
       "fieldtype": "Table",
       "options": "Scholarship Recommendation Log",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "committee_approval",
       "label": "Committee Approval",
       "fieldtype": "Section Break",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approvals",
       "label": "Approvals",
       "fieldtype": "Table",
       "options": "Scholarship Approval Log",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_email",
       "label": "Student Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "government_portal_tracking",
       "label": "Government Portal Tracking",
       "fieldtype": "Section Break",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "government_application_id",
       "label": "Government Application ID",
       "fieldtype": "Data",
       "options": "",

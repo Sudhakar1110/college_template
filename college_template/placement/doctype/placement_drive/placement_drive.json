@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "company",
       "label": "Company",
       "fieldtype": "Link",
       "options": "Placement Company",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "drive_date",
       "label": "Drive Date",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Data",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "location",
       "label": "Location",
       "fieldtype": "Data",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_last_date",
       "label": "Registration Last Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_criteria",
       "label": "Eligibility Criteria",
       "fieldtype": "Section Break",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligible_programs",
       "label": "Eligible Programs",
       "fieldtype": "Table MultiSelect",
       "options": "Placement Drive Program",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_percentage",
       "label": "Minimum Percentage",
       "fieldtype": "Percent",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "study_year",
       "label": "Study Year",
       "fieldtype": "Int",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "passing_year",
       "label": "Passing Year",
       "fieldtype": "Int",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "max_current_backlogs_allowed",
       "label": "Max Current Backlogs Allowed",
       "fieldtype": "Int",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allow_history_of_backlogs",
       "label": "Allow History of Backlogs",
       "fieldtype": "Check",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "drive_coordinator",
       "label": "Drive Coordinator",
       "fieldtype": "Link",
       "options": "User",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "job_role",
       "label": "Job Role",
       "fieldtype": "Data",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "number_of_vacancies",
       "label": "Number of Vacancies",
       "fieldtype": "Int",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_limit_max_applications",
       "label": "Registration Limit (Max Applications)",
       "fieldtype": "Int",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "selection_process",
       "label": "Selection Process",
       "fieldtype": "Small Text",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents_required",
       "label": "Documents Required",
       "fieldtype": "Small Text",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "schedule",
       "label": "Schedule",
       "fieldtype": "Table",
       "options": "Placement Drive Schedule",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_cgpa",
       "label": "Minimum CGPA",
       "fieldtype": "Float",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_semester_percentage",
       "label": "Minimum Semester Percentage",
       "fieldtype": "Percent",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "arrear_rules",
       "label": "Arrear Rules",
       "fieldtype": "Small Text",
       "options": "",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "age_limit",
       "label": "Age Limit",
       "fieldtype": "Int",
       "options": "",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "nationality",
       "label": "Nationality",
       "fieldtype": "Data",
       "options": "",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "annual_ctc",
       "label": "Annual CTC",
       "fieldtype": "Currency",
       "options": "",

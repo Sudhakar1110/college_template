@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "application",
       "label": "Application",
       "fieldtype": "Link",
       "options": "Scholarship Application",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scheme",
       "label": "Scheme",
       "fieldtype": "Link",
       "options": "Scholarship Scheme",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount",
       "label": "Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "payment_date",
       "label": "Payment Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sales_invoice",
       "label": "Sales Invoice",
       "fieldtype": "Link",
       "options": "Sales Invoice",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_email",
       "label": "Student Email",
       "fieldtype": "Data",
       "options": "Email",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "utr_transaction_reference_number",
       "label": "UTR / Transaction Reference Number",
       "fieldtype": "Data",
       "options": "",

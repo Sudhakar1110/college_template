@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "naming_series",
       "label": "Naming Series",
       "fieldtype": "Select",
       "options": "ADM-ENQ-.YYYY.-.####",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "enquiry_date",
       "label": "Enquiry Date",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_campaign",
       "label": "Admission Campaign",
       "fieldtype": "Link",
       "options": "Admission Campaign",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_opening",
       "label": "Admission Opening",
       "fieldtype": "Link",
       "options": "Admission Opening",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_information",
       "label": "Student Information",
       "fieldtype": "Section Break",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_name",
       "label": "Student Name",
       "fieldtype": "Data",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "gender",
       "label": "Gender",
       "fieldtype": "Link",
       "options": "Gender",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "date_of_birth",
       "label": "Date of Birth",
       "fieldtype": "Date",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "mobile_number",
       "label": "Mobile Number",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "email",
       "label": "Email",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "parent_name",
       "label": "Parent Name",
       "fieldtype": "Data",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "parent_mobile",
       "label": "Parent Mobile",
       "fieldtype": "Data",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_interest",
       "label": "Academic Interest",
       "fieldtype": "Section Break",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "interested_program",
       "label": "Interested Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_category",
       "label": "Student Category",
       "fieldtype": "Link",
       "options": "Student Category",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "previous_qualification",
       "label": "Previous Qualification",
       "fieldtype": "Data",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "percentage",
       "label": "Percentage",
       "fieldtype": "Percent",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "communication",
       "label": "Communication",
       "fieldtype": "Section Break",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assigned_counsellor",
       "label": "Assigned Counsellor",
       "fieldtype": "Link",
       "options": "Employee",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "follow_up",
       "label": "Follow-Up",
       "fieldtype": "Section Break",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "follow_up_history",
       "label": "Follow Up History",
       "fieldtype": "Table",
       "options": "Admission Enquiry Follow Up",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "conversion",
       "label": "Conversion",
       "fieldtype": "Section Break",
       "options": "",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "converted_to_applicant",
       "label": "Converted to Applicant",
       "fieldtype": "Check",
       "options": "",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_applicant",
       "label": "Student Applicant",
       "fieldtype": "Link",
       "options": "Student Applicant",
@@ -853,7 +853,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "conversion_date",
       "label": "Conversion Date",
       "fieldtype": "Date",
       "options": "",
@@ -886,7 +886,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_link",
       "label": "Application Link",
       "fieldtype": "Section Break",
       "options": "",
@@ -919,7 +919,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_link_sent",
       "label": "Application Link Sent",
       "fieldtype": "Check",
       "options": "",
@@ -952,7 +952,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_link_sent_on",
       "label": "Application Link Sent On",
       "fieldtype": "Datetime",
       "options": "",

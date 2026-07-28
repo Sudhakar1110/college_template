@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Data",
       "options": "assessment_type",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "duration",
       "label": "Duration",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_marks",
       "label": "Total Marks",
       "fieldtype": "Data",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "faculty",
       "label": "Faculty",
       "fieldtype": "Data",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment",
       "label": "Assessment",
       "fieldtype": "Data",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "semester",
       "label": "Semester",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "start_time",
       "label": "Start time",
       "fieldtype": "Data",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_time",
       "label": "End time",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "classroom_code",
       "label": "Classroom Code",
       "fieldtype": "Data",
       "options": "",

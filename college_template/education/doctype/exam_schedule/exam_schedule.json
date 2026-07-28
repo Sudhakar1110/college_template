@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student_group",
       "label": "Student Group",
       "fieldtype": "Link",
       "options": "Student Group",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment_plan",
       "label": "Assessment Plan",
       "fieldtype": "Link",
       "options": "Assessment Plan",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "subject",
       "label": "Subject",
       "fieldtype": "Link",
       "options": "Course",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_date",
       "label": "Exam Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "duration",
       "label": "Duration",
       "fieldtype": "Duration",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "from_time",
       "label": "From Time",
       "fieldtype": "Time",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "to_time",
       "label": "To Time",
       "fieldtype": "Time",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_hall",
       "label": "Exam Hall",
       "fieldtype": "Link",
       "options": "Exam Hall",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "invigilator",
       "label": "Invigilator",
       "fieldtype": "Link",
       "options": "Employee",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "max_marks",
       "label": "Max Marks",
       "fieldtype": "Float",
       "options": "",

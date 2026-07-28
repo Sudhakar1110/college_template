@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "round_date",
       "label": "Round Date",
       "fieldtype": "Date",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "evaluator",
       "label": "Evaluator",
       "fieldtype": "Link",
       "options": "User",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "score",
       "label": "Score",
       "fieldtype": "Float",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "maximum_score",
       "label": "Maximum Score",
       "fieldtype": "Float",
       "options": "",

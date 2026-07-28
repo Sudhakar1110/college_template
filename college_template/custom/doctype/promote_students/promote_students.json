@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "current_academic_year",
       "label": "Current Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "next_academic_year",
       "label": "Next Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Link",
       "options": "Academic Batch",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "section",
       "label": "Section",
       "fieldtype": "Link",
       "options": "Section",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "promoted_by",
       "label": "Promoted By",
       "fieldtype": "Link",
       "options": "User",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "promoted_on",
       "label": "Promoted On",
       "fieldtype": "Datetime",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_promoted",
       "label": "Total Promoted",
       "fieldtype": "Int",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_skipped",
       "label": "Total Skipped",
       "fieldtype": "Int",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amended_from",
       "label": "Amended From",
       "fieldtype": "Link",
       "options": "Promote Students",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "sequence",
       "label": "Sequence",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course_title",
       "label": "Course Title",
       "fieldtype": "Data",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "modules",
       "label": "Modules",
       "fieldtype": "Section Break",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "credit",
       "label": "Credit",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "credit_equivalent",
       "label": "Credit Equivalent",
       "fieldtype": "Data",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_no_of_classes",
       "label": "Total No Of Classes",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "class_hrs",
       "label": "Class Hrs",
       "fieldtype": "Data",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_mark",
       "label": "Total Mark",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "tutorial_hrs",
       "label": "Tutorial Hrs",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "contact_hrs",
       "label": "Contact Hrs",
       "fieldtype": "Data",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "module",
       "label": "Module",
       "fieldtype": "Table",
       "options": "Modules",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scorm",
       "label": "SCORM",
       "fieldtype": "Section Break",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "is_scorm_package",
       "label": "Is SCORM Package",
       "fieldtype": "Check",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scorm_package",
       "label": "SCORM Package",
       "fieldtype": "Link",
       "options": "File",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scorm_package_path",
       "label": "SCORM Package Path",
       "fieldtype": "Code",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "manifest_file",
       "label": "Manifest File",
       "fieldtype": "Code",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "launch_file",
       "label": "Launch File",
       "fieldtype": "Code",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "lessons",
       "label": "Lessons",
       "fieldtype": "Table",
       "options": "Lesson Reference",

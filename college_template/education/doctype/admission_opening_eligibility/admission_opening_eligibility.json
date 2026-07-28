@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "minimum_percentage",
       "label": "Minimum Percentage",
       "fieldtype": "Percent",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "age_limit",
       "label": "Age Limit",
       "fieldtype": "Int",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "mandatory_subjects",
       "label": "Mandatory Subjects",
       "fieldtype": "Small Text",
       "options": "",

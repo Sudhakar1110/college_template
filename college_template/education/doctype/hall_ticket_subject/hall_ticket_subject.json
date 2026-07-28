@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "exam_date",
       "label": "Exam Date",
       "fieldtype": "Date",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "from_time",
       "label": "From Time",
       "fieldtype": "Time",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "to_time",
       "label": "To Time",
       "fieldtype": "Time",
       "options": "",

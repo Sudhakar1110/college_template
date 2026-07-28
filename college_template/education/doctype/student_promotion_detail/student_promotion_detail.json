@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "academic_enrollment",
       "label": "Academic Enrollment",
       "fieldtype": "Link",
       "options": "Academic Enrollment",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "attendance",
       "label": "Attendance %",
       "fieldtype": "Percent",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "backlogs",
       "label": "Backlogs",
       "fieldtype": "Int",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "fee_status",
       "label": "Fee Status",
       "fieldtype": "Data",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "library_status",
       "label": "Library Status",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligible",
       "label": "Eligible",
       "fieldtype": "Check",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hostel_status",
       "label": "Hostel Status",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",

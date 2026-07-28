@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "enrollment_date",
       "label": "Enrollment Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amended_from",
       "label": "Amended From",
       "fieldtype": "Link",
       "options": "Admission Program Enrollment",

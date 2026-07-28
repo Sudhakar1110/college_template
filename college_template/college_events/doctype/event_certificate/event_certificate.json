@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "event",
       "label": "Event",
       "fieldtype": "Link",
       "options": "College Event",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "issue_date",
       "label": "Issue Date",
       "fieldtype": "Date",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certificate_file",
       "label": "Certificate File",
       "fieldtype": "Attach",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "qr_code",
       "label": "QR Code",
       "fieldtype": "Attach Image",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amended_from",
       "label": "Amended From",
       "fieldtype": "Link",
       "options": "Event Certificate",

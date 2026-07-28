@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "member_name",
       "label": "Member Name",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "member_username",
       "label": "Member Username",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Link",
       "options": "LMS Batch",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "payment",
       "label": "Payment",
       "fieldtype": "Link",
       "options": "LMS Payment",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "source",
       "label": "Source",
       "fieldtype": "Link",
       "options": "LMS Source",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "confirmation_email_sent",
       "label": "Confirmation Email Sent",
       "fieldtype": "Check",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",

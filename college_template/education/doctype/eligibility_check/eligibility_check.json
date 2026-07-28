@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "eligibility_no",
       "label": "Eligibility No",
       "fieldtype": "Select",
       "options": "ELG-.YYYY.-.####",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_applicant",
       "label": "Student Applicant",
       "fieldtype": "Link",
       "options": "Student Applicant",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "document_verification",
       "label": "Document Verification",
       "fieldtype": "Link",
       "options": "Document Verification",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_opening",
       "label": "Admission Opening",
       "fieldtype": "Link",
       "options": "Admission Opening",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "checked_by",
       "label": "Checked By",
       "fieldtype": "Link",
       "options": "Employee",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "checked_date",
       "label": "Checked Date",
       "fieldtype": "Date",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applicant_information",
       "label": "Applicant Information",
       "fieldtype": "Section Break",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applicant_name",
       "label": "Applicant Name",
       "fieldtype": "Data",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "category",
       "label": "Category",
       "fieldtype": "Data",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "percentage",
       "label": "Percentage",
       "fieldtype": "Data",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_rules",
       "label": "Eligibility Rules",
       "fieldtype": "Section Break",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_rules",
       "label": "Eligibility Rules",
       "fieldtype": "Table",
       "options": "Eligibility Rule Item",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_summary",
       "label": "Eligibility Summary",
       "fieldtype": "Section Break",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_rules",
       "label": "Total Rules",
       "fieldtype": "Int",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "passed_rules",
       "label": "Passed Rules",
       "fieldtype": "Int",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "failed_rules",
       "label": "Failed Rules",
       "fieldtype": "Int",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "decision",
       "label": "Decision",
       "fieldtype": "Section Break",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "reason",
       "label": "Reason",
       "fieldtype": "Text Editor",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "admission_student",
       "label": "Admission Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "placement_drive",
       "label": "Placement Drive",
       "fieldtype": "Link",
       "options": "Placement Drive",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "resume",
       "label": "Resume",
       "fieldtype": "Attach",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "percentage_cumulative_published",
       "label": "Percentage (Cumulative, Published)",
       "fieldtype": "Percent",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_backlogs",
       "label": "Current Backlogs",
       "fieldtype": "Int",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applied_on",
       "label": "Applied On",
       "fieldtype": "Date",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "interview_rounds",
       "label": "Interview Rounds",
       "fieldtype": "Section Break",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "rounds",
       "label": "Rounds",
       "fieldtype": "Table",
       "options": "Placement Round Detail",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applied_by",
       "label": "Applied By",
       "fieldtype": "Link",
       "options": "User",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "resume_verified",
       "label": "Resume Verified",
       "fieldtype": "Check",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verified",
       "label": "Verified",
       "fieldtype": "Check",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligible",
       "label": "Eligible",
       "fieldtype": "Check",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "remarks",
       "label": "Remarks",
       "fieldtype": "Small Text",
       "options": "",

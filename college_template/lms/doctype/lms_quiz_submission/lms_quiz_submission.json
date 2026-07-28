@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "quiz_title",
       "label": "Quiz Title",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "member",
       "label": "Member",
       "fieldtype": "Link",
       "options": "User",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "member_name",
       "label": "Member Name",
       "fieldtype": "Data",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "score",
       "label": "Score",
       "fieldtype": "Int",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "score_out_of",
       "label": "Score Out Of",
       "fieldtype": "Int",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "percentage",
       "label": "Percentage",
       "fieldtype": "Int",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "passing_percentage",
       "label": "Passing Percentage",
       "fieldtype": "Int",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "result",
       "label": "Result",
       "fieldtype": "Table",
       "options": "LMS Quiz Result",

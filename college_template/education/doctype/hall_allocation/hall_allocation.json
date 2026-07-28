@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "exam_schedule",
       "label": "Exam Schedule",
       "fieldtype": "Link",
       "options": "Exam Schedule",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_group",
       "label": "Student Group",
       "fieldtype": "Link",
       "options": "Student Group",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_hall",
       "label": "Exam Hall",
       "fieldtype": "Link",
       "options": "Exam Hall",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "date",
       "label": "Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "students",
       "label": "Students",
       "fieldtype": "Section Break",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "students",
       "label": "Students",
       "fieldtype": "Table",
       "options": "Hall Allocation Student",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "invigilator",
       "label": "Invigilator",
       "fieldtype": "Link",
       "options": "Employee",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "chief_superintendent",
       "label": "Chief Superintendent",
       "fieldtype": "Link",
       "options": "Employee",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "room_capacity",
       "label": "Room Capacity",
       "fieldtype": "Int",
       "options": "",

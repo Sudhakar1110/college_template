@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "video_embed_link",
       "label": "Video Embed Link",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "tags",
       "label": "Tags",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "instructors",
       "label": "Instructors",
       "fieldtype": "Table MultiSelect",
       "options": "Course Instructor",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "category",
       "label": "Category",
       "fieldtype": "Link",
       "options": "LMS Category",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "preview_image",
       "label": "Preview Image",
       "fieldtype": "Attach Image",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course_settings",
       "label": "Course Settings",
       "fieldtype": "Section Break",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "published",
       "label": "Published",
       "fieldtype": "Check",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "published_on",
       "label": "Published On",
       "fieldtype": "Date",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "upcoming",
       "label": "Upcoming",
       "fieldtype": "Check",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "featured",
       "label": "Featured",
       "fieldtype": "Check",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "disable_self_learning",
       "label": "Disable Self Learning",
       "fieldtype": "Check",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "short_introduction",
       "label": "Short Introduction",
       "fieldtype": "Small Text",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Text Editor",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "chapters",
       "label": "Chapters",
       "fieldtype": "Table",
       "options": "Chapter Reference",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "related_courses",
       "label": "Related Courses",
       "fieldtype": "Table",
       "options": "Related Courses",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "pricing_and_certification",
       "label": "Pricing and Certification",
       "fieldtype": "Tab Break",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "paid_course",
       "label": "Paid Course",
       "fieldtype": "Check",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "completion_certificate",
       "label": "Completion Certificate",
       "fieldtype": "Check",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "paid_certificate",
       "label": "Paid Certificate",
       "fieldtype": "Check",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount",
       "label": "Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "currency",
       "label": "Currency",
       "fieldtype": "Link",
       "options": "Currency",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount_usd",
       "label": "Amount (USD)",
       "fieldtype": "Currency",
       "options": "",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "evaluator",
       "label": "Evaluator",
       "fieldtype": "Link",
       "options": "Course Evaluator",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timezone",
       "label": "Timezone",
       "fieldtype": "Data",
       "options": "",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "statistics",
       "label": "Statistics",
       "fieldtype": "Tab Break",
       "options": "",
@@ -853,7 +853,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "enrollments",
       "label": "Enrollments",
       "fieldtype": "Int",
       "options": "",
@@ -886,7 +886,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "lessons",
       "label": "Lessons",
       "fieldtype": "Int",
       "options": "",
@@ -919,7 +919,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "rating",
       "label": "Rating",
       "fieldtype": "Data",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student_name",
       "label": "Student Name",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_group",
       "label": "Student Group",
       "fieldtype": "Link",
       "options": "Student Group",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment_plan",
       "label": "Assessment Plan",
       "fieldtype": "Link",
       "options": "Assessment Plan",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment_group",
       "label": "Assessment Group",
       "fieldtype": "Link",
       "options": "Assessment Group",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_date",
       "label": "Exam Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "reporting_time",
       "label": "Reporting Time",
       "fieldtype": "Time",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_hall",
       "label": "Exam Hall",
       "fieldtype": "Link",
       "options": "Room",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "seat_number",
       "label": "Seat Number",
       "fieldtype": "Int",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hall_ticket_number",
       "label": "Hall Ticket Number",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "generation_date",
       "label": "Generation Date",
       "fieldtype": "Date",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_term",
       "label": "Academic Term",
       "fieldtype": "Link",
       "options": "Academic Term",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "subjects",
       "label": "Subjects",
       "fieldtype": "Table",
       "options": "Hall Ticket Subject",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "company",
       "label": "Company",
       "fieldtype": "Link",
       "options": "Company",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_student",
       "label": "Admission Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "semester",
       "label": "Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_hall_custom",
       "label": "Exam Hall (Custom)",
       "fieldtype": "Link",
       "options": "Exam Hall",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hall_allocation",
       "label": "Hall Allocation",
       "fieldtype": "Link",
       "options": "Hall Allocation",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_schedule",
       "label": "Exam Schedule",
       "fieldtype": "Link",
       "options": "Exam Schedule",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "register_number",
       "label": "Register Number",
       "fieldtype": "Data",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "instructions",
       "label": "Instructions",
       "fieldtype": "Small Text",
       "options": "",

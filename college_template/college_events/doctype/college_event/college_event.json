@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "club",
       "label": "Club",
       "fieldtype": "Data",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "event_coordinator",
       "label": "Event Coordinator",
       "fieldtype": "Link",
       "options": "Employee",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_coordinator",
       "label": "Student Coordinator",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "guest_speaker",
       "label": "Guest Speaker",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sponsor",
       "label": "Sponsor",
       "fieldtype": "Link",
       "options": "Supplier",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "schedule_venue",
       "label": "Schedule & Venue",
       "fieldtype": "Section Break",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "starts_on",
       "label": "Starts On",
       "fieldtype": "Datetime",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "ends_on",
       "label": "Ends On",
       "fieldtype": "Datetime",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "venue",
       "label": "Venue",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "semester",
       "label": "Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_group",
       "label": "Student Group",
       "fieldtype": "Link",
       "options": "Student Group",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "audience_registration",
       "label": "Audience & Registration",
       "fieldtype": "Section Break",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_required",
       "label": "Registration Required",
       "fieldtype": "Check",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_start",
       "label": "Registration Start",
       "fieldtype": "Datetime",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_end",
       "label": "Registration End",
       "fieldtype": "Datetime",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "maximum_participants",
       "label": "Maximum Participants",
       "fieldtype": "Int",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "current_participants",
       "label": "Current Participants",
       "fieldtype": "Int",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "requirements",
       "label": "Requirements",
       "fieldtype": "Section Break",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "attendance_required",
       "label": "Attendance Required",
       "fieldtype": "Check",
       "options": "",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certificate_required",
       "label": "Certificate Required",
       "fieldtype": "Check",
       "options": "",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "budget",
       "label": "Budget",
       "fieldtype": "Section Break",
       "options": "",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "budget",
       "label": "Budget",
       "fieldtype": "Currency",
       "options": "",
@@ -853,7 +853,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "actual_expense",
       "label": "Actual Expense",
       "fieldtype": "Currency",
       "options": "",
@@ -886,7 +886,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "status",
       "label": "Status",
       "fieldtype": "Section Break",
       "options": "",
@@ -919,7 +919,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Section Break",
       "options": "",
@@ -952,7 +952,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Text Editor",
       "options": "",
@@ -985,7 +985,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registrations",
       "label": "Registrations",
       "fieldtype": "Section Break",
       "options": "",
@@ -1018,7 +1018,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registrations",
       "label": "Registrations",
       "fieldtype": "Table",
       "options": "Event Registration",
@@ -1051,7 +1051,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "attendance",
       "label": "Attendance",
       "fieldtype": "Section Break",
       "options": "",
@@ -1084,7 +1084,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "attendance_records",
       "label": "Attendance Records",
       "fieldtype": "Table",
       "options": "Event Attendance",
@@ -1117,7 +1117,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "committee",
       "label": "Committee",
       "fieldtype": "Section Break",
       "options": "",
@@ -1150,7 +1150,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "committee",
       "label": "Committee",
       "fieldtype": "Table",
       "options": "Event Committee",
@@ -1183,7 +1183,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "budget_breakdown",
       "label": "Budget Breakdown",
       "fieldtype": "Section Break",
       "options": "",
@@ -1216,7 +1216,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "budget_breakdown",
       "label": "Budget Breakdown",
       "fieldtype": "Table",
       "options": "Event Budget",
@@ -1249,7 +1249,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sponsors",
       "label": "Sponsors",
       "fieldtype": "Section Break",
       "options": "",
@@ -1282,7 +1282,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sponsors",
       "label": "Sponsors",
       "fieldtype": "Table",
       "options": "Event Sponsor",
@@ -1315,7 +1315,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "expenses_actual_bills",
       "label": "Expenses (Actual Bills)",
       "fieldtype": "Section Break",
       "options": "",
@@ -1348,7 +1348,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "expenses",
       "label": "Expenses",
       "fieldtype": "Table",
       "options": "Event Expense",
@@ -1381,7 +1381,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "gallery",
       "label": "Gallery",
       "fieldtype": "Section Break",
       "options": "",
@@ -1414,7 +1414,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "gallery",
       "label": "Gallery",
       "fieldtype": "Table",
       "options": "Event Gallery",
@@ -1447,7 +1447,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents",
       "label": "Documents",
       "fieldtype": "Section Break",
       "options": "",
@@ -1480,7 +1480,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents",
       "label": "Documents",
       "fieldtype": "Table",
       "options": "Event Document",

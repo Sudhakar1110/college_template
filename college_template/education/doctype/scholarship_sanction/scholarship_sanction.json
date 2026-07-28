@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scheme",
       "label": "Scheme",
       "fieldtype": "Link",
       "options": "Scholarship Scheme",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sanction_amount",
       "label": "Sanction Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sanction_date",
       "label": "Sanction Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sanction_number_reference_number",
       "label": "Sanction Number / Reference Number",
       "fieldtype": "Data",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_email",
       "label": "Student Email",
       "fieldtype": "Data",
       "options": "Email",

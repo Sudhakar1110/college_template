@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "provider",
       "label": "Provider",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility",
       "label": "Eligibility",
       "fieldtype": "Section Break",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_criteria",
       "label": "Eligibility Criteria",
       "fieldtype": "Small Text",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "income_limit_annual",
       "label": "Income Limit (Annual)",
       "fieldtype": "Currency",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_attendance_requirement",
       "label": "Minimum Attendance Requirement (%)",
       "fieldtype": "Percent",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount_status",
       "label": "Amount & Status",
       "fieldtype": "Section Break",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scholarship_amount",
       "label": "Scholarship Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "renewed_from",
       "label": "Renewed From",
       "fieldtype": "Link",
       "options": "Scholarship Scheme",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_enrollment",
       "label": "Academic Enrollment",
       "fieldtype": "Link",
       "options": "Academic Enrollment",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "fee_structure",
       "label": "Fee Structure",
       "fieldtype": "Link",
       "options": "Student Fee Structure",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "due_date",
       "label": "Due Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_amount",
       "label": "Total Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assigned_on",
       "label": "Assigned On",
       "fieldtype": "Datetime",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Link",
       "options": "Academic Batch",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "sales_invoice",
       "label": "Sales  Invoice",
       "fieldtype": "Link",
       "options": "Sales Invoice",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "section",
       "label": "Section",
       "fieldtype": "Link",
       "options": "Section",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "generated_via",
       "label": "Generated Via",
       "fieldtype": "Link",
       "options": "Generate Student Fees",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assigned_by",
       "label": "Assigned By",
       "fieldtype": "Link",
       "options": "User",

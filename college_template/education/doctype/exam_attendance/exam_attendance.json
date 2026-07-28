@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "admission_student",
       "label": "Admission Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "semester",
       "label": "Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_group",
       "label": "Student Group",
       "fieldtype": "Link",
       "options": "Student Group",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_schedule",
       "label": "Exam Schedule",
       "fieldtype": "Link",
       "options": "Exam Schedule",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "subject",
       "label": "Subject",
       "fieldtype": "Link",
       "options": "Course",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment_plan",
       "label": "Assessment Plan",
       "fieldtype": "Link",
       "options": "Assessment Plan",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "exam_date",
       "label": "Exam Date",
       "fieldtype": "Date",
       "options": "",

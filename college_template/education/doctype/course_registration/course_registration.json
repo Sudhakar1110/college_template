@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "academic_enrollment",
       "label": "Academic Enrollment",
       "fieldtype": "Link",
       "options": "Academic Enrollment",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "semester",
       "label": "Semester",
       "fieldtype": "Link",
       "options": "Semester",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_window",
       "label": "Registration Window",
       "fieldtype": "Link",
       "options": "Course Registration Window",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registration_date",
       "label": "Registration Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "courses",
       "label": "Courses",
       "fieldtype": "Section Break",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "courses",
       "label": "Courses",
       "fieldtype": "Table",
       "options": "Course Registration Detail",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approval",
       "label": "Approval",
       "fieldtype": "Section Break",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approved_by",
       "label": "Approved By",
       "fieldtype": "Link",
       "options": "User",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approved_on",
       "label": "Approved On",
       "fieldtype": "Datetime",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "rejection_remarks",
       "label": "Rejection Remarks",
       "fieldtype": "Small Text",
       "options": "",

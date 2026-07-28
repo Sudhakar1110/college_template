@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "registration_date",
       "label": "Registration Date",
       "fieldtype": "Date",
       "options": "",

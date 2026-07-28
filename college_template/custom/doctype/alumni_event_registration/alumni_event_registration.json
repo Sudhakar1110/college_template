@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "event",
       "label": "Event",
       "fieldtype": "Link",
       "options": "Alumni Event",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "registered_on",
       "label": "Registered On",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certificate_issued",
       "label": "Certificate Issued",
       "fieldtype": "Check",
       "options": "",

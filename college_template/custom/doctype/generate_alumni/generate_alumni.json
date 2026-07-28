@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "filter_program",
       "label": "Filter Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "filter_academic_year",
       "label": "Filter Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "graduated_enrollments",
       "label": "Graduated Enrollments",
       "fieldtype": "Table",
       "options": "Generate Alumni Row",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amended_from",
       "label": "Amended From",
       "fieldtype": "Link",
       "options": "Generate Alumni",

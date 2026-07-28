@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "verification_no",
       "label": "Verification No",
       "fieldtype": "Select",
       "options": "VER-.YYYY.-.####",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_applicant",
       "label": "Student Applicant",
       "fieldtype": "Link",
       "options": "Student Applicant",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_opening",
       "label": "Admission Opening",
       "fieldtype": "Link",
       "options": "Admission Opening",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verification_date",
       "label": "Verification Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verified_by",
       "label": "Verified By",
       "fieldtype": "Link",
       "options": "Employee",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applicant_details",
       "label": "Applicant Details",
       "fieldtype": "Section Break",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "applicant_name",
       "label": "Applicant Name",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Data",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "document_checklist",
       "label": "Document Checklist",
       "fieldtype": "Section Break",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "documents",
       "label": "Documents",
       "fieldtype": "Table",
       "options": "Document Verification Item",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "summary",
       "label": "Summary",
       "fieldtype": "Section Break",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_documents",
       "label": "Total Documents",
       "fieldtype": "Int",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verified_documents",
       "label": "Verified Documents",
       "fieldtype": "Int",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "missing_documents",
       "label": "Missing Documents",
       "fieldtype": "Int",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "overall_status",
       "label": "Overall Status",
       "fieldtype": "Section Break",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verification_remarks",
       "label": "Verification Remarks",
       "fieldtype": "Text Editor",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_decision",
       "label": "Admission Decision",
       "fieldtype": "Section Break",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "decision_date",
       "label": "Decision Date",
       "fieldtype": "Date",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "decision_rejection_reason",
       "label": "Decision / Rejection Reason",
       "fieldtype": "Small Text",
       "options": "",

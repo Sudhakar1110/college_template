@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Small Text",
       "options": "",

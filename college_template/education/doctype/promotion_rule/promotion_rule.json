@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "program",
       "label": "Program",
       "fieldtype": "Link",
       "options": "Program",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "department",
       "label": "Department",
       "fieldtype": "Link",
       "options": "Department",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "is_active",
       "label": "Is Active",
       "fieldtype": "Check",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility",
       "label": "Eligibility",
       "fieldtype": "Section Break",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_attendance",
       "label": "Minimum Attendance %",
       "fieldtype": "Percent",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "maximum_allowed_backlogs",
       "label": "Maximum Allowed Backlogs",
       "fieldtype": "Int",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "minimum_credits_required",
       "label": "Minimum Credits Required",
       "fieldtype": "Int",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "clearance",
       "label": "Clearance",
       "fieldtype": "Section Break",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "fee_clearance_required",
       "label": "Fee Clearance Required",
       "fieldtype": "Check",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "library_clearance_required",
       "label": "Library Clearance Required",
       "fieldtype": "Check",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "hostel_clearance_required",
       "label": "Hostel Clearance Required",
       "fieldtype": "Check",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "promotion",
       "label": "Promotion",
       "fieldtype": "Section Break",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allow_promotion_with_backlogs",
       "label": "Allow Promotion with Backlogs",
       "fieldtype": "Check",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "auto_promote_eligible_students",
       "label": "Auto Promote Eligible Students",
       "fieldtype": "Check",
       "options": "",

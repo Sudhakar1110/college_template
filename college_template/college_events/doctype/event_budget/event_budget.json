@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "estimated",
       "label": "Estimated",
       "fieldtype": "Currency",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "actual",
       "label": "Actual",
       "fieldtype": "Currency",
       "options": "",

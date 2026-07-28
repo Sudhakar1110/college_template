@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "include_in_preview",
       "label": "Include In Preview",
       "fieldtype": "Check",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course_chapter",
       "label": "Course Chapter",
       "fieldtype": "Link",
       "options": "Course Chapter",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "is_scorm_package",
       "label": "Is SCORM Package",
       "fieldtype": "Check",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "content",
       "label": "Content",
       "fieldtype": "Text",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "body",
       "label": "Body",
       "fieldtype": "Markdown Editor",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "instructor_content",
       "label": "Instructor Content",
       "fieldtype": "Text",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "instructor_notes",
       "label": "Instructor Notes",
       "fieldtype": "Markdown Editor",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "you_tube_video_url",
       "label": "YouTube Video URL",
       "fieldtype": "Data",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "quiz_id",
       "label": "Quiz ID",
       "fieldtype": "Data",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assignment",
       "label": "Assignment",
       "fieldtype": "Section Break",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "question",
       "label": "Question",
       "fieldtype": "Small Text",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "opening_name",
       "label": "Opening Name",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "naming_series",
       "label": "Naming Series",
       "fieldtype": "Select",
       "options": "ADM-OPEN-.YYYY.-.####",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_campaign",
       "label": "Admission Campaign",
       "fieldtype": "Link",
       "options": "Admission Campaign",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_schedule",
       "label": "Admission Schedule",
       "fieldtype": "Section Break",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "opening_date",
       "label": "Opening Date",
       "fieldtype": "Date",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "closing_date",
       "label": "Closing Date",
       "fieldtype": "Date",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "opening_time",
       "label": "Opening Time",
       "fieldtype": "Time",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "closing_time",
       "label": "Closing Time",
       "fieldtype": "Time",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "programs_offered",
       "label": "Programs Offered",
       "fieldtype": "Section Break",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "programs",
       "label": "Programs",
       "fieldtype": "Table",
       "options": "Admission Opening Program",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_documents",
       "label": "Eligibility & Documents",
       "fieldtype": "Section Break",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "required_documents",
       "label": "Required Documents",
       "fieldtype": "Table",
       "options": "Admission Opening Document",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_rules",
       "label": "Eligibility Rules",
       "fieldtype": "Table",
       "options": "Admission Opening Eligibility",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_settings",
       "label": "Application Settings",
       "fieldtype": "Section Break",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "online_application",
       "label": "Online Application",
       "fieldtype": "Check",
       "options": "",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "offline_application",
       "label": "Offline Application",
       "fieldtype": "Check",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_fee_required",
       "label": "Application Fee Required",
       "fieldtype": "Check",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "maximum_applications",
       "label": "Maximum Applications",
       "fieldtype": "Int",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allow_editing_after_submission",
       "label": "Allow Editing After Submission",
       "fieldtype": "Check",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "seat_information",
       "label": "Seat Information",
       "fieldtype": "Section Break",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_seats",
       "label": "Total Seats",
       "fieldtype": "Int",
       "options": "",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "filled_seats",
       "label": "Filled Seats",
       "fieldtype": "Int",
       "options": "",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "available_seats",
       "label": "Available Seats",
       "fieldtype": "Int",
       "options": "",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "dashboard",
       "label": "Dashboard",
       "fieldtype": "Section Break",
       "options": "",
@@ -853,7 +853,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_enquiries",
       "label": "Total Enquiries",
       "fieldtype": "Int",
       "options": "",
@@ -886,7 +886,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_applications",
       "label": "Total Applications",
       "fieldtype": "Int",
       "options": "",
@@ -919,7 +919,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "verified_applications",
       "label": "Verified Applications",
       "fieldtype": "Int",
       "options": "",
@@ -952,7 +952,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "approved_applications",
       "label": "Approved Applications",
       "fieldtype": "Int",
       "options": "",
@@ -985,7 +985,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admissions_confirmed",
       "label": "Admissions Confirmed",
       "fieldtype": "Int",
       "options": "",
@@ -1018,7 +1018,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "application_url",
       "label": "Application URL",
       "fieldtype": "Data",
       "options": "",
@@ -1051,7 +1051,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "rejected_applications",
       "label": "Rejected Applications",
       "fieldtype": "Int",
       "options": "",
@@ -1084,7 +1084,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "pending_applications",
       "label": "Pending Applications",
       "fieldtype": "Int",
       "options": "",

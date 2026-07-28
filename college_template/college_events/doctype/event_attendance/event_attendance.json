@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "check_in",
       "label": "Check In",
       "fieldtype": "Datetime",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "check_out",
       "label": "Check Out",
       "fieldtype": "Datetime",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certificate_issued",
       "label": "Certificate Issued",
       "fieldtype": "Check",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amended_from",
       "label": "Amended From",
       "fieldtype": "Link",
       "options": "Event Attendance",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "reference_name",
       "label": "Reference Name",
       "fieldtype": "Dynamic Link",
       "options": "reference_doctype",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_amount",
       "label": "Total Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "outstanding_amount",
       "label": "Outstanding Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allocated_amount",
       "label": "Allocated Amount",
       "fieldtype": "Currency",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "title",
       "label": "Title",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "start_date",
       "label": "Start Date",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_date",
       "label": "End Date",
       "fieldtype": "Date",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch_code",
       "label": "Batch Code",
       "fieldtype": "Data",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "start_time",
       "label": "Start Time",
       "fieldtype": "Time",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_time",
       "label": "End Time",
       "fieldtype": "Time",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timezone",
       "label": "Timezone",
       "fieldtype": "Data",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "published",
       "label": "Published",
       "fieldtype": "Check",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allow_self_enrollment",
       "label": "Allow Self Enrollment",
       "fieldtype": "Check",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certification",
       "label": "Certification",
       "fieldtype": "Check",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "description",
       "label": "Description",
       "fieldtype": "Small Text",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "instructors",
       "label": "Instructors",
       "fieldtype": "Table MultiSelect",
       "options": "Course Instructor",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "zoom_account",
       "label": "Zoom Account",
       "fieldtype": "Link",
       "options": "LMS Zoom Settings",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "category",
       "label": "Category",
       "fieldtype": "Link",
       "options": "LMS Category",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "confirmation_email_template",
       "label": "Confirmation Email Template",
       "fieldtype": "Link",
       "options": "Email Template",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "seat_count",
       "label": "Seat Count",
       "fieldtype": "Int",
       "options": "",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "evaluation_end_date",
       "label": "Evaluation End Date",
       "fieldtype": "Date",
       "options": "",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "meta_image",
       "label": "Meta Image",
       "fieldtype": "Attach Image",
       "options": "",
@@ -655,7 +655,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch_details",
       "label": "Batch Details",
       "fieldtype": "Text Editor",
       "options": "",
@@ -688,7 +688,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch_details_raw",
       "label": "Batch Details Raw",
       "fieldtype": "HTML Editor",
       "options": "",
@@ -721,7 +721,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "courses",
       "label": "Courses",
       "fieldtype": "Table",
       "options": "Batch Course",
@@ -754,7 +754,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment",
       "label": "Assessment",
       "fieldtype": "Tab Break",
       "options": "",
@@ -787,7 +787,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment",
       "label": "Assessment",
       "fieldtype": "Table",
       "options": "LMS Assessment",
@@ -820,7 +820,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timetable",
       "label": "Timetable",
       "fieldtype": "Tab Break",
       "options": "",
@@ -853,7 +853,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timetable_template",
       "label": "Timetable Template",
       "fieldtype": "Link",
       "options": "LMS Timetable Template",
@@ -886,7 +886,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "show_live_class",
       "label": "Show live class",
       "fieldtype": "Check",
       "options": "",
@@ -919,7 +919,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "allow_accessing_future_dates",
       "label": "Allow accessing future dates",
       "fieldtype": "Check",
       "options": "",
@@ -952,7 +952,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timetable",
       "label": "Timetable",
       "fieldtype": "Table",
       "options": "LMS Batch Timetable",
@@ -985,7 +985,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "timetable_legends",
       "label": "Timetable Legends",
       "fieldtype": "Table",
       "options": "LMS Timetable Legend",
@@ -1018,7 +1018,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "pricing",
       "label": "Pricing",
       "fieldtype": "Tab Break",
       "options": "",
@@ -1051,7 +1051,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "paid_batch",
       "label": "Paid Batch",
       "fieldtype": "Check",
       "options": "",
@@ -1084,7 +1084,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount",
       "label": "Amount",
       "fieldtype": "Currency",
       "options": "",
@@ -1117,7 +1117,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "currency",
       "label": "Currency",
       "fieldtype": "Link",
       "options": "Currency",
@@ -1150,7 +1150,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "amount_usd",
       "label": "Amount (USD)",
       "fieldtype": "Currency",
       "options": "",
@@ -1183,7 +1183,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "customisations",
       "label": "Customisations",
       "fieldtype": "Tab Break",
       "options": "",
@@ -1216,7 +1216,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "custom_html",
       "label": "Custom HTML",
       "fieldtype": "Code",
       "options": "HTML",
@@ -1249,7 +1249,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "custom_script_java_script",
       "label": "Custom Script (JavaScript)",
       "fieldtype": "Code",
       "options": "Javascript",

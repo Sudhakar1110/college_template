@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "faculty_coordinator",
       "label": "Faculty Coordinator",
       "fieldtype": "Link",
       "options": "Employee",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_coordinator",
       "label": "Student Coordinator",
       "fieldtype": "Link",
       "options": "Admission Student",

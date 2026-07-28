@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "start_date",
       "label": "Start Date",
       "fieldtype": "Date",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_date",
       "label": "End Date",
       "fieldtype": "Date",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "auto_execute",
       "label": "Auto Execute",
       "fieldtype": "Check",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "notification_before_days",
       "label": "Notification Before (Days)",
       "fieldtype": "Int",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "notification_sent",
       "label": "Notification Sent",
       "fieldtype": "Check",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "target_doc_type",
       "label": "Target DocType",
       "fieldtype": "Link",
       "options": "DocType",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "target_document",
       "label": "Target Document",
       "fieldtype": "Dynamic Link",
       "options": "target_doctype",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "campaign_name",
       "label": "Campaign Name",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year",
       "label": "Academic Year",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "campaign_details",
       "label": "Campaign Details",
       "fieldtype": "Section Break",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "start_date",
       "label": "Start Date",
       "fieldtype": "Date",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_date",
       "label": "End Date",
       "fieldtype": "Date",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "budget",
       "label": "Budget",
       "fieldtype": "Currency",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "campaign_owner",
       "label": "Campaign Owner",
       "fieldtype": "Link",
       "options": "Employee",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_incharge",
       "label": "Admission Incharge",
       "fieldtype": "Link",
       "options": "Employee",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "admission_targets",
       "label": "Admission Targets",
       "fieldtype": "Section Break",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "target_admissions",
       "label": "Target Admissions",
       "fieldtype": "Int",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "target_enquiries",
       "label": "Target Enquiries",
       "fieldtype": "Int",
       "options": "",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "expected_applications",
       "label": "Expected Applications",
       "fieldtype": "Int",
       "options": "",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "programs_included",
       "label": "Programs Included",
       "fieldtype": "Section Break",
       "options": "",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "programs",
       "label": "Programs",
       "fieldtype": "Table",
       "options": "Admission Campaign Program",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "connections",
       "label": "Connections",
       "fieldtype": "Section Break",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "student_admission",
       "label": "Student Admission",
       "fieldtype": "Link",
       "options": "Student Admission",

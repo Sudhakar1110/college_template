@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
       "options": "Admission Student",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "scheme",
       "label": "Scheme",
       "fieldtype": "Link",
       "options": "Scholarship Scheme",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "academic_year_renewal",
       "label": "Academic Year (Renewal)",
       "fieldtype": "Link",
       "options": "Academic Year",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "eligibility_remarks",
       "label": "Eligibility Remarks",
       "fieldtype": "Small Text",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "new_application",
       "label": "New Application",
       "fieldtype": "Link",
       "options": "Scholarship Application",

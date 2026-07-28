@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "course_title",
       "label": "Course Title",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "evaluator",
       "label": "Evaluator",
       "fieldtype": "Link",
       "options": "Course Evaluator",

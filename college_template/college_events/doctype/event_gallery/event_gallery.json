@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "caption",
       "label": "Caption",
       "fieldtype": "Small Text",
       "options": "",

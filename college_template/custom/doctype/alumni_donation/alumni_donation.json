@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "amount",
       "label": "Amount",
       "fieldtype": "Currency",
       "options": "",

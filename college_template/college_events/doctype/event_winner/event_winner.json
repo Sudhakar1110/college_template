@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "prize",
       "label": "Prize",
       "fieldtype": "Data",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "cash_prize",
       "label": "Cash Prize",
       "fieldtype": "Currency",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "certificate_issued",
       "label": "Certificate Issued",
       "fieldtype": "Check",
       "options": "",

@@ -28,7 +28,7 @@
   "color": "",
   "fields": [
     {
-      "fieldname": "",
+      "fieldname": "max_attempts",
       "label": "Max Attempts",
       "fieldtype": "Int",
       "options": "",
@@ -61,7 +61,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "show_answers",
       "label": "Show Answers",
       "fieldtype": "Check",
       "options": "",
@@ -94,7 +94,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "show_submission_history",
       "label": "Show Submission History",
       "fieldtype": "Check",
       "options": "",
@@ -127,7 +127,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "total_marks",
       "label": "Total Marks",
       "fieldtype": "Int",
       "options": "",
@@ -160,7 +160,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "passing_percentage",
       "label": "Passing Percentage",
       "fieldtype": "Int",
       "options": "",
@@ -193,7 +193,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "duration_in_minutes",
       "label": "Duration (in minutes)",
       "fieldtype": "Data",
       "options": "",
@@ -226,7 +226,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "shuffle_questions",
       "label": "Shuffle Questions",
       "fieldtype": "Check",
       "options": "",
@@ -259,7 +259,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "limit_questions_to",
       "label": "Limit Questions To",
       "fieldtype": "Int",
       "options": "",
@@ -292,7 +292,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "enable_negative_marking",
       "label": "Enable Negative Marking",
       "fieldtype": "Check",
       "options": "",
@@ -325,7 +325,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "marks_to_cut",
       "label": "Marks To Cut",
       "fieldtype": "Int",
       "options": "",
@@ -358,7 +358,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "questions",
       "label": "Questions",
       "fieldtype": "Table",
       "options": "LMS Quiz Question",
@@ -391,7 +391,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "lesson",
       "label": "Lesson",
       "fieldtype": "Link",
       "options": "Course Lesson",
@@ -424,7 +424,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "assessment",
       "label": "Assessment",
       "fieldtype": "Link",
       "options": "Course Chapter",
@@ -457,7 +457,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "start_time",
       "label": "Start time",
       "fieldtype": "Datetime",
       "options": "",
@@ -490,7 +490,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "classroom_code",
       "label": "Classroom Code",
       "fieldtype": "Data",
       "options": "",
@@ -523,7 +523,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "faculty",
       "label": "Faculty",
       "fieldtype": "Link",
       "options": "LMS Program",
@@ -556,7 +556,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "course",
       "label": "Course",
       "fieldtype": "Link",
       "options": "LMS Course",
@@ -589,7 +589,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "batch",
       "label": "Batch",
       "fieldtype": "Link",
       "options": "LMS Batch",
@@ -622,7 +622,7 @@
       "placeholder": ""
     },
     {
-      "fieldname": "",
+      "fieldname": "end_time",
       "label": "End time",
       "fieldtype": "Datetime",
       "options": "",
