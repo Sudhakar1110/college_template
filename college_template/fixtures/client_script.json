@@ -10,24 +10,6 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.set_query('academic_enrollment'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('academic_enrollment'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Document Verification - Fetch Documents on Applicant Select",
     "dt": "Document Verification",
     "script": "frappe.ui.form.on('Document Verification', {",
@@ -55,54 +37,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button('Check Eligible Students'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.msgprint({ title: 'Eligible Students (' + r.message.length + ')'",
-    "dt": "message: html",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "wide: true });"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Generate Alumni - Buttons",
     "dt": "Generate Alumni",
     "script": "frappe.ui.form.on('Generate Alumni', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Fetch Graduated Students'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('status'",
-    "dt": "'Fetched');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Generate Alumni Records'",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -118,45 +55,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button(Publish Result",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Exam Schedule - Publish",
     "dt": "Exam Schedule",
     "script": "frappe.ui.form.on(\"Exam Schedule\", {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button(Publish",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value(status",
-    "dt": "Published);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button(Mark Completed",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -172,36 +73,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button(Generate Exam Fee",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "msg +=  Skipped (no fee configured):  + r.message.skipped.join(",
-    "dt": ");",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Course Registration - Complete Registration",
     "dt": "Course Registration",
     "script": "frappe.ui.form.on(\"Course Registration\", {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button(Complete Registration",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -217,36 +91,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button(Approve Registration",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "options: [Approve",
-    "dt": "Reject]",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Course Registration - Validate Registration",
     "dt": "Course Registration",
     "script": "frappe.ui.form.on('Course Registration', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Validate Registration'",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -262,45 +109,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button('Fetch Semester Courses'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "resolve_elective_groups(frm",
-    "dt": "group_names",
-    "script": "",
-    "enabled": 1,
-    "module": "0);",
-    "apply_to": "groups"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "function resolve_elective_groups(frm",
-    "dt": "group_names",
-    "script": "",
-    "enabled": 1,
-    "module": "index) {",
-    "apply_to": "groups"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Student promotion",
     "dt": "Student Promotion",
     "script": "frappe.ui.form.on(\"Student Promotion\", {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button(Promote Students",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -316,45 +127,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button(Approve Promotion",
-    "dt": "function () {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value(approval_status",
-    "dt": "Approved);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value(approved_by",
-    "dt": "frappe.session.user);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Student Promotion - Evaluate Eligibility",
     "dt": "Student Promotion",
     "script": "frappe.ui.form.on('Student Promotion', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Evaluate Eligibility'",
-    "dt": "function() {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -370,44 +145,8 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Assessment Result'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('admission_student'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_value('Student'",
-    "dt": "frm.doc.student",
-    "script": "",
-    "enabled": 1,
-    "module": "function(r) {",
-    "apply_to": "'student_name'"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Student Attendance - Autofill Admission Student",
     "dt": "Student Attendance",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Student Attendance'",
-    "dt": "{",
     "script": "",
     "enabled": 1,
     "module": "",
@@ -424,81 +163,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Student Promotion'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Fetch Eligible Students'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.msgprint('Please set Program",
-    "dt": "Academic Year and Current Semester before fetching students.');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "fields: ['name'",
-    "dt": "'student'",
-    "script": "",
-    "enabled": 0,
-    "module": "'section'",
-    "apply_to": "'batch'"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.msgprint('No Active Academic Enrollment records found for the given Program",
-    "dt": "Academic Year and Semester.');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "auto total the fee components",
     "dt": "Student Fee Structure",
     "script": "frappe.ui.form.on(\"Student Fee Structure\", {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on(Student Fee Structure Item",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "amount(frm",
-    "dt": "cdt",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "cdn) {"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value(total_amount",
-    "dt": "total);",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -514,54 +181,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button(__('Create Payment Entry')",
-    "dt": "function () {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Auto - status set in Document Verification",
     "dt": "Document Verification",
     "script": "frappe.ui.form.on('Document Verification', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Document Verification Item'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('total_documents'",
-    "dt": "total);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('verified_documents'",
-    "dt": "verified);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('missing_documents'",
-    "dt": "missing);",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -577,42 +199,6 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frappe.db.get_list('Academic Enrollment'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_list('Student Fee Invoice'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('View Fee Invoice'",
-    "dt": "() => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.set_route('Form'",
-    "dt": "'Student Fee Invoice'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "inv_res[0].name);"
-  },
-  {
-    "doctype": "Client Script",
     "name": "create payment button on invoice",
     "dt": "Admission Fee Invoice",
     "script": "frappe.ui.form.on('Admission Fee Invoice', {",
@@ -622,225 +208,9 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button('Create Payment'",
-    "dt": "() => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "{ fieldname: 'payment_mode'",
-    "dt": "fieldtype: 'Select'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "{ fieldname: 'amount'",
-    "dt": "fieldtype: 'Currency'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "label: 'Amount'",
-    "dt": "default: frm.doc.balance",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "reqd: 1 }"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "{ fieldname: 'reference_number'",
-    "dt": "fieldtype: 'Data'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "label: 'Reference Number' }"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_value('Employee'",
-    "dt": "{ user_id: frappe.session.user }",
-    "script": "",
-    "enabled": 1,
-    "module": "(r) => {",
-    "apply_to": "'name'"
-  },
-  {
-    "doctype": "Client Script",
     "name": "auto-fetch fields from student into student fee assignment",
     "dt": "Admission Fee Structure Assignment",
     "script": "frappe.ui.form.on('Admission Fee Structure Assignment', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('program_enrollment'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('program'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('academic_year'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('category'",
-    "dt": "'');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "{ student: frm.doc.student",
-    "dt": "status: 'Active' }",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['name'",
-    "dt": "'program'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "'academic_year']"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_value('Admission Student'",
-    "dt": "frm.doc.student",
-    "script": "",
-    "enabled": 1,
-    "module": "(r) => {",
-    "apply_to": "'category'"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "if (r) frm.set_value('category'",
-    "dt": "r.category);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('total_amount'",
-    "dt": "0);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_value('Admission Fee Structure'",
-    "dt": "frm.doc.fee_structure",
-    "script": "",
-    "enabled": 1,
-    "module": "(r) => {",
-    "apply_to": "'total_amount'"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Assign'",
-    "dt": "() => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.confirm('Assign this fee and generate the invoice?'",
-    "dt": "() => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "// Once Invoiced",
-    "dt": "make key fields read-only to prevent tampering",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "if (['Assigned'",
-    "dt": "'Invoiced'].includes(frm.doc.status)) {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_df_property('fee_structure'",
-    "dt": "'read_only'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "1);"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_df_property('scholarship_amount'",
-    "dt": "'read_only'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "1);"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('net_payable'",
-    "dt": "total - scholarship);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_query('fee_structure'",
-    "dt": "() => {",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"
@@ -856,46 +226,10 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frappe.ui.form.on(Admission Fee Structure",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on(Admission Fee Structure Item",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "amount: function(frm",
-    "dt": "cdt",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "cdn) {"
-  },
-  {
-    "doctype": "Client Script",
     "name": "fee auto total",
     "dt": "Admission Fee Structure Assignment",
     "script": "function calculate_total(frm) {",
     "enabled": 0,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on(Admission Fee Component",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
     "module": "",
     "apply_to": "Form"
   },
@@ -910,33 +244,6 @@
   },
   {
     "doctype": "Client Script",
-    "name": "listview.page.add_action_item('Quick View'",
-    "dt": "() => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_doc('Admission Student'",
-    "dt": "name).then(doc => {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "fields: [{ fieldtype: 'HTML'",
-    "dt": "fieldname: 'body' }]",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Document Verification Action Buttons",
     "dt": "Document Verification",
     "script": "frappe.ui.form.on('Document Verification', {",
@@ -946,89 +253,8 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frm.add_custom_button('Approve Admission'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.confirm('Approve this admission? This will create the Student record.'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('admission_decision'",
-    "dt": "'Approved');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Reject Admission'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "{ fieldname: 'reason'",
-    "dt": "fieldtype: 'Small Text'",
-    "script": "",
-    "enabled": 1,
-    "module": "reqd: 1 }",
-    "apply_to": "label: 'Reason for rejection'"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('decision_reason'",
-    "dt": "values.reason);",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Send Back'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Document Verification Auto Fetch",
     "dt": "Document Verification",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Document Verification'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value('applicant_name'",
-    "dt": "r.message.applicant_name);",
     "script": "",
     "enabled": 1,
     "module": "",
@@ -1045,82 +271,10 @@
   },
   {
     "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Admission Enquiry'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Open Application'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.db.get_value('Admission Opening'",
-    "dt": "frm.doc.admission_opening",
-    "script": "",
-    "enabled": 1,
-    "module": "function(r) {",
-    "apply_to": "'application_url'"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "window.open(r.application_url",
-    "dt": "'_blank');",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.add_custom_button('Send Application Link'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.confirm('Send application link to ' + frm.doc.email + '?'",
-    "dt": "function() {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "Checklist Status Auto Calculator",
     "dt": "Admission Document Checklist",
     "script": "frappe.ui.form.on('Admission Document Checklist', {",
     "enabled": 0,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frappe.ui.form.on('Admission Document Item'",
-    "dt": "{",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "frm.set_value(checklist_status",
-    "dt": "status);",
-    "script": "",
-    "enabled": 1,
     "module": "",
     "apply_to": "Form"
   },
@@ -1131,150 +285,6 @@
     "script": "frappe.ui.form.on('Program Enrollment Tool', {",
     "enabled": 0,
     "module": "Education",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "// Wait for the form to fully render",
-    "dt": "then hijack the button",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "$btn.off('click').on('click'",
-    "dt": "function(e) {",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['academic_year'",
-    "dt": "'='",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "frm.doc.academic_year]"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['program'",
-    "dt": "'='",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "frm.doc.program]"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['grade'",
-    "dt": "'='",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "'F']"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['student'",
-    "dt": "'in'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "students]"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "['docstatus'",
-    "dt": "'='",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "1]"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "fields: ['student'",
-    "dt": "'student_name'",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "'course']"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "// Build failure map  { student_id: [course",
-    "dt": "course",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "...] }"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "do_enroll(frm",
-    "dt": "eligible",
-    "script": "",
-    "enabled": 1,
-    "module": "[]);",
-    "apply_to": "[]"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "${s.courses.join('",
-    "dt": "')}",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "function do_enroll(frm",
-    "dt": "eligible",
-    "script": "",
-    "enabled": 1,
-    "module": "errors) {",
-    "apply_to": "ineligible"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "show_summary(eligible.length",
-    "dt": "ineligible",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "errors);"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "show_summary(success_count",
-    "dt": "ineligible",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "errors);"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "function show_summary(success_count",
-    "dt": "ineligible",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "errors) {"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "msg += `⚠ Could not enroll: <strong>${errors.join('",
-    "dt": "')}</strong>`;",
-    "script": "",
-    "enabled": 1,
-    "module": "",
     "apply_to": "Form"
   }
 ]
