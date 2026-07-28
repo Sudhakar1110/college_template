@@ -6,7 +6,7 @@
     "title": "College ERP",
     "type": "Workspace",
     "app": "college_template",
-    "module": "College Events",
+    "module": "",
     "icon": "octicon octicon-mortar-board",
     "indicator_color": "blue",
     "is_standard": 1,

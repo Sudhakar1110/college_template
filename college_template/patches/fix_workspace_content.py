@@ -10,6 +10,10 @@ def execute():
     ws = frappe.get_doc("Workspace", "College ERP")
 
     # Build content with header + cards matching the Card Break labels
+    # Clear module restriction so all doctypes from all modules are visible
+    ws.module = ""
+
+    # Build content with header + cards matching the Card Break labels
     ws.content = json.dumps([
         {"type": "header", "data": {"text": "College ERP", "level": 1}},
         {"type": "card", "card_name": "Admissions"},
