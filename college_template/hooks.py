@@ -26,8 +26,5 @@ fixtures = [
 # DocType JS
 doctype_js = {}
 
-# After migrate hook - delete old workspace so fixture re-creates with correct format
-after_migrate = ["college_template.patches.delete_old_workspace.execute"]
-
 # Boot info
 # before_tests hook removed - install.py not required for fixture-based app
