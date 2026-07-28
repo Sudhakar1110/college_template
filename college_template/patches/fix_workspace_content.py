@@ -29,6 +29,15 @@ def execute():
         {"type": "card", "data": {"card_name": "Setup"}},
     ])
 
+    # Remove links to child table doctypes (they have no standalone page)
+    child_table_links = {"LMS Program Course", "LMS Program Member"}
+    links_to_keep = [
+        link for link in (ws.links or [])
+        if link.label not in child_table_links
+    ]
+    if len(links_to_keep) != len(ws.links or []):
+        ws.links = links_to_keep
+
     ws.flags.ignore_links = True
     frappe.flags.ignore_links = True
     ws.save(ignore_permissions=True)
