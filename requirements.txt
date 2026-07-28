@@ -1,0 +1,1 @@
+# No pip dependencies - Frappe app deps managed by bench via hooks.py app_dependencies
