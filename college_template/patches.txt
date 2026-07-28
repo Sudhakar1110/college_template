@@ -1,2 +1,3 @@
 college_template.patches.delete_old_workspace
 college_template.patches.update_workspace
+college_template.patches.restore_orphaned_docs

@@ -3,5 +3,5 @@ Academic Calendar
 Placement
 Education
 LMS
-Custom
+College Custom
 Setup
