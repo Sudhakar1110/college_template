@@ -136,33 +136,6 @@
   },
   {
     "doctype": "Client Script",
-    "name": "Assessment Result - Autofill Admission Student",
-    "dt": "Assessment Result",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "Student Attendance - Autofill Admission Student",
-    "dt": "Student Attendance",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "Student Promotion - Fetch Eligible Students",
-    "dt": "Student Promotion",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
     "name": "auto total the fee components",
     "dt": "Student Fee Structure",
     "script": "frappe.ui.form.on(\"Student Fee Structure\", {",
@@ -247,24 +220,6 @@
     "name": "Document Verification Action Buttons",
     "dt": "Document Verification",
     "script": "frappe.ui.form.on('Document Verification', {",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "Document Verification Auto Fetch",
-    "dt": "Document Verification",
-    "script": "",
-    "enabled": 1,
-    "module": "",
-    "apply_to": "Form"
-  },
-  {
-    "doctype": "Client Script",
-    "name": "Admission Enquiry Action Buttons",
-    "dt": "Admission Enquiry",
-    "script": "",
     "enabled": 1,
     "module": "",
     "apply_to": "Form"

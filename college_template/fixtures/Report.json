@@ -8,29 +8,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "SELECT",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY event_coordinator",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Coordinator Report"
   },
   {
     "doctype": "Report",
@@ -41,62 +20,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ew.rank as Rank:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ew.prize as Prize:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ew.cash_prize as Cash Prize:Currency:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ew.certificate_issued as Certificate Issued:Check:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY ce.event_name",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Winner Report"
   },
   {
     "doctype": "Report",
@@ -107,51 +32,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "event_name as Event Name:Data:200",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "budget as Budget:Currency:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "actual_expense as Actual Expense:Currency:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY starts_on DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Budget Report"
   },
   {
     "doctype": "Report",
@@ -162,40 +44,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "issue_date as Issue Date:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "status as Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY issue_date DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Certificate Report"
   },
   {
     "doctype": "Report",
@@ -206,40 +56,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ea.attendance as Attendance:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ea.late_entry as Late Entry:Check:80",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ea.certificate_issued as Certificate Issued:Check:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Attendance Report"
   },
   {
     "doctype": "Report",
@@ -250,51 +68,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ce.event_category as Category:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "er.registration_date as Registered On:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "er.status as Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY er.registration_date DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Student Participation Report"
   },
   {
     "doctype": "Report",
@@ -305,18 +80,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY club",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Club-wise Events"
   },
   {
     "doctype": "Report",
@@ -327,18 +92,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY organizing_department",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Department-wise Events"
   },
   {
     "doctype": "Report",
@@ -349,40 +104,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "event_category as Category:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "starts_on as Starts On:Datetime:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "current_participants as Participants:Int:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Completed Events"
   },
   {
     "doctype": "Report",
@@ -393,40 +116,8 @@
     "query": "",
     "module": "College Events",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "venue as Venue:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "registration_status as Registration:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY starts_on ASC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "College Event - Upcoming Events"
   },
   {
     "doctype": "Report",
@@ -437,40 +128,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ac.status as Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY ac.name",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY ac.creation DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Academic Calendar - Calendar Report"
   },
   {
     "doctype": "Report",
@@ -481,40 +140,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.activity as Activity:Data:180",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.start_date as Start Date:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY ace.start_date ASC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Academic Calendar - Overdue Activities"
   },
   {
     "doctype": "Report",
@@ -525,40 +152,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.target_doctype as Target Type:Data:130",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.target_document as Target:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY ace.activity",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Academic Calendar - Upcoming Activities"
   },
   {
     "doctype": "Report",
@@ -569,62 +164,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.end_date as End Date:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ace.status as Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "CASE",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ELSE ace.status",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "END as Timeline:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Academic Calendar - Event Status Overview"
   },
   {
     "doctype": "Report",
@@ -635,62 +176,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.student_name as Student:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.package as Package:Currency:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.offer_date as Offer Date:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.status as Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY po.offer_date ASC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Placement Pending Offers"
   },
   {
     "doctype": "Report",
@@ -701,29 +188,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY pd.name",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY pd.drive_date DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Placement Drive Eligibility Summary"
   },
   {
     "doctype": "Report",
@@ -734,29 +200,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pc.company_name as Company:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY pc.name",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Placement Company-wise Summary"
   },
   {
     "doctype": "Report",
@@ -767,51 +212,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.role as Role:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.status as Offer Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "po.joining_status as Joining Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY po.offer_date DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Placement Selected Students"
   },
   {
     "doctype": "Report",
@@ -822,84 +224,8 @@
     "query": "",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.study_year as Study Year:Data:80",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.percentage as Percentage:Percent:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.current_backlogs as Backlogs:Int:80",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.eligible as Eligible:Check:80",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.application_status as Status:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "pr.applied_on as Applied On:Date:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY pr.applied_on DESC",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Placement Application Summary"
   },
   {
     "doctype": "Report",
@@ -910,7 +236,8 @@
     "query": "SELECT sfa.status, COUNT(sfa.name) as total_records, SUM(sfa.total_amount) as total_amount, SUM(sfa.paid_amount) as paid_amount, SUM(sfa.balance) as pending_amount FROM `tabStudent Fee Assignment` sfa WHERE sfa.fee_type = 'Exam' GROUP BY sfa.status",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Exam Fee Collection Summary"
   },
   {
     "doctype": "Report",
@@ -921,7 +248,8 @@
     "query": "SELECT ea.exam_schedule, ea.subject, ea.exam_date, ea.student_group, COUNT(ea.name) as total_students, SUM(CASE WHEN ea.status = 'Present' THEN 1 ELSE 0 END) as present_count, SUM(CASE WHEN ea.status = 'Absent' THEN 1 ELSE 0 END) as absent_count, SUM(CASE WHEN ea.status = 'Malpractice' THEN 1 ELSE 0 END) as malpractice_count FROM `tabExam Attendance` ea GROUP BY ea.exam_schedule ORDER BY ea.exam_date DESC",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Exam Attendance Summary"
   },
   {
     "doctype": "Report",
@@ -932,7 +260,8 @@
     "query": "SELECT ar.exam_schedule, es.subject, es.exam_date, ar.student_group, COUNT(ar.name) as total_results, SUM(CASE WHEN ar.grade != 'F' THEN 1 ELSE 0 END) as pass_count, SUM(CASE WHEN ar.grade = 'F' THEN 1 ELSE 0 END) as fail_count, AVG(ar.total_score) as average_score, SUM(CASE WHEN ar.is_published = 1 THEN 1 ELSE 0 END) as published_count FROM `tabAssessment Result` ar LEFT JOIN `tabExam Schedule` es ON es.name = ar.exam_schedule WHERE ar.exam_schedule IS NOT NULL GROUP BY ar.exam_schedule ORDER BY es.exam_date DESC",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Exam Result Summary"
   },
   {
     "doctype": "Report",
@@ -943,7 +272,8 @@
     "query": "SELECT sp.name as promotion_batch, sp.program, sp.academic_year, sp.current_semester, sp.next_semester, sp.status, COUNT(spd.name) as total_students, SUM(CASE WHEN spd.eligible = 1 THEN 1 ELSE 0 END) as eligible_count, SUM(CASE WHEN spd.decision = 'Promote' THEN 1 ELSE 0 END) as promoted_count, SUM(CASE WHEN spd.decision = 'Hold' THEN 1 ELSE 0 END) as held_count, SUM(CASE WHEN spd.decision = 'Repeat Semester' THEN 1 ELSE 0 END) as repeat_count FROM `tabStudent Promotion` sp LEFT JOIN `tabStudent Promotion Detail` spd ON spd.parent = sp.name GROUP BY sp.name ORDER BY sp.creation DESC",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Promotion Summary"
   },
   {
     "doctype": "Report",
@@ -954,7 +284,8 @@
     "query": "SELECT",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Scholarship Disbursement by Scheme"
   },
   {
     "doctype": "Report",
@@ -965,7 +296,8 @@
     "query": "",
     "module": "",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "-"
   },
   {
     "doctype": "Report",
@@ -976,29 +308,8 @@
     "query": "SELECT",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sa.status as Current Status:Data:130",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sa.modified as Last Updated:Datetime:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Scholarship Application Bottlenecks"
   },
   {
     "doctype": "Report",
@@ -1009,62 +320,8 @@
     "query": "SELECT",
     "module": "Education",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sv.total_documents as Total Docs:Int:90",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sv.verified_documents as Verified:Int:90",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sv.missing_documents as Missing:Int:90",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sv.verification_status as Status:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "sv.verification_date as Verification Date:Date:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Scholarship Pending Verifications"
   },
   {
     "doctype": "Report",
@@ -1075,62 +332,8 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ev.event_name AS Event:Data:200",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ev.date AS Event Date:Date:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "a.student_name AS Alumni:Data:180",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "r.attendance AS Attendance:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "r.certificate_issued AS Certificate Issued:Check:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Alumni Event Attendance"
   },
   {
     "doctype": "Report",
@@ -1141,73 +344,8 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "m.department AS Department:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "m.expertise AS Expertise:Data:200",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "m.mentor_capacity AS Capacity:Int:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "m.current_mentees AS Current Mentees:Int:130",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "m.status AS Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "ORDER BY m.status",
-    "ref_doctype": "a.student_name,\",\",\",\",\",\",\",\",\",\",\",\",\",\",\",\",\",jm0v12kqm4,System Manager",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Alumni Mentorship Report"
   },
   {
     "doctype": "Report",
@@ -1218,51 +356,8 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "d.amount AS Amount:Currency:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "d.purpose AS Purpose:Data:150",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "d.payment_status AS Payment Status:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "d.creation AS Date:Date:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Alumni Donation Report"
   },
   {
     "doctype": "Report",
@@ -1273,73 +368,8 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.university AS University:Data:200",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.course AS Course:Data:180",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.country AS Country:Data:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.admission_year AS Admission Year:Int:120",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.completion_year AS Completion Year:Int:130",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "h.status AS Status:Data:100",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Alumni Higher Studies Report"
   },
   {
     "doctype": "Report",
@@ -1350,40 +380,8 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "e.company AS Company:Data:200",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "e.industry AS Industry:Data:180",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
-  },
-  {
-    "doctype": "Report",
-    "name": "GROUP BY e.company",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
-    "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Top Recruiters"
   },
   {
     "doctype": "Report",
@@ -1394,6 +392,7 @@
     "query": "SELECT",
     "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0
+    "add_total_row": 0,
+    "report_name": "Alumni by Company"
   }
 ]
