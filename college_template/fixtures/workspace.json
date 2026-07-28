@@ -3,6 +3,7 @@
     "doctype": "Workspace",
     "name": "College ERP",
     "label": "College ERP",
+    "title": "College ERP",
     "module": "College Events",
     "icon": "octicon octicon-mortar-board",
     "indicator_color": "blue",
