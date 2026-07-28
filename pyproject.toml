@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "college_template"
+version = "0.0.1"
+description = "College ERP Customizations - Doctypes, Scripts, Reports & Dashboard"
+authors = [
+    {name = "Bizaxl", email = "info@bizaxl.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "frappe>=15.0.0",
+    "erpnext>=15.0.0",
+    "education>=15.0.0",
+    "lms>=15.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["college_template*"]

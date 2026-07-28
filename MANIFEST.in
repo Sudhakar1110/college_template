@@ -1,0 +1,11 @@
+include *.json
+include *.md
+include *.txt
+include *.py
+include *.cfg
+recursive-include college_template *.json
+recursive-include college_template *.py
+recursive-include college_template *.txt
+recursive-include college_template *.md
+recursive-include college_template/public *
+recursive-include college_template/templates *
