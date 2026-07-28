@@ -1,3 +1,7 @@
 College Events
 Education
 Custom
+Academic Calendar
+LMS
+Placement
+Setup
