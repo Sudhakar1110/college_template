@@ -8,8 +8,8 @@ app_email = "info@bizaxl.com"
 app_license = "MIT"
 
 # App dependencies for Frappe v15
-# Education is a separate app in v15, must be installed first
-app_dependencies = ["education"]
+# Education and LMS are separate apps in v15, must be installed first
+app_dependencies = ["education", "lms"]
 
 # Fixtures - installed via bench install-app
 fixtures = [
@@ -113,7 +113,6 @@ fixtures = [
     "Batch Course",
     "LMS Batch",
     "LMS Course",
-    "User",
     "LMS Quiz Submission",
     "LMS Quiz",
     "Course Lesson",
