@@ -161,60 +161,7 @@
       }
     ]
   },
-  {
-    "doctype": "Notification",
-    "name": "leave",
-    "channel": "Email",
-    "enabled": 1,
-    "subject": "Leave Request Approved - {{ doc.employee_name }}",
-    "document_type": "Leave Application",
-    "event": "Value Change",
-    "message": "<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;\">\n    <div style=\"background: linear-gradient(135deg, #14f1b1, #0a8fdc); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;\">\n      <h1 style=\"color: white; margin: 0; font-size: 24px;\">✅ Leave Request Approved</h1>\n    </div>\n    <div style=\"padding: 30px; background: #fff; border: 1px solid #e0e0e0; border-top: none;\">\n      <p>Dear <strong>{{ doc.employee_name }}</strong>,</p>\n      <p>Your leave request has been reviewed and approved.</p>\n      <table style=\"width: 100%; border-collapse: collapse;\">\n        <tr><td style=\"padding: 8px; background: #f8f9fa;\"><strong>Leave Type:</strong></td><td style=\"padding: 8px;\">{{ doc.leave_type }}</td></tr>\n        <tr><td style=\"padding: 8px;\"><strong>Total Days:</strong></td><td style=\"padding: 8px;\">{{ doc.total_leave_days }}</td></tr>\n        <tr><td style=\"padding: 8px; background: #f8f9fa;\"><strong>From:</strong></td><td style=\"padding: 8px;\">{{ doc.from_date }}</td></tr>\n        <tr><td style=\"padding: 8px;\"><strong>To:</strong></td><td style=\"padding: 8px;\">{{ doc.to_date }}</td></tr>\n      </table>\n    </div>\n    <div style=\"padding: 15px; text-align: center; font-size: 12px; color: #888; background: #f8f9fa; border-radius: 0 0 10px 10px;\">\n      BizAxl HRMS • Leave Management\n    </div>\n  </div>",
-    "message_type": "Markdown",
-    "is_standard": 0,
-    "module": "College Events",
-    "condition": "doc.status == \"Approved\"",
-    "value_changed": "status",
-    "send_system_notification": 0,
-    "sender_email": "",
-    "set_property_after_alert": "",
-    "value_to_be_set": "",
-    "send_to_all_assignees": 0,
-    "attach_print": 0,
-    "recipients": [
-      {
-        "receiver_by_document_field": "leave_approver",
-        "receiver_by_role": ""
-      }
-    ]
-  },
-  {
-    "doctype": "Notification",
-    "name": "leave-rejected",
-    "channel": "Email",
-    "enabled": 1,
-    "subject": "Leave Request Rejected - {{ doc.employee_name }}",
-    "document_type": "Leave Application",
-    "event": "Value Change",
-    "message": "<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;\">\n    <div style=\"background: linear-gradient(135deg, #ef4444, #991b1b); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;\">\n      <h1 style=\"color: white; margin: 0; font-size: 24px;\">Leave Request Rejected</h1>\n    </div>\n    <div style=\"padding: 30px; background: #fff; border: 1px solid #e0e0e0; border-top: none;\">\n      <p>Dear <strong>{{ doc.employee_name }}</strong>,</p>\n      <p>Your leave request has been reviewed and could not be approved at this time.</p>\n      <div style=\"background: #fef2f2; border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; border-radius: 5px;\">\n        <p style=\"margin: 0; color: #991b1b;\">Your leave application has been rejected.</p>\n      </div>\n      <table style=\"width: 100%; border-collapse: collapse;\">\n        <tr><td style=\"padding: 8px; background: #f8f9fa;\"><strong>Leave Type:</strong></td><td style=\"padding: 8px;\">{{ doc.leave_type }}</td></tr>\n        <tr><td style=\"padding: 8px;\"><strong>From:</strong></td><td style=\"padding: 8px;\">{{ doc.from_date }}</td></tr>\n        <tr><td style=\"padding: 8px; background: #f8f9fa;\"><strong>To:</strong></td><td style=\"padding: 8px;\">{{ doc.to_date }}</td></tr>\n      </table>\n      <p style=\"margin-top: 20px;\">Please contact your reporting manager for clarification.</p>\n    </div>\n    <div style=\"padding: 15px; text-align: center; font-size: 12px; color: #888; background: #fef2f2; border-radius: 0 0 10px 10px;\">\n      Bizaxl HRMS • Leave Management\n    </div>\n  </div>",
-    "message_type": "Markdown",
-    "is_standard": 0,
-    "module": "College Events",
-    "condition": "doc.status == \"Rejected\"",
-    "value_changed": "status",
-    "send_system_notification": 0,
-    "sender_email": "",
-    "set_property_after_alert": "",
-    "value_to_be_set": "",
-    "send_to_all_assignees": 0,
-    "attach_print": 0,
-    "recipients": [
-      {
-        "receiver_by_document_field": "leave_approver",
-        "receiver_by_role": ""
-      }
-    ]
-  },
+
   {
     "doctype": "Notification",
     "name": "Scholarship Payment Completed - Student",
