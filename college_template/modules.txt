@@ -1,3 +1,7 @@
 College Events
 Academic Calendar
 Placement
+Education
+LMS
+Custom
+Setup
