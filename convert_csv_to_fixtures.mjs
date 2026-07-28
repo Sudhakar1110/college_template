@@ -35,12 +35,10 @@ function parseCSVLine(line) {
   for (let i = 0; i < line.length; i++) {
     const ch = line[i];
     if (ch === '"') {
-      if (inQuotes && i + 1 < line.length && line[i + 1] === '"') {
-        current += '"'; i++;
-      } else { inQuotes = !inQuotes; }
-    } else if (ch === ',' && !inQuotes) {
-      result.push(current); current = '';
-    } else { current += ch; }
+      if (inQuotes && i + 1 < line.length && line[i + 1] === '"') { current += '"'; i++; }
+      else { inQuotes = !inQuotes; }
+    } else if (ch === ',' && !inQuotes) { result.push(current); current = ''; }
+    else { current += ch; }
   }
   result.push(current);
   return result;
@@ -80,13 +78,14 @@ function convertClientScripts(rows) {
 function convertServerScripts(rows) {
   const seen = new Set();
   return rows.filter(r => r.ID && !seen.has(r.ID) && seen.add(r.ID)).map(r => {
-    const f = { doctype: 'Server Script', name: r.ID, script_type: r['Script Type'] || '',
-      script: r.Script || '', module: r['Module (for export)'] || '',
-      disabled: toBool(r.Disabled || '0') };
+    const f = { doctype: 'Server Script', name: r.ID,
+      script_type: r['Script Type'] || '', script: r.Script || '',
+      module: r['Module (for export)'] || '', disabled: toBool(r.Disabled || '0') };
     if (r['Script Type'] === 'Scheduler Event') {
       f.event_frequency = r['Event Frequency'] || 'Daily'; f.cron_format = r['Cron Format'] || '';
     } else if (r['Script Type'] === 'DocType Event') {
-      f.reference_doctype = r['Reference Document Type'] || ''; f.doctype_event = r['DocType Event'] || 'Before Save';
+      f.reference_doctype = r['Reference Document Type'] || '';
+      f.doctype_event = r['DocType Event'] || 'Before Save';
     } else if (r['Script Type'] === 'API') {
       f.api_method = r['API Method'] || ''; f.allow_guest = toBool(r['Allow Guest'] || '0');
     }
@@ -102,12 +101,7 @@ function convertNotifications(rows) {
     document_type: r['Document Type'] || '', event: r['Send Alert On'] || 'Save',
     message_type: r['Message Type'] || 'Markdown', message: r.Message || '',
     condition: r.Condition || '', value_changed: r['Value Changed'] || '',
-    module: r.Module || '', is_standard: toBool(r['Is Standard'] || '0'),
-    attach_print: toBool(r['Attach Print'] || '0'), sender: r.Sender || '',
-    set_property_after_alert: r['Set Property After Alert'] || '',
-    property_value: r['Value To Be Set'] || '',
-    send_system_notification: toBool(r['Send System Notification'] || '0'),
-    send_to_all_assignees: toBool(r['Send To All Assignees'] || '0')
+    module: r.Module || '', is_standard: toBool(r['Is Standard'] || '0')
   }));
 }
 
@@ -116,8 +110,7 @@ function convertReports(rows) {
   return rows.filter(r => r['Report Name'] && !seen.has(r['Report Name']) && seen.add(r['Report Name'])).map(r => ({
     doctype: 'Report', name: r['Report Name'], ref_doctype: r['Ref DocType'] || '',
     report_type: r['Report Type'] || 'Query Report', is_standard: r['Is Standard'] || 'No',
-    query: r.Query || '', script: r.Script || '', javascript: r.Javascript || '',
-    json: r.JSON || '', module: r.Module || '', disabled: toBool(r.Disabled || '0'),
+    query: r.Query || '', module: r.Module || '', disabled: toBool(r.Disabled || '0'),
     add_total_row: toBool(r['Add Total Row'] || '0')
   }));
 }
@@ -127,18 +120,13 @@ function convertNumberCards(rows) {
   return rows.filter(r => r.ID && !seen.has(r.ID) && seen.add(r.ID)).map(r => ({
     doctype: 'Number Card', name: r.ID, label: r.Label || r.ID,
     type: r.Type || 'Document Type', document_type: r['Document Type'] || '',
-    parent_document_type: r['Parent Document Type'] || '',
     function: r.Function || 'Count', aggregate_function_based_on: r['Aggregate Function Based On'] || '',
-    report_name: r['Report Name'] || '', method: r.Method || '',
+    report_name: r['Report Name'] || '',
     is_public: toBool(r['Is Public'] || '1'),
-    show_percentage_stats: toBool(r['Show Percentage Stats'] || '0'),
     stats_time_interval: r['Stats Time Interval'] || 'Daily',
-    filters_config: r['Filters Configuration'] || '',
     filters_json: r['Filters JSON'] || '[]',
-    dynamic_filters_json: r['Dynamic Filters JSON'] || '',
-    color: r.Color || '', background_color: r['Background Color'] || '',
     module: r.Module || '', is_standard: toBool(r['Is Standard'] || '0'),
-    currency: r.Currency || 'INR', show_full_number: toBool(r['Show Full Number'] || '0')
+    currency: r.Currency || 'INR'
   }));
 }
 
@@ -148,8 +136,7 @@ function convertDashboardCharts(rows) {
     doctype: 'Dashboard Chart', name: r['Chart Name'], chart_name: r['Chart Name'],
     chart_type: r['Chart Type'] || 'Count', type: r.Type || 'Bar',
     document_type: r['Document Type'] || '',
-    parent_document_type: r['Parent Document Type'] || '',
-    report_name: r['Report Name'] || '', use_report_chart: toBool(r['Use Report Chart'] || '0'),
+    use_report_chart: toBool(r['Use Report Chart'] || '0'),
     x_field: r['X Field'] || '', timeseries: toBool(r['Time Series'] || '0'),
     time_series_based_on: r['Time Series Based On'] || '',
     time_interval: r['Time Interval'] || 'Yearly', timespan: r.Timespan || 'Last Year',
@@ -159,36 +146,69 @@ function convertDashboardCharts(rows) {
     aggregate_function_based_on: r['Aggregate Function Based On'] || '',
     number_of_groups: toInt(r['Number of Groups'] || '0'),
     is_public: toBool(r['Is Public'] || '1'), is_standard: toBool(r['Is Standard'] || '0'),
-    show_values_over_chart: toBool(r['Show Values over Chart'] || '0'),
     currency: r.Currency || 'INR', filters_json: r['Filters JSON'] || '[]',
-    custom_options: r['Custom Options'] || '', color: r.Color || '', module: r.Module || ''
+    color: r.Color || '', module: r.Module || ''
   }));
 }
 
 function convertDoctypes(rows) {
-  const doctypes = {}; let current = null; let fields = []; let perms = [];
+  const doctypes = [];
+  let current = null;
+  let fields = [];
+  let perms = [];
+
   function saveCurrent() {
     if (!current || !current.name) return;
-    doctypes[current.name] = {
-      doctype: current,
+    const record = {
+      doctype: 'DocType',
+      name: current.name,
+      module: current.module,
+      custom: current.custom,
+      is_submittable: current.is_submittable,
+      is_child_table: current.is_child_table,
+      is_single: current.is_single,
+      is_tree: current.is_tree,
+      editable_grid: current.editable_grid,
+      track_changes: current.track_changes,
+      track_seen: current.track_seen,
+      track_views: current.track_views,
+      allow_rename: current.allow_rename,
+      allow_import: current.allow_import,
+      max_attachments: current.max_attachments,
+      title_field: current.title_field,
+      image_field: current.image_field,
+      timeline_field: current.timeline_field,
+      sort_field: current.sort_field,
+      sort_order: current.sort_order,
+      default_view: current.default_view,
+      search_fields: current.search_fields,
+      naming_rule: current.naming_rule,
+      autoname: current.autoname,
+      description: current.description,
+      icon: current.icon,
+      color: current.color,
       fields: fields,
-      permissions: perms.length ? perms : [{ role: 'System Manager', create: 1, read: 1, write: 1, delete: 1, email: 1, export: 1, print: 1, report: 1, share: 1 }],
-      links: [], states: [], actions: []
+      permissions: perms.length ? perms : []
     };
-    fields = []; perms = [];
+    if (!record.permissions.length) {
+      record.permissions = [{ role: 'System Manager', create: 1, read: 1, write: 1, delete: 1, email: 1, export: 1, print: 1, report: 1, share: 1 }];
+    }
+    doctypes.push(record);
+    fields = [];
+    perms = [];
   }
+
   for (const row of rows) {
     if (row.ID && row.Module) {
       saveCurrent();
       current = {
-        doctype: 'DocType', name: row.ID, module: row.Module || 'Education',
+        name: row.ID, module: row.Module || 'Education',
         custom: toBool(row['Custom?'] || '1'),
         is_submittable: toBool(row['Is Submittable'] || '0'),
         is_child_table: toBool(row['Is Child Table'] || '0'),
         is_single: toBool(row['Is Single'] || '0'),
         is_tree: toBool(row['Is Tree'] || '0'),
         editable_grid: toBool(row['Editable Grid'] || '0'),
-        quick_entry: toBool(row['Quick Entry'] || '0'),
         track_changes: toBool(row['Track Changes'] || '0'),
         track_seen: toBool(row['Track Seen'] || '0'),
         track_views: toBool(row['Track Views'] || '0'),
@@ -205,7 +225,7 @@ function convertDoctypes(rows) {
         naming_rule: row['Naming Rule'] || '',
         autoname: row['Auto Name'] || '',
         description: row.Description || '',
-        icon: row.Icon || '', color: row.Color || '',
+        icon: row.Icon || '', color: row.Color || ''
       };
     } else if (current) {
       const fn = row['Fieldname (Fields)'] || row['Fieldname (Columns)'] || '';
@@ -226,12 +246,10 @@ function convertDoctypes(rows) {
           in_global_search: toBool(row['In Global Search (Fields)'] || '0'),
           in_preview: toBool(row['In Preview (Fields)'] || '0'),
           allow_on_submit: toBool(row['Allow on Submit (Fields)'] || '0'),
-          bold: toBool(row['Bold (Fields)'] || '0'),
           collapsible: toBool(row['Collapsible (Fields)'] || '0'),
           columns: toInt(row['Columns (Fields)'] || '0'),
           fetch_from: row['Fetch From (Fields)'] || '',
           fetch_if_empty: toBool(row['Fetch on Save if Empty (Fields)'] || '0'),
-          ignore_user_permissions: toBool(row['Ignore User Permissions (Fields)'] || '0'),
           no_copy: toBool(row['No Copy (Fields)'] || '0'),
           non_negative: toBool(row['Non Negative (Fields)'] || '0'),
           permlevel: toInt(row['Perm Level (Fields)'] || '0'),
@@ -266,20 +284,30 @@ function convertDoctypes(rows) {
     }
   }
   saveCurrent();
-  console.log(`  Found ${Object.keys(doctypes).length} unique doctypes:`);
-  for (const [dtName, dtInfo] of Object.entries(doctypes)) {
-    const dtPath = path.join(FIXTURES_DIR, `DocType_${dtName}.json`);
-    fs.writeFileSync(dtPath, JSON.stringify(dtInfo, null, 2), 'utf-8');
-    console.log(`    Written: ${dtPath} (${dtInfo.fields.length} fields, ${dtInfo.permissions.length} perms)`);
+
+  console.log(`  Found ${doctypes.length} unique doctypes:`);
+  for (const record of doctypes) {
+    const dtPath = path.join(FIXTURES_DIR, `${record.name}.json`);
+    fs.writeFileSync(dtPath, JSON.stringify(record, null, 2), 'utf-8');
+    console.log(`    Written: ${dtPath} (${record.fields.length} fields)`);
   }
+  return doctypes.map(d => d.name);
+}
+
+// ==== Generate hooks.py fixture list ====
+function generateHooksFixtureList(dtNames) {
+  const fixtures = [
+    'Client Script', 'Server Script', 'Notification', 'Report',
+    'Number Card', 'Dashboard Chart', ...dtNames
+  ];
+  const jsonStr = JSON.stringify(fixtures, null, 2);
+  return jsonStr;
 }
 
 // ==== Main ====
 console.log('='.repeat(60));
 console.log('Converting College ERP CSVs to Frappe Fixture JSON');
 console.log('='.repeat(60));
-console.log(`CSV Source: ${CSV_DIR}`);
-console.log(`Fixtures Target: ${FIXTURES_DIR}`);
 console.log();
 
 const cs1 = readCSV('Client Script (7).csv');
@@ -309,7 +337,11 @@ writeFixture('Dashboard Chart', convertDashboardCharts(charts));
 
 const dt = readCSV('DocType (5).csv');
 console.log(`[7/7] DocTypes (${dt.length} raw rows)`);
-convertDoctypes(dt);
+const dtNames = convertDoctypes(dt);
+
+// Generate fixture list for hooks.py
+console.log('\n=== Generated Fixture List for hooks.py ===');
+console.log(generateHooksFixtureList(dtNames));
 
 console.log('\n' + '='.repeat(60));
 console.log('Conversion Complete!');
