@@ -7,7 +7,11 @@ app_color = "grey"
 app_email = "info@bizaxl.com"
 app_license = "MIT"
 
-# Fixtures - will be installed via bench install-app
+# App dependencies for Frappe v15
+# Education is a separate app in v15, must be installed first
+app_dependencies = ["education"]
+
+# Fixtures - installed via bench install-app
 fixtures = [
     "Client Script",
     "Server Script",
