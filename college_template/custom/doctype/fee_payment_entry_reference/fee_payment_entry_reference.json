@@ -28,6 +28,14 @@
   "color": "",
   "fields": [
     {
+      "fieldname": "reference_doctype",
+      "label": "Reference DocType",
+      "fieldtype": "Link",
+      "options": "DocType",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
       "fieldname": "reference_name",
       "label": "Reference Name",
       "fieldtype": "Dynamic Link",
