@@ -25,10 +25,14 @@ function toBool(val) {
 }
 
 function mapRow(row, idx) {
+  const dt = row.DocType || "";
+  const fieldname = row.Fieldname || "";
+  
   const field = {
     doctype: "Custom Field",
-    dt: row.DocType || "",
-    fieldname: row.Fieldname || "",
+    name: `${dt}-${fieldname}`,
+    dt: dt,
+    fieldname: fieldname,
     label: row.Label || "",
     fieldtype: row["Field Type"] || "Data",
     insert_after: row["Insert After"] || "",
@@ -96,7 +100,7 @@ if (!fs.existsSync(fixturesDir)) {
   fs.mkdirSync(fixturesDir, { recursive: true });
 }
 
-const outputPath = path.join(fixturesDir, "Custom Field.json");
+const outputPath = path.join(fixturesDir, "custom_field.json");
 fs.writeFileSync(outputPath, JSON.stringify(customFields, null, 2));
 
 console.log(`✅ Generated ${customFields.length} Custom Fields → ${outputPath}`);

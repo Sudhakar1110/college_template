@@ -1,6 +1,7 @@
 [
   {
     "doctype": "Custom Field",
+    "name": "Assessment Result-published_on",
     "dt": "Assessment Result",
     "fieldname": "published_on",
     "label": "Published On",
@@ -53,6 +54,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Assessment Result-published_by",
     "dt": "Assessment Result",
     "fieldname": "published_by",
     "label": "Published By",
@@ -105,6 +107,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Assessment Result-is_published",
     "dt": "Assessment Result",
     "fieldname": "is_published",
     "label": "Is Published",
@@ -157,6 +160,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Assessment Result-exam_schedule",
     "dt": "Assessment Result",
     "fieldname": "exam_schedule",
     "label": "Exam Schedule",
@@ -209,6 +213,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-exam_fee_amount",
     "dt": "Program Course",
     "fieldname": "exam_fee_amount",
     "label": "Exam Fee Amount",
@@ -261,6 +266,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Admission Student-student",
     "dt": "Admission Student",
     "fieldname": "student",
     "label": "Student (Core Link)",
@@ -313,6 +319,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Group Student-admission_student",
     "dt": "Student Group Student",
     "fieldname": "admission_student",
     "label": "Admission Student",
@@ -365,6 +372,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-elective_group",
     "dt": "Program Course",
     "fieldname": "elective_group",
     "label": "Elective Group",
@@ -417,6 +425,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-sequence",
     "dt": "Program Course",
     "fieldname": "sequence",
     "label": "Sequence",
@@ -469,6 +478,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-credits",
     "dt": "Program Course",
     "fieldname": "credits",
     "label": "Credits",
@@ -521,6 +531,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-program",
     "dt": "Program Course",
     "fieldname": "program",
     "label": "Program",
@@ -573,6 +584,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Program Course-semester",
     "dt": "Program Course",
     "fieldname": "semester",
     "label": "Semester",
@@ -625,6 +637,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Assessment Result-admission_student",
     "dt": "Assessment Result",
     "fieldname": "admission_student",
     "label": "Admission Student",
@@ -677,6 +690,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Attendance-admission_student",
     "dt": "Student Attendance",
     "fieldname": "admission_student",
     "label": "Admission Student",
@@ -729,6 +743,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Fee Assignment-balance",
     "dt": "Student Fee Assignment",
     "fieldname": "balance",
     "label": "Balance",
@@ -781,6 +796,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Fee Assignment-paid_amount",
     "dt": "Student Fee Assignment",
     "fieldname": "paid_amount",
     "label": "Paid",
@@ -833,6 +849,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Fee Structure-effective_from",
     "dt": "Student Fee Structure",
     "fieldname": "effective_from",
     "label": "Effective From",
@@ -885,6 +902,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Fee Structure-fee_type",
     "dt": "Student Fee Structure",
     "fieldname": "fee_type",
     "label": "Fee Type",
@@ -937,6 +955,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-sec_dashboard",
     "dt": "Student Applicant",
     "fieldname": "sec_dashboard",
     "label": "Dashboard",
@@ -989,6 +1008,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-payment_status",
     "dt": "Student Applicant",
     "fieldname": "payment_status",
     "label": "Payment Status",
@@ -1041,6 +1061,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-col_break_payment",
     "dt": "Student Applicant",
     "fieldname": "col_break_payment",
     "label": "",
@@ -1093,6 +1114,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-application_fee_paid",
     "dt": "Student Applicant",
     "fieldname": "application_fee_paid",
     "label": "Application Fee Paid",
@@ -1145,6 +1167,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-sec_payment",
     "dt": "Student Applicant",
     "fieldname": "sec_payment",
     "label": "Application Payment",
@@ -1197,6 +1220,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-applicant_documents",
     "dt": "Student Applicant",
     "fieldname": "applicant_documents",
     "label": "Uploaded Documents",
@@ -1249,6 +1273,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-sec_documents",
     "dt": "Student Applicant",
     "fieldname": "sec_documents",
     "label": "Documents",
@@ -1301,6 +1326,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-applicant_education",
     "dt": "Student Applicant",
     "fieldname": "applicant_education",
     "label": "Previous Education",
@@ -1353,6 +1379,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-sec_previous_education",
     "dt": "Student Applicant",
     "fieldname": "sec_previous_education",
     "label": "Previous Education",
@@ -1405,6 +1432,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-admission_enquiry",
     "dt": "Student Applicant",
     "fieldname": "admission_enquiry",
     "label": "Admission Enquiry",
@@ -1457,6 +1485,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-admission_opening",
     "dt": "Student Applicant",
     "fieldname": "admission_opening",
     "label": "Admission Opening",
@@ -1509,6 +1538,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-admission_campaign",
     "dt": "Student Applicant",
     "fieldname": "admission_campaign",
     "label": "Admission Campaign",
@@ -1561,6 +1591,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Student Applicant-sec_admission_info",
     "dt": "Student Applicant",
     "fieldname": "sec_admission_info",
     "label": "Admission Information",
