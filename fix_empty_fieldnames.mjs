@@ -34,21 +34,44 @@ for (const file of doctypeFiles) {
   let changed = false;
 
   if (doc.fields && Array.isArray(doc.fields)) {
+    const usedFieldnames = new Set();
+    
+    // Pre-populate with existing (non-empty) fieldnames to avoid conflicts
+    for (const field of doc.fields) {
+      if (field.fieldname && field.fieldname.trim()) {
+        usedFieldnames.add(field.fieldname.trim());
+      }
+    }
+    
+    let unnamedCounter = 0;
+    
     for (const field of doc.fields) {
       if (!field.fieldname || field.fieldname.trim() === "") {
         const label = field.label || "";
+        let generated;
+        
         if (label && label.trim()) {
-          const generated = toSnakeCase(label);
+          generated = toSnakeCase(label);
+          
+          // Handle duplicates by appending _1, _2, etc.
+          let candidate = generated;
+          let suffix = 1;
+          while (usedFieldnames.has(candidate)) {
+            candidate = `${generated}_${suffix++}`;
+          }
+          generated = candidate;
+          
           console.log(`  ${path.basename(file)}: Empty fieldname -> "${generated}" (label: "${label}")`);
-          field.fieldname = generated;
-          changed = true;
-          totalFixed++;
         } else {
-          console.log(`  ${path.basename(file)}: Empty fieldname AND empty label! Setting to "field_${Date.now()}"`);
-          field.fieldname = `field_${Math.random().toString(36).substr(2, 8)}`;
-          changed = true;
-          totalFixed++;
+          unnamedCounter++;
+          generated = `unnamed_field_${unnamedCounter}`;
+          console.log(`  ${path.basename(file)}: Empty fieldname AND empty label! Setting to "${generated}"`);
         }
+        
+        field.fieldname = generated;
+        usedFieldnames.add(generated);
+        changed = true;
+        totalFixed++;
       }
     }
   }
