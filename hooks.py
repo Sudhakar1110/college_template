@@ -16,6 +16,7 @@ app_dependencies = ["education", "lms"]
 fixtures = [
     "Client Script",
     "Server Script",
+    "Custom Field",
     "Notification",
     "Report",
     "Number Card",
