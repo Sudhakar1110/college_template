@@ -16,17 +16,17 @@ def execute():
     # Build content with header + cards matching the Card Break labels
     ws.content = json.dumps([
         {"type": "header", "data": {"text": "College ERP", "level": 1}},
-        {"type": "card", "card_name": "Admissions"},
-        {"type": "card", "card_name": "Events"},
-        {"type": "card", "card_name": "Academic Calendar"},
-        {"type": "card", "card_name": "Scholarships"},
-        {"type": "card", "card_name": "Placements"},
-        {"type": "card", "card_name": "Exams"},
-        {"type": "card", "card_name": "Course Registration"},
-        {"type": "card", "card_name": "Fees"},
-        {"type": "card", "card_name": "Alumni"},
-        {"type": "card", "card_name": "LMS"},
-        {"type": "card", "card_name": "Setup"},
+        {"type": "card", "data": {"card_name": "Admissions"}},
+        {"type": "card", "data": {"card_name": "Events"}},
+        {"type": "card", "data": {"card_name": "Academic Calendar"}},
+        {"type": "card", "data": {"card_name": "Scholarships"}},
+        {"type": "card", "data": {"card_name": "Placements"}},
+        {"type": "card", "data": {"card_name": "Exams"}},
+        {"type": "card", "data": {"card_name": "Course Registration"}},
+        {"type": "card", "data": {"card_name": "Fees"}},
+        {"type": "card", "data": {"card_name": "Alumni"}},
+        {"type": "card", "data": {"card_name": "LMS"}},
+        {"type": "card", "data": {"card_name": "Setup"}},
     ])
 
     ws.flags.ignore_links = True
