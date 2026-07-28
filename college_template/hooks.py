@@ -21,6 +21,7 @@ fixtures = [
     "Report",
     "Number Card",
     "Dashboard Chart",
+    "Workspace",
 ]
 
 # DocType JS
