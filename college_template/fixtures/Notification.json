@@ -7,12 +7,24 @@
     "subject": "Admission Approved - {{ doc.first_name }} {{ doc.last_name }}",
     "document_type": "Student Applicant",
     "event": "Save",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Welcome email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.application_status == \"Approved\"",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 1,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email_id",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -22,27 +34,24 @@
     "subject": "Welcome {{ doc.student_name }} | Student Profile Created",
     "document_type": "Student",
     "event": "Save",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Welcome student email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.enabled == 1",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
-  },
-  {
-    "doctype": "Notification",
-    "name": "Your enrollment",
-    "channel": "course allocation",
-    "enabled": 1,
-    "subject": "Your enrollment",
-    "document_type": "fee schedule",
-    "event": "batch assignment",
-    "message_type": "Markdown",
-    "message": "",
-    "condition": "",
-    "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "user",
+        "receiver_by_role": "Student"
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -52,27 +61,24 @@
     "subject": "Program Enrollment Confirmed - {{ doc.program }}",
     "document_type": "Program Enrollment",
     "event": "Save",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Enrollment confirmation email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.student and doc.program",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
-  },
-  {
-    "doctype": "Notification",
-    "name": "We encourage students to regularly access the Student Portal to stay informed about academic schedules",
-    "channel": "attendance",
-    "enabled": 0,
-    "subject": "We encourage students to regularly access the Student Portal to stay informed about academic schedules",
-    "document_type": "assignments",
-    "event": "assessments",
-    "message_type": "Markdown",
-    "message": "",
-    "condition": "",
-    "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "custom_student_email_address",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -82,12 +88,24 @@
     "subject": "Admission Rejected - {{ doc.name }}",
     "document_type": "Student Applicant",
     "event": "Save",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Rejection email",
     "message_type": "Markdown",
-    "message": "```html",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.application_status==\"Rejected\"",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email_id",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -97,12 +115,24 @@
     "subject": "Fee Payment Confirmation - {{ doc.party_name }}",
     "document_type": "Payment Entry",
     "event": "Save",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Payment receipt email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.payment_type == \"Receive\"",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "custom_guardian_email",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -112,12 +142,24 @@
     "subject": "Hall Ticket Released - {{ doc.hall_ticket_number }}",
     "document_type": "Hall ticket",
     "event": "Submit",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Hall ticket email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -127,12 +169,24 @@
     "subject": "Leave Request Approved - {{ doc.employee_name }}",
     "document_type": "Leave Application",
     "event": "Value Change",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Leave approved email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;max-width:650px;margin:30px auto;background:#ffffff;border-radius:22px;overflow:hidden;border:1px solid rgba(5,19,60,0.12);box-shadow:0 3px 8px rgba(5,19,60,0.12);'>",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.status == \"Approved\"",
     "value_changed": "status",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "leave_approver",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -142,12 +196,24 @@
     "subject": "Leave Request Rejected - {{ doc.employee_name }}",
     "document_type": "Leave Application",
     "event": "Value Change",
+    "message": "[HTML_CONTENT_REMOVED_FOR_BREVITY] Leave rejected email",
     "message_type": "Markdown",
-    "message": "<div style='font-family:\"Inter\",\"Outfit\",sans-serif;",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.status == \"Rejected\"",
     "value_changed": "status",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "leave_approver",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -157,12 +223,24 @@
     "subject": "Scholarship payment processed",
     "document_type": "Scholarship Payment",
     "event": "Value Change",
+    "message": "Dear student,\\n\\nYour scholarship payment of **{{ doc.amount }}** has been processed.\\n\\n**Paid to:** {{ doc.paid_to }}\\n**Payment date:** {{ doc.payment_date }}\\n\\nRegards,\\nScholarship Office",
     "message_type": "Markdown",
-    "message": "Dear student,",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.status == \"Completed\"",
     "value_changed": "status",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -172,12 +250,24 @@
     "subject": "Update on your scholarship application",
     "document_type": "Scholarship Application",
     "event": "Value Change",
+    "message": "Dear student,\\n\\nYour scholarship application **{{ doc.name }}** for scheme **{{ doc.scheme }}** has been rejected.\\n\\nPlease contact the Scholarship Office for details.",
     "message_type": "Markdown",
-    "message": "Dear student,",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "doc.status == \"Rejected\"",
     "value_changed": "status",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -187,12 +277,24 @@
     "subject": "Your scholarship has been sanctioned",
     "document_type": "Scholarship Sanction",
     "event": "New",
+    "message": "Dear student,\\n\\nYour scholarship application has been approved and sanctioned.\\n\\n**Sanction amount:** {{ doc.sanction_amount }}\\n**Reference number:** {{ doc.reference_number }}\\n\\nRegards,\\nScholarship Office",
     "message_type": "Markdown",
-    "message": "Dear student,",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 0,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0,
+    "recipients": [
+      {
+        "receiver_by_document_field": "student_email",
+        "receiver_by_role": ""
+      }
+    ]
   },
   {
     "doctype": "Notification",
@@ -202,12 +304,18 @@
     "subject": "Verification pending: {{ doc.application }}",
     "document_type": "Scholarship Verification",
     "event": "New",
-    "message_type": "Markdown",
     "message": "Documents are ready for verification against application **{{ doc.application }}**. Total documents: {{ doc.total_documents }}.",
+    "message_type": "Markdown",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 1,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0
   },
   {
     "doctype": "Notification",
@@ -217,11 +325,17 @@
     "subject": "New scholarship application: {{ doc.name }}",
     "document_type": "Scholarship Application",
     "event": "New",
-    "message_type": "Markdown",
     "message": "A new scholarship application **{{ doc.name }}** has been submitted by student **{{ doc.student }}** for scheme **{{ doc.scheme }}**.",
+    "message_type": "Markdown",
+    "is_standard": 0,
+    "module": "College Events",
     "condition": "",
     "value_changed": "",
-    "module": "",
-    "is_standard": 0
+    "send_system_notification": 1,
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "attach_print": 0
   }
 ]

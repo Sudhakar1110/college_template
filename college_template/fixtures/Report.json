@@ -2,397 +2,341 @@
   {
     "doctype": "Report",
     "name": "College Event - Coordinator Report",
+    "report_name": "College Event - Coordinator Report",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Coordinator Report"
+    "disabled": 0,
+    "query": "SELECT event_coordinator as \"Coordinator:Link/Employee:150\", COUNT(name) as \"Events Coordinated:Int:120\", SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\" FROM `tabCollege Event` WHERE event_coordinator IS NOT NULL AND event_coordinator != '' GROUP BY event_coordinator ORDER BY `Events Coordinated` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Winner Report",
+    "report_name": "College Event - Winner Report",
     "ref_doctype": "Event Winner",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Winner Report"
+    "disabled": 0,
+    "query": "SELECT ce.event_name as \"Event:Link/College Event:200\", ew.student as \"Student:Link/Admission Student:150\", ew.rank as \"Rank:Data:100\", ew.prize as \"Prize:Data:150\", ew.cash_prize as \"Cash Prize:Currency:100\", ew.certificate_issued as \"Certificate Issued:Check:100\" FROM `tabEvent Winner` ew INNER JOIN `tabCollege Event` ce ON ce.name = ew.parent ORDER BY ce.event_name",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Budget Report",
+    "report_name": "College Event - Budget Report",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Budget Report"
+    "disabled": 0,
+    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", budget as \"Budget:Currency:100\", actual_expense as \"Actual Expense:Currency:120\", (budget - actual_expense) as \"Variance:Currency:100\" FROM `tabCollege Event` WHERE budget IS NOT NULL AND budget > 0 ORDER BY starts_on DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Certificate Report",
+    "report_name": "College Event - Certificate Report",
     "ref_doctype": "Event Certificate",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Certificate Report"
+    "disabled": 0,
+    "query": "SELECT name as \"Certificate No:Link/Event Certificate:150\", event as \"Event:Link/College Event:200\", student as \"Student:Link/Admission Student:150\", issue_date as \"Issue Date:Date:100\", status as \"Status:Data:100\" FROM `tabEvent Certificate` ORDER BY issue_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Attendance Report",
+    "report_name": "College Event - Attendance Report",
     "ref_doctype": "Event Attendance",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Attendance Report"
+    "disabled": 0,
+    "query": "SELECT ea.student as \"Student:Link/Admission Student:150\", ce.event_name as \"Event:Link/College Event:200\", ea.attendance as \"Attendance:Data:100\", ea.late_entry as \"Late Entry:Check:80\", ea.certificate_issued as \"Certificate Issued:Check:100\" FROM `tabEvent Attendance` ea INNER JOIN `tabCollege Event` ce ON ce.name = ea.parent ORDER BY ce.event_name",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Student Participation Report",
+    "report_name": "College Event - Student Participation Report",
     "ref_doctype": "Event Registration",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Student Participation Report"
+    "disabled": 0,
+    "query": "SELECT er.student as \"Student:Link/Admission Student:150\", ce.event_name as \"Event:Link/College Event:200\", ce.event_category as \"Category:Data:120\", er.registration_date as \"Registered On:Date:100\", er.status as \"Status:Data:100\" FROM `tabEvent Registration` er INNER JOIN `tabCollege Event` ce ON ce.name = er.parent ORDER BY er.registration_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Club-wise Events",
+    "report_name": "College Event - Club-wise Events",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Club-wise Events"
+    "disabled": 0,
+    "query": "SELECT club as \"Club:Link/Student Club:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE club IS NOT NULL AND club != '' GROUP BY club ORDER BY `Total Events` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Department-wise Events",
+    "report_name": "College Event - Department-wise Events",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Department-wise Events"
+    "disabled": 0,
+    "query": "SELECT organizing_department as \"Department:Link/Department:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE organizing_department IS NOT NULL AND organizing_department != '' GROUP BY organizing_department ORDER BY `Total Events` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Completed Events",
+    "report_name": "College Event - Completed Events",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Completed Events"
+    "disabled": 0,
+    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", current_participants as \"Participants:Int:100\", actual_expense as \"Actual Expense:Currency:120\" FROM `tabCollege Event` WHERE status = 'Completed' ORDER BY starts_on DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "College Event - Upcoming Events",
+    "report_name": "College Event - Upcoming Events",
     "ref_doctype": "College Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "College Events",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "College Event - Upcoming Events"
+    "disabled": 0,
+    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", venue as \"Venue:Data:120\", registration_status as \"Registration:Data:100\" FROM `tabCollege Event` WHERE status = 'Upcoming' AND approval_status = 'Approved' ORDER BY starts_on ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Academic Calendar - Calendar Report",
+    "report_name": "Academic Calendar - Calendar Report",
     "ref_doctype": "Academic Calendar",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Academic Calendar - Calendar Report"
+    "disabled": 0,
+    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", ac.academic_year as \"Academic Year:Link/Academic Year:100\", ac.status as \"Status:Data:100\", COUNT(ace.name) as \"Total Events:Int:100\", SUM(CASE WHEN ace.status = 'Pending' THEN 1 ELSE 0 END) as \"Pending:Int:80\", SUM(CASE WHEN ace.status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:90\" FROM `tabAcademic Calendar` ac LEFT JOIN `tabAcademic Calendar Event` ace ON ace.parent = ac.name GROUP BY ac.name ORDER BY ac.creation DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Academic Calendar - Overdue Activities",
+    "report_name": "Academic Calendar - Overdue Activities",
     "ref_doctype": "Academic Calendar Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Academic Calendar - Overdue Activities"
+    "disabled": 0,
+    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(CURDATE(), ace.start_date) as \"Days Overdue:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') AND ace.status = 'Pending' AND ace.start_date < CURDATE() ORDER BY ace.start_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Academic Calendar - Upcoming Activities",
+    "report_name": "Academic Calendar - Upcoming Activities",
     "ref_doctype": "Academic Calendar Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Academic Calendar - Upcoming Activities"
+    "disabled": 0,
+    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(ace.start_date, CURDATE()) as \"Days Away:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') AND ace.status = 'Pending' AND ace.start_date > CURDATE() ORDER BY ace.start_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Academic Calendar - Event Status Overview",
+    "report_name": "Academic Calendar - Event Status Overview",
     "ref_doctype": "Academic Calendar Event",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Academic Calendar - Event Status Overview"
+    "disabled": 0,
+    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", ace.end_date as \"End Date:Date:100\", ace.status as \"Status:Data:100\", CASE WHEN ace.status = 'Pending' AND ace.start_date < CURDATE() THEN 'Overdue' WHEN ace.status = 'Pending' AND ace.start_date = CURDATE() THEN 'Today' WHEN ace.status = 'Pending' AND ace.start_date > CURDATE() THEN 'Upcoming' ELSE ace.status END as \"Timeline:Data:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') ORDER BY ace.start_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Placement Pending Offers",
+    "report_name": "Placement Pending Offers",
     "ref_doctype": "Placement Offer",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Placement Pending Offers"
+    "disabled": 0,
+    "query": "SELECT po.name as \"Offer:Link/Placement Offer:120\", pr.student_name as \"Student:Data:150\", po.company as \"Company:Link/Placement Company:150\", po.package as \"Package:Currency:100\", po.offer_date as \"Offer Date:Date:100\", po.status as \"Status:Data:100\" FROM `tabPlacement Offer` po LEFT JOIN `tabPlacement Registration` pr ON po.registration = pr.name WHERE po.status = 'Offer Made' ORDER BY po.offer_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Placement Drive Eligibility Summary",
+    "report_name": "Placement Drive Eligibility Summary",
     "ref_doctype": "Placement Drive",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Placement Drive Eligibility Summary"
+    "disabled": 0,
+    "query": "SELECT pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", COUNT(pr.name) as \"Total Applications:Int:120\", SUM(CASE WHEN pr.eligible=1 THEN 1 ELSE 0 END) as \"Eligible:Int:80\", SUM(CASE WHEN pr.eligible=0 THEN 1 ELSE 0 END) as \"Not Eligible:Int:100\" FROM `tabPlacement Drive` pd LEFT JOIN `tabPlacement Registration` pr ON pr.drive = pd.name GROUP BY pd.name ORDER BY pd.drive_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Placement Company-wise Summary",
+    "report_name": "Placement Company-wise Summary",
     "ref_doctype": "Placement Company",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Placement Company-wise Summary"
+    "disabled": 0,
+    "query": "SELECT pc.company_name as \"Company:Data:150\", COUNT(DISTINCT pd.name) as \"Drives Conducted:Int:100\", COUNT(DISTINCT po.name) as \"Offers Made:Int:100\", ROUND(AVG(po.package),2) as \"Average Package:Currency:120\", MAX(po.package) as \"Highest Package:Currency:120\" FROM `tabPlacement Company` pc LEFT JOIN `tabPlacement Drive` pd ON pd.company = pc.name LEFT JOIN `tabPlacement Offer` po ON po.company = pc.name GROUP BY pc.name ORDER BY `Offers Made` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Placement Selected Students",
+    "report_name": "Placement Selected Students",
     "ref_doctype": "Placement Registration",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Placement Selected Students"
+    "disabled": 0,
+    "query": "SELECT pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", po.package as \"Package (LPA):Currency:100\", po.role as \"Role:Data:150\", po.offer_date as \"Offer Date:Date:100\", po.status as \"Offer Status:Data:100\", po.joining_status as \"Joining Status:Data:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabPlacement Drive` pd ON pr.drive = pd.name LEFT JOIN `tabPlacement Offer` po ON po.registration = pr.name WHERE pr.application_status IN ('Selected','Offer Released') ORDER BY po.offer_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Placement Application Summary",
+    "report_name": "Placement Application Summary",
     "ref_doctype": "Placement Registration",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Placement Application Summary"
-  },
-  {
-    "doctype": "Report",
-    "name": "Exam Fee Collection Summary",
-    "ref_doctype": "Student Fee Assignment",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT sfa.status, COUNT(sfa.name) as total_records, SUM(sfa.total_amount) as total_amount, SUM(sfa.paid_amount) as paid_amount, SUM(sfa.balance) as pending_amount FROM `tabStudent Fee Assignment` sfa WHERE sfa.fee_type = 'Exam' GROUP BY sfa.status",
-    "module": "Custom",
     "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Exam Fee Collection Summary"
-  },
-  {
-    "doctype": "Report",
-    "name": "Exam Attendance Summary",
-    "ref_doctype": "Exam Attendance",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT ea.exam_schedule, ea.subject, ea.exam_date, ea.student_group, COUNT(ea.name) as total_students, SUM(CASE WHEN ea.status = 'Present' THEN 1 ELSE 0 END) as present_count, SUM(CASE WHEN ea.status = 'Absent' THEN 1 ELSE 0 END) as absent_count, SUM(CASE WHEN ea.status = 'Malpractice' THEN 1 ELSE 0 END) as malpractice_count FROM `tabExam Attendance` ea GROUP BY ea.exam_schedule ORDER BY ea.exam_date DESC",
-    "module": "Education",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Exam Attendance Summary"
-  },
-  {
-    "doctype": "Report",
-    "name": "Exam Result Summary",
-    "ref_doctype": "Assessment Result",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT ar.exam_schedule, es.subject, es.exam_date, ar.student_group, COUNT(ar.name) as total_results, SUM(CASE WHEN ar.grade != 'F' THEN 1 ELSE 0 END) as pass_count, SUM(CASE WHEN ar.grade = 'F' THEN 1 ELSE 0 END) as fail_count, AVG(ar.total_score) as average_score, SUM(CASE WHEN ar.is_published = 1 THEN 1 ELSE 0 END) as published_count FROM `tabAssessment Result` ar LEFT JOIN `tabExam Schedule` es ON es.name = ar.exam_schedule WHERE ar.exam_schedule IS NOT NULL GROUP BY ar.exam_schedule ORDER BY es.exam_date DESC",
-    "module": "Education",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Exam Result Summary"
-  },
-  {
-    "doctype": "Report",
-    "name": "Promotion Summary",
-    "ref_doctype": "Student Promotion",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT sp.name as promotion_batch, sp.program, sp.academic_year, sp.current_semester, sp.next_semester, sp.status, COUNT(spd.name) as total_students, SUM(CASE WHEN spd.eligible = 1 THEN 1 ELSE 0 END) as eligible_count, SUM(CASE WHEN spd.decision = 'Promote' THEN 1 ELSE 0 END) as promoted_count, SUM(CASE WHEN spd.decision = 'Hold' THEN 1 ELSE 0 END) as held_count, SUM(CASE WHEN spd.decision = 'Repeat Semester' THEN 1 ELSE 0 END) as repeat_count FROM `tabStudent Promotion` sp LEFT JOIN `tabStudent Promotion Detail` spd ON spd.parent = sp.name GROUP BY sp.name ORDER BY sp.creation DESC",
-    "module": "Education",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Promotion Summary"
+    "query": "SELECT pr.name as \"Registration:Link/Placement Registration:150\", pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pr.study_year as \"Study Year:Data:80\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", pr.percentage as \"Percentage:Percent:100\", pr.current_backlogs as \"Backlogs:Int:80\", pr.eligible as \"Eligible:Check:80\", pr.application_status as \"Status:Data:120\", pr.applied_on as \"Applied On:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabPlacement Drive` pd ON pr.drive = pd.name ORDER BY pr.applied_on DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   },
   {
     "doctype": "Report",
     "name": "Scholarship Disbursement by Scheme",
+    "report_name": "Scholarship Disbursement by Scheme",
     "ref_doctype": "Scholarship Scheme",
     "report_type": "Query Report",
     "is_standard": "No",
-    "query": "SELECT",
     "module": "Education",
-    "disabled": 0,
     "add_total_row": 0,
-    "report_name": "Scholarship Disbursement by Scheme"
-  },
-  {
-    "doctype": "Report",
-    "name": "-",
-    "ref_doctype": "",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "",
-    "module": "",
     "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "-"
-  },
-  {
-    "doctype": "Report",
-    "name": "Scholarship Application Bottlenecks",
-    "ref_doctype": "Scholarship Application",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Education",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Scholarship Application Bottlenecks"
-  },
-  {
-    "doctype": "Report",
-    "name": "Scholarship Pending Verifications",
-    "ref_doctype": "Scholarship Verification",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Education",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Scholarship Pending Verifications"
-  },
-  {
-    "doctype": "Report",
-    "name": "Alumni Event Attendance",
-    "ref_doctype": "Alumni Event Registration",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Alumni Event Attendance"
-  },
-  {
-    "doctype": "Report",
-    "name": "Alumni Mentorship Report",
-    "ref_doctype": "Alumni Mentorship",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Alumni Mentorship Report"
-  },
-  {
-    "doctype": "Report",
-    "name": "Alumni Donation Report",
-    "ref_doctype": "Alumni Donation",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Alumni Donation Report"
-  },
-  {
-    "doctype": "Report",
-    "name": "Alumni Higher Studies Report",
-    "ref_doctype": "Alumni Higher Education",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Alumni Higher Studies Report"
-  },
-  {
-    "doctype": "Report",
-    "name": "Top Recruiters",
-    "ref_doctype": "Alumni Employment",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Top Recruiters"
-  },
-  {
-    "doctype": "Report",
-    "name": "Alumni by Company",
-    "ref_doctype": "Alumni Employment",
-    "report_type": "Query Report",
-    "is_standard": "No",
-    "query": "SELECT",
-    "module": "Custom",
-    "disabled": 0,
-    "add_total_row": 0,
-    "report_name": "Alumni by Company"
+    "query": "SELECT sch.name as \"Scheme:Link/Scholarship Scheme:180\", sch.academic_year as \"Academic Year:Link/Academic Year:100\", (SELECT COUNT(*) FROM `tabScholarship Application` sa WHERE sa.scheme = sch.name) as \"Applications:Int:100\", (SELECT COALESCE(SUM(ss.sanction_amount),0) FROM `tabScholarship Sanction` ss INNER JOIN `tabScholarship Application` sa2 ON sa2.name = ss.application WHERE sa2.scheme = sch.name) as \"Total Sanctioned:Currency:140\", (SELECT COALESCE(SUM(sp.amount),0) FROM `tabScholarship Payment` sp INNER JOIN `tabScholarship Sanction` ss2 ON ss2.name = sp.sanction INNER JOIN `tabScholarship Application` sa3 ON sa3.name = ss2.application WHERE sa3.scheme = sch.name AND sp.status = 'Completed') as \"Total Paid:Currency:140\", ((SELECT COALESCE(SUM(ss3.sanction_amount),0) FROM `tabScholarship Sanction` ss3 INNER JOIN `tabScholarship Application` sa4 ON sa4.name = ss3.application WHERE sa4.scheme = sch.name) - (SELECT COALESCE(SUM(sp2.amount),0) FROM `tabScholarship Payment` sp2 INNER JOIN `tabScholarship Sanction` ss4 ON ss4.name = sp2.sanction INNER JOIN `tabScholarship Application` sa5 ON sa5.name = ss4.application WHERE sa5.scheme = sch.name AND sp2.status = 'Completed')) as \"Pending Disbursement:Currency:140\" FROM `tabScholarship Scheme` sch ORDER BY sch.creation DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   }
 ]

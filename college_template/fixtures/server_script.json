@@ -1,1 +1,172 @@
-[]
+[
+  {
+    "doctype": "Server Script",
+    "name": "College Event - Daily Scheduler",
+    "script_type": "Scheduler Event",
+    "script": "today = frappe.utils.getdate(frappe.utils.today())\nnow = frappe.utils.now_datetime()\n\nevents = frappe.get_all(\n    \"College Event\",\n    filters={\"approval_status\": \"Approved\", \"status\": [\"!=\", \"Cancelled\"]},\n    fields=[\"name\"]\n)\n\nfor e in events:\n    doc = frappe.get_doc(\"College Event\", e.name)\n    changed = False\n\n    if doc.registration_required:\n        if doc.registration_status == \"Not Started\" and doc.registration_start and doc.registration_end:\n            if now >= doc.registration_start and now <= doc.registration_end:\n                doc.registration_status = \"Open\"\n                changed = True\n\n                eligible_filters = {\"status\": \"Active\"}\n                if doc.audience == \"Specific Program\" and doc.program:\n                    eligible_filters[\"program\"] = doc.program\n                if doc.audience == \"Specific Department\" and doc.department:\n                    eligible_filters[\"department\"] = doc.department\n\n                students = []\n                if doc.audience in (\"All Students\", \"Specific Program\", \"Specific Department\"):\n                    students = frappe.get_all(\"Admission Student\", filters=eligible_filters, fields=[\"email\"])\n\n                for s in students:\n                    if s.email and frappe.db.exists(\"User\", s.email):\n                        frappe.get_doc({\n                            \"doctype\": \"Notification Log\",\n                            \"subject\": \"Registration Open: \" + doc.event_name,\n                            \"for_user\": s.email,\n                            \"type\": \"Alert\",\n                            \"document_type\": \"College Event\",\n                            \"document_name\": doc.name\n                        }).insert(ignore_permissions=True)\n\n        elif doc.registration_status == \"Open\" and doc.registration_end and now > doc.registration_end:\n            doc.registration_status = \"Closed\"\n            changed = True\n\n    if doc.starts_on:\n        event_date = frappe.utils.getdate(doc.starts_on)\n        if event_date == frappe.utils.add_days(today, 1):\n            for row in (doc.registrations or []):\n                if row.status == \"Registered\":\n                    student_email = frappe.db.get_value(\"Admission Student\", row.student, \"email\")\n                    if student_email and frappe.db.exists(\"User\", student_email):\n                        already_sent = frappe.db.exists(\n                            \"Notification Log\",\n                            {\"subject\": \"Reminder: \" + doc.event_name + \" is tomorrow\", \"for_user\": student_email}\n                        )\n                        if not already_sent:\n                            frappe.get_doc({\n                                \"doctype\": \"Notification Log\",\n                                \"subject\": \"Reminder: \" + doc.event_name + \" is tomorrow\",\n                                \"for_user\": student_email,\n                                \"type\": \"Alert\",\n                                \"document_type\": \"College Event\",\n                                \"document_name\": doc.name\n                            }).insert(ignore_permissions=True)\n\n    if doc.attendance_required and doc.starts_on:\n        event_date = frappe.utils.getdate(doc.starts_on)\n        if event_date == today and not doc.attendance_records:\n            for row in (doc.registrations or []):\n                if row.status == \"Registered\":\n                    doc.append(\"attendance_records\", {\n                        \"student\": row.student,\n                        \"attendance\": \"Absent\"\n                    })\n            changed = True\n\n    if changed:\n        doc.save(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "event_frequency": "Daily",
+    "cron_format": ""
+  },
+  {
+    "doctype": "Server Script",
+    "name": "College Event - Before Save",
+    "script_type": "DocType Event",
+    "script": "registered = [r for r in (doc.registrations or []) if r.status == \"Registered\"]\ndoc.current_participants = len(registered)\n\nif doc.registration_required and doc.maximum_participants:\n    if doc.current_participants >= doc.maximum_participants and doc.registration_status == \"Open\":\n        doc.registration_status = \"Closed\"\n\nif doc.approval_status == \"Approved\" and not doc.approved_on:\n    doc.approved_by = frappe.session.user\n    doc.approved_on = frappe.utils.now()\n\n    already_linked = frappe.db.exists(\n        \"Academic Calendar Event\",\n        {\"target_doctype\": \"College Event\", \"target_document\": doc.name}\n    )\n    if not already_linked:\n        calendar = None\n        if doc.academic_year:\n            matches = frappe.get_all(\n                \"Academic Calendar\",\n                filters={\"academic_year\": doc.academic_year, \"status\": [\"in\", [\"Approved\", \"Active\"]]},\n                fields=[\"name\"], limit=1\n            )\n            if matches:\n                calendar = matches[0].name\n        if not calendar:\n            fallback = frappe.get_all(\n                \"Academic Calendar\",\n                filters={\"status\": [\"in\", [\"Approved\", \"Active\"]]},\n                fields=[\"name\"], limit=1\n            )\n            if fallback:\n                calendar = fallback[0].name\n\n        if calendar:\n            cal_doc = frappe.get_doc(\"Academic Calendar\", calendar)\n            event_date = frappe.utils.getdate(doc.starts_on) if doc.starts_on else None\n            end_date = frappe.utils.getdate(doc.ends_on) if doc.ends_on else event_date\n            cal_doc.append(\"events\", {\n                \"activity\": \"College Event\",\n                \"start_date\": event_date,\n                \"end_date\": end_date,\n                \"auto_execute\": 0,\n                \"target_doctype\": \"College Event\",\n                \"target_document\": doc.name,\n                \"status\": \"Pending\"\n            })\n            cal_doc.save(ignore_permissions=True)\n\nif doc.certificate_required:\n    for row in (doc.attendance_records or []):\n        if row.attendance == \"Present\" and not row.certificate_issued:\n            row.certificate_issued = 1\n            existing_cert = frappe.db.exists(\n                \"Event Certificate\", {\"event\": doc.name, \"student\": row.student}\n            )\n            if not existing_cert:\n                cert = frappe.get_doc({\n                    \"doctype\": \"Event Certificate\",\n                    \"event\": doc.name,\n                    \"student\": row.student,\n                    \"issue_date\": frappe.utils.today(),\n                    \"status\": \"Generated\"\n                })\n                cert.insert(ignore_permissions=True)\n\n                student_email = frappe.db.get_value(\"Admission Student\", row.student, \"email\")\n                if student_email and frappe.db.exists(\"User\", student_email):\n                    frappe.get_doc({\n                        \"doctype\": \"Notification Log\",\n                        \"subject\": \"Certificate Ready: \" + doc.event_name,\n                        \"for_user\": student_email,\n                        \"type\": \"Alert\",\n                        \"document_type\": \"Event Certificate\",\n                        \"document_name\": cert.name\n                    }).insert(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "College Event",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Application - Require Verification Before Recommendation",
+    "script_type": "DocType Event",
+    "script": "verification_required_stages = False\n\nfor r in (doc.recommendations or []):\n    if r.status == \"Recommended\":\n        verification_required_stages = True\n\nfor a in (doc.approvals or []):\n    if a.status == \"Approved\":\n        verification_required_stages = True\n\nif verification_required_stages:\n    is_verified = frappe.db.exists(\n        \"Scholarship Verification\",\n        {\"application\": doc.name, \"verification_status\": \"Verified\"}\n    )\n    if not is_verified:\n        frappe.throw(\n            \"Cannot record a Recommendation or Approval until this application's \"\n            \"Scholarship Verification status is 'Verified'. Please complete document \"\n            \"verification first.\"\n        )",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Application",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Academic Calendar - Daily Scheduler",
+    "script_type": "Scheduler Event",
+    "script": "today = frappe.utils.today()\n\nmarker_only_activities = [\n    \"Fee Payment Last Date\",\n    \"Attendance Monitoring\",\n    \"Internal Assessment\",\n    \"Semester Examination\",\n    \"Alumni Registration\"\n]\n\nactive_calendars = frappe.get_all(\"Academic Calendar\", filters={\"status\": [\"in\", [\"Approved\", \"Active\"]]}, fields=[\"name\"])\nactive_calendar_names = [c.name for c in active_calendars]\n\nif active_calendar_names:\n    due_events = frappe.get_all(\n        \"Academic Calendar Event\",\n        filters={\n            \"parent\": [\"in\", active_calendar_names],\n            \"parenttype\": \"Academic Calendar\",\n            \"status\": \"Pending\",\n            \"auto_execute\": 1,\n            \"start_date\": [\"<=\", today]\n        },\n        fields=[\"name\", \"parent\", \"activity\", \"start_date\", \"end_date\", \"target_doctype\", \"target_document\"]\n    )\n\n    for ev in due_events:\n        handled = False\n\n        if ev.activity == \"Placement Registration Open\" and ev.target_doctype == \"Placement Drive\" and ev.target_document:\n            drive = frappe.get_doc(\"Placement Drive\", ev.target_document)\n            drive.registration_status = \"Open\"\n            drive.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Placement Registration Close\" and ev.target_doctype == \"Placement Drive\" and ev.target_document:\n            drive = frappe.get_doc(\"Placement Drive\", ev.target_document)\n            drive.registration_status = \"Closed\"\n            drive.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Admission Open\" and ev.target_doctype == \"Admission Opening\" and ev.target_document:\n            opening = frappe.get_doc(\"Admission Opening\", ev.target_document)\n            opening.status = \"Open\"\n            opening.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Admission Close\" and ev.target_doctype == \"Admission Opening\" and ev.target_document:\n            opening = frappe.get_doc(\"Admission Opening\", ev.target_document)\n            opening.status = \"Closed\"\n            opening.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Course Registration Open\" and ev.target_doctype == \"Course Registration Window\" and ev.target_document:\n            window = frappe.get_doc(\"Course Registration Window\", ev.target_document)\n            window.status = \"Open\"\n            window.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Course Registration Close\" and ev.target_doctype == \"Course Registration Window\" and ev.target_document:\n            window = frappe.get_doc(\"Course Registration Window\", ev.target_document)\n            window.status = \"Closed\"\n            window.save(ignore_permissions=True)\n            handled = True\n\n        elif ev.activity == \"Promotion\" and ev.target_doctype == \"Student Promotion\" and ev.target_document:\n            frappe.form_dict[\"student_promotion\"] = ev.target_document\n            frappe.get_doc(\"Server Script\", \"promote_students\").execute_method()\n            handled = True\n\n        elif ev.activity == \"Hall Ticket Generation\" and ev.target_doctype == \"Hall Allocation\" and ev.target_document:\n            ha = frappe.get_doc(\"Hall Allocation\", ev.target_document)\n            generated = 0\n            failed = 0\n            for row in ha.students:\n                frappe.form_dict[\"hall_allocation\"] = ev.target_document\n                frappe.form_dict[\"admission_student\"] = row.admission_student\n                try:\n                    frappe.get_doc(\"Server Script\", \"generate_hall_ticket\").execute_method()\n                    generated = generated + 1\n                except Exception:\n                    failed = failed + 1\n            frappe.log_error(\n                title=\"Academic Calendar - Hall Ticket Generation Summary\",\n                message=\"Hall Allocation \" + ev.target_document + \": generated=\" + str(generated) + \", failed=\" + str(failed)\n            )\n            handled = True\n\n        elif ev.activity == \"Result Publication\" and ev.target_doctype == \"Assessment Plan\" and ev.target_document:\n            results = frappe.get_all(\"Assessment Result\", filters={\"assessment_plan\": ev.target_document, \"is_published\": 0}, fields=[\"name\"])\n            published = 0\n            failed = 0\n            for r in results:\n                frappe.form_dict[\"assessment_result\"] = r.name\n                try:\n                    frappe.get_doc(\"Server Script\", \"publish_assessment_result\").execute_method()\n                    published = published + 1\n                except Exception:\n                    failed = failed + 1\n            frappe.log_error(\n                title=\"Academic Calendar - Result Publication Summary\",\n                message=\"Assessment Plan \" + ev.target_document + \": published=\" + str(published) + \", failed=\" + str(failed)\n            )\n            handled = True\n\n        elif ev.activity in marker_only_activities:\n            handled = True\n\n        if handled:\n            frappe.db.set_value(\"Academic Calendar Event\", ev.name, \"status\", \"Completed\")\n        else:\n            frappe.log_error(\n                title=\"Academic Calendar - Unhandled Activity\",\n                message=\"Event '\" + ev.activity + \"' on calendar '\" + ev.parent + \"' (row \" + ev.name + \") fired on \" + str(ev.start_date) + \" but has no automation handler configured yet. It remains Pending.\"\n            )\n\n    upcoming = frappe.get_all(\n        \"Academic Calendar Event\",\n        filters={\n            \"parent\": [\"in\", active_calendar_names],\n            \"parenttype\": \"Academic Calendar\",\n            \"status\": \"Pending\",\n            \"notification_sent\": 0\n        },\n        fields=[\"name\", \"parent\", \"activity\", \"start_date\", \"notification_before_days\"]\n    )\n\n    admins = frappe.get_all(\"Has Role\", filters={\"role\": \"System Manager\"}, fields=[\"parent\"])\n    admin_users = [a.parent for a in admins]\n\n    for ev in upcoming:\n        if ev.notification_before_days and ev.start_date:\n            remind_date = frappe.utils.add_days(ev.start_date, -ev.notification_before_days)\n            if str(remind_date) == str(today):\n                for u in admin_users:\n                    frappe.get_doc({\n                        \"doctype\": \"Notification Log\",\n                        \"subject\": \"Upcoming: \" + ev.activity + \" starts \" + str(ev.start_date),\n                        \"for_user\": u,\n                        \"type\": \"Alert\",\n                        \"document_type\": \"Academic Calendar\",\n                        \"document_name\": ev.parent\n                    }).insert(ignore_permissions=True)\n                frappe.db.set_value(\"Academic Calendar Event\", ev.name, \"notification_sent\", 1)",
+    "module": "",
+    "disabled": 0,
+    "event_frequency": "Daily",
+    "cron_format": ""
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Sanction - Advance Application to Sanctioned",
+    "script_type": "DocType Event",
+    "script": "frappe.db.set_value(\"Scholarship Application\", doc.application, \"status\", \"Sanctioned\")",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Sanction",
+    "doctype_event": "After Insert"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Application - Auto Update Status from Logs",
+    "script_type": "DocType Event",
+    "script": "if doc.status not in (\"Sanctioned\", \"Rejected\"):\n    has_not_recommended = False\n    has_recommended = False\n    has_approval_rejected = False\n    has_approved = False\n\n    for row in doc.recommendations:\n        if row.status == \"Not Recommended\":\n            has_not_recommended = True\n        if row.status == \"Recommended\":\n            has_recommended = True\n\n    for row in doc.approvals:\n        if row.status == \"Rejected\":\n            has_approval_rejected = True\n        if row.status == \"Approved\":\n            has_approved = True\n\n    if has_not_recommended or has_approval_rejected:\n        doc.status = \"Rejected\"\n    elif has_approved:\n        doc.status = \"Approved\"\n    elif has_recommended:\n        doc.status = \"Recommended\"",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Application",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Verification - Advance Application to Under Verification",
+    "script_type": "DocType Event",
+    "script": "app_status = frappe.db.get_value(\"Scholarship Application\", doc.application, \"status\")\n\nif app_status == \"Submitted\":\n    frappe.db.set_value(\"Scholarship Application\", doc.application, \"status\", \"Under Verification\")",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Verification",
+    "doctype_event": "After Insert"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship - Check Eligible Students",
+    "script_type": "API",
+    "script": "scheme_name = frappe.form_dict.get(\"scheme\")\n\nif not scheme_name:\n    frappe.response[\"message\"] = []\nelse:\n    scheme = frappe.get_doc(\"Scholarship Scheme\", scheme_name)\n    income_limit = scheme.income_limit\n    attendance_requirement = scheme.attendance_requirement\n\n    students = frappe.get_all(\n        \"Admission Student\",\n        fields=[\"name\", \"annual_family_income\", \"attendance_percentage\"]\n    )\n\n    eligible = []\n    for s in students:\n        income_ok = True\n        attendance_ok = True\n\n        if income_limit:\n            if not s.annual_family_income or s.annual_family_income > income_limit:\n                income_ok = False\n\n        if attendance_requirement:\n            if not s.attendance_percentage or s.attendance_percentage < attendance_requirement:\n                attendance_ok = False\n\n        if income_ok and attendance_ok:\n            eligible.append({\n                \"student\": s.name,\n                \"income\": s.annual_family_income,\n                \"attendance\": s.attendance_percentage\n            })\n\n    frappe.response[\"message\"] = eligible",
+    "module": "",
+    "disabled": 0,
+    "api_method": "scholarship_check_eligibility",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Renewal - Generate New Application",
+    "script_type": "DocType Event",
+    "script": "old_doc = doc.get_doc_before_save()\njust_approved = (not old_doc or old_doc.renewal_status != \"Approved\") and doc.renewal_status == \"Approved\"\n\nif just_approved:\n    if doc.eligibility != \"Eligible\":\n        frappe.throw(\"Cannot generate new application: Eligibility must be marked 'Eligible' before approving this renewal.\")\n\n    if doc.new_application:\n        frappe.msgprint(\"New application already linked to this renewal: \" + doc.new_application)\n    else:\n        prev_app = frappe.get_doc(\"Scholarship Application\", doc.previous_application)\n        old_scheme = frappe.get_doc(\"Scholarship Scheme\", prev_app.scheme)\n\n        new_scheme_name = old_scheme.scheme_name + \" (\" + doc.academic_year + \")\"\n\n        if frappe.db.exists(\"Scholarship Scheme\", new_scheme_name):\n            new_scheme_name_final = new_scheme_name\n        else:\n            new_scheme = frappe.get_doc({\n                \"doctype\": \"Scholarship Scheme\",\n                \"scheme_name\": new_scheme_name,\n                \"provider\": old_scheme.provider,\n                \"academic_year\": doc.academic_year,\n                \"scholarship_type\": old_scheme.scholarship_type,\n                \"eligibility_criteria\": old_scheme.eligibility_criteria,\n                \"income_limit\": old_scheme.income_limit,\n                \"attendance_requirement\": old_scheme.attendance_requirement,\n                \"amount\": old_scheme.amount,\n                \"status\": \"Active\",\n                \"renewed_from\": old_scheme.name\n            })\n            new_scheme.insert(ignore_permissions=True)\n            new_scheme_name_final = new_scheme.name\n\n        new_app = frappe.get_doc({\n            \"doctype\": \"Scholarship Application\",\n            \"student\": prev_app.student,\n            \"scheme\": new_scheme_name_final,\n            \"academic_enrollment\": prev_app.academic_enrollment,\n            \"status\": \"Draft\"\n        })\n        new_app.insert(ignore_permissions=True)\n\n        doc.new_application = new_app.name\n        doc.renewal_status = \"New Application Created\"\n\n        frappe.msgprint(\"Created scheme \" + new_scheme_name_final + \" and application \" + new_app.name + \".\")",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Renewal",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Application - Prevent Duplicate",
+    "script_type": "DocType Event",
+    "script": "existing = frappe.get_all(\n    \"Scholarship Application\",\n    filters={\n        \"student\": doc.student,\n        \"scheme\": doc.scheme,\n        \"status\": [\"!=\", \"Rejected\"],\n        \"name\": [\"!=\", doc.name]\n    },\n    fields=[\"name\", \"status\"],\n    limit=1\n)\n\nif existing:\n    frappe.throw(\n        \"Student already has an active application for this scheme: \"\n        + existing[0].name + \" (Status: \" + existing[0].status + \"). \"\n        \"A new application can only be created if the previous one was Rejected.\"\n    )",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Application",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Verification - Recalculate Summary",
+    "script_type": "DocType Event",
+    "script": "total = len(doc.document_items)\nverified = 0\nmissing = 0\nrejected = 0\n\nfor row in doc.document_items:\n    if row.verification_status == \"Verified\":\n        verified = verified + 1\n    elif row.verification_status == \"Missing\":\n        missing = missing + 1\n    elif row.verification_status == \"Rejected\":\n        rejected = rejected + 1\n\ndoc.total_documents = total\ndoc.verified_documents = verified\ndoc.missing_documents = missing\n\nif total == 0:\n    doc.verification_status = \"Pending\"\nelif rejected > 0:\n    doc.verification_status = \"Rejected\"\nelif verified == total:\n    doc.verification_status = \"Verified\"\nelif verified > 0:\n    doc.verification_status = \"Partially Verified\"\nelse:\n    doc.verification_status = \"Pending\"",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Verification",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Application - Auto Create Verification",
+    "script_type": "DocType Event",
+    "script": "old_doc = doc.get_doc_before_save()\n\nif old_doc and old_doc.status != \"Submitted\" and doc.status == \"Submitted\":\n    existing = frappe.db.exists(\"Scholarship Verification\", {\"application\": doc.name})\n\n    if existing:\n        frappe.msgprint(f\"Verification record already exists for this application: {existing}\")\n    elif not doc.documents:\n        frappe.msgprint(\"No documents attached - no verification record created. Add documents before submitting.\")\n    else:\n        academic_year = frappe.db.get_value(\"Scholarship Scheme\", doc.scheme, \"academic_year\")\n\n        items = []\n        for row in doc.documents:\n            items.append({\n                \"document_type\": row.document_type,\n                \"required\": 1,\n                \"submitted\": 1,\n                \"verified\": 0,\n                \"verification_status\": \"Pending\"\n            })\n\n        ver = frappe.get_doc({\n            \"doctype\": \"Scholarship Verification\",\n            \"application\": doc.name,\n            \"academic_year\": academic_year,\n            \"document_items\": items\n        })\n        ver.insert(ignore_permissions=True)\n        frappe.msgprint(f\"Created verification record {ver.name} with {len(doc.documents)} document(s).\")",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Application",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Payment - Fee Adjustment on Sales Invoice",
+    "script_type": "DocType Event",
+    "script": "old_doc = doc.get_doc_before_save()\njust_completed = (not old_doc or old_doc.status != \"Completed\") and doc.status == \"Completed\"\n\nif just_completed and doc.paid_to == \"College (Fee Adjustment)\":\n    if not doc.sales_invoice:\n        frappe.throw(\"Sales Invoice is required when Paid To is College (Fee Adjustment).\")\n\n    already_exists = frappe.db.exists(\"Payment Entry\", {\"reference_no\": doc.name, \"docstatus\": 1})\n    if already_exists:\n        frappe.msgprint(\"Payment Entry already exists for this scholarship payment: \" + already_exists)\n    else:\n        si = frappe.get_doc(\"Sales Invoice\", doc.sales_invoice)\n        outstanding = si.outstanding_amount\n\n        if doc.amount <= outstanding:\n            get_payment_entry = frappe.get_attr(\n                \"erpnext.accounts.doctype.payment_entry.payment_entry.get_payment_entry\"\n            )\n            pe = get_payment_entry(\"Sales Invoice\", doc.sales_invoice)\n            pe.mode_of_payment = \"Scholarship\"\n            pe.posting_date = doc.payment_date\n            pe.reference_no = doc.name\n            pe.reference_date = doc.payment_date\n            pe.paid_amount = doc.amount\n            pe.received_amount = doc.amount\n\n            for ref in pe.references:\n                if ref.reference_name == doc.sales_invoice:\n                    ref.allocated_amount = doc.amount\n\n            pe.insert(ignore_permissions=True)\n            pe.submit()\n            frappe.msgprint(\"Payment Entry \" + pe.name + \" created and submitted against \" + doc.sales_invoice + \".\")\n\n        else:\n            if not doc.excess_handling:\n                frappe.throw(\n                    \"Scholarship amount (\" + str(doc.amount) + \") exceeds the invoice outstanding (\"\n                    + str(outstanding) + \"). This student appears to have already paid. \"\n                    \"Please set Excess Handling to Refund to Student or Credit Next Semester before saving.\"\n                )\n\n            pe = frappe.new_doc(\"Payment Entry\")\n            pe.posting_date = doc.payment_date\n            pe.party_type = \"Customer\"\n            pe.party = si.customer\n            pe.mode_of_payment = \"Scholarship\"\n            pe.reference_no = doc.name\n            pe.reference_date = doc.payment_date\n            pe.paid_amount = doc.amount\n            pe.received_amount = doc.amount\n\n            if doc.excess_handling == \"Credit Next Semester\":\n                pe.payment_type = \"Receive\"\n                pe.paid_to = frappe.db.get_value(\"Company\", si.company, \"default_bank_account\") or frappe.db.get_value(\"Account\", {\"account_type\": \"Bank\", \"company\": si.company}, \"name\")\n                pe.paid_from = frappe.db.get_value(\"Company\", si.company, \"default_receivable_account\")\n                pe.insert(ignore_permissions=True)\n                pe.submit()\n                frappe.msgprint(\n                    \"Payment Entry \" + pe.name + \" created as an unallocated advance of \" + str(doc.amount)\n                    + \" for \" + si.customer + \". It will be available to adjust against the next Sales Invoice.\"\n                )\n            else:\n                pe.payment_type = \"Pay\"\n                pe.paid_from = frappe.db.get_value(\"Company\", si.company, \"default_bank_account\") or frappe.db.get_value(\"Account\", {\"account_type\": \"Bank\", \"company\": si.company}, \"name\")\n                pe.paid_to = frappe.db.get_value(\"Company\", si.company, \"default_receivable_account\")\n                pe.insert(ignore_permissions=True)\n                pe.submit()\n                frappe.msgprint(\n                    \"Payment Entry \" + pe.name + \" created recording a refund of \" + str(doc.amount)\n                    + \" owed to \" + si.customer + \". Process the actual bank refund outside the system.\"\n                )",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Payment",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Scholarship Sanction - Require Approved Application",
+    "script_type": "DocType Event",
+    "script": "application = frappe.get_doc(\"Scholarship Application\", doc.application)\n\nhas_approval = any(row.status == \"Approved\" for row in application.approvals)\n\nif not has_approval:\n    frappe.throw(\n        f\"Cannot create Sanction: Application {application.name} has no 'Approved' entry \"\n        f\"in its Approvals log. Please record committee approval on the Application first.\"\n    )",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Scholarship Sanction",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "generate_alumni_run",
+    "script_type": "API",
+    "script": "doc_name = frappe.form_dict.get(\"generate_alumni\")\ngen_doc = frappe.get_doc(\"Generate Alumni\", doc_name)\n\ncreated_count = 0\nfor row in gen_doc.graduated_enrollments:\n    if row.include and not row.alumni_created:\n        if not frappe.db.exists(\"Alumni\", {\"admission_student\": row.enrollment}):\n            alumni = frappe.new_doc(\"Alumni\")\n            alumni.admission_student = row.enrollment\n            alumni.graduation_date = frappe.utils.nowdate()\n            alumni.created_from_graduation = 1\n            alumni.insert(ignore_permissions=True)\n\n            enrollment_doc = frappe.get_doc(\"Admission Program Enrollment\", row.enrollment)\n            if enrollment_doc.student:\n                frappe.db.set_value(\"Admission Student\", enrollment_doc.student, \"status\", \"Alumni\")\n\n            row.alumni_created = 1\n            created_count += 1\n\ngen_doc.status = \"Generated\"\ngen_doc.save(ignore_permissions=True)\nfrappe.db.commit()\n\nfrappe.response[\"message\"] = {\"created\": created_count}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "generate_alumni_run",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "generate_alumni_fetch",
+    "script_type": "API",
+    "script": "doc_name = frappe.form_dict.get(\"generate_alumni\")\ngen_doc = frappe.get_doc(\"Generate Alumni\", doc_name)\n\nconditions = [\"e.status = 'Completed'\"]\nvalues = {}\n\nif gen_doc.filter_program:\n    conditions.append(\"e.program = %(program)s\")\n    values[\"program\"] = gen_doc.filter_program\n\nif gen_doc.filter_academic_year:\n    conditions.append(\"e.academic_year = %(academic_year)s\")\n    values[\"academic_year\"] = gen_doc.filter_academic_year\n\nif gen_doc.filter_batch:\n    conditions.append(\"s.batch = %(batch)s\")\n    values[\"batch\"] = gen_doc.filter_batch\n\nwhere_clause = \" AND \".join(conditions)\n\nquery = \"SELECT e.name as enrollment, e.student as student, s.student_name as student_name, s.registration_number as registration_number, e.program as program FROM `tabAdmission Program Enrollment` e INNER JOIN `tabAdmission Student` s ON s.name = e.student WHERE \" + where_clause + \" AND NOT EXISTS (SELECT 1 FROM `tabAlumni` a WHERE a.admission_student = e.name)\"\n\nresults = frappe.db.sql(query, values, as_dict=True)\nfrappe.response[\"message\"] = results",
+    "module": "",
+    "disabled": 0,
+    "api_method": "generate_alumni_fetch",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Generate Alumni on Graduation",
+    "script_type": "DocType Event",
+    "script": "if doc.status == \"Completed\":\n    if not frappe.db.exists(\"Alumni\", {\"admission_student\": doc.name}):\n        alumni = frappe.new_doc(\"Alumni\")\n        alumni.admission_student = doc.name\n        alumni.graduation_date = frappe.utils.nowdate()\n        alumni.created_from_graduation = 1\n        alumni.insert(ignore_permissions=True)\n\n        if doc.student:\n            frappe.db.set_value(\"Admission Student\", doc.student, \"status\", \"Alumni\")\n\n        frappe.msgprint(\"Alumni record created: \" + alumni.name)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Admission Program Enrollment",
+    "doctype_event": "After Save (Submitted Document)"
+  }
+]
