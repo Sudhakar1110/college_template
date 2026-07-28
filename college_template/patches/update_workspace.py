@@ -78,6 +78,9 @@ def execute():
                 "link_to": dt,
             })
 
+    # Bypass link validation — custom college_template doctypes (Admission Student, etc.)
+    # may not exist yet when patches run (modules.txt changes need full re-install).
+    # Once doctypes are created on a future migration, links will resolve correctly.
     ws.flags.ignore_links = True
     frappe.flags.ignore_links = True
     ws.save(ignore_permissions=True)
