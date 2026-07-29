@@ -350,7 +350,7 @@
       }
     ],
     "channel": "System Notification",
-    "enabled": 1,
+    "enabled": 0,
     "is_standard": 0,
     "module": "Library",
     "value_changed": "",
