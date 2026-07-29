@@ -248,7 +248,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Revaluation Application', {\n  refresh: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  items_add: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  items_remove: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  calculate_total_fee: function(frm) {\n    let total = 0;\n    (frm.doc.items || []).forEach(function(row) {\n      total += row.fee_amount || 0;\n    });\n    frm.set_value('total_fee', total);\n  }\n});"
+    "script": "frappe.ui.form.on('Revaluation Application', {\n  refresh: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  items_add: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  items_remove: function(frm) {\n    frm.trigger('calculate_total_fee');\n  },\n  calculate_total_fee: function(frm) {\n    let total = 0;\n    (frm.doc.items || []).forEach(function(row) {\n      total += row.fee_amount || 0;\n    });\n    frm.set_value('total_fee', total);\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Feedback Survey - Dynamic Questions",
@@ -256,7 +257,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Feedback Survey', {\n  refresh: function(frm) {\n    frm.set_df_property('questions', 'cannot_add_rows', frm.doc.status === 'Open');\n  },\n  status: function(frm) {\n    if (frm.doc.status === 'Open') {\n      frm.set_df_property('questions', 'cannot_add_rows', 1);\n      frm.set_df_property('questions', 'cannot_delete_rows', 1);\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Feedback Survey', {\n  refresh: function(frm) {\n    frm.set_df_property('questions', 'cannot_add_rows', frm.doc.status === 'Open');\n  },\n  status: function(frm) {\n    if (frm.doc.status === 'Open') {\n      frm.set_df_property('questions', 'cannot_add_rows', 1);\n      frm.set_df_property('questions', 'cannot_delete_rows', 1);\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Assignment - Date Validation",
@@ -264,7 +266,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Assignment', {\n  validate: function(frm) {\n    if (frm.doc.due_date && frm.doc.creation) {\n      let created = frappe.datetime.str_to_obj(frm.doc.creation);\n      let due = frappe.datetime.str_to_obj(frm.doc.due_date);\n      if (due < created) {\n        frappe.throw(__('Due date cannot be earlier than the creation date'));\n      }\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Assignment', {\n  validate: function(frm) {\n    if (frm.doc.due_date && frm.doc.creation) {\n      let created = frappe.datetime.str_to_obj(frm.doc.creation);\n      let due = frappe.datetime.str_to_obj(frm.doc.due_date);\n      if (due < created) {\n        frappe.throw(__('Due date cannot be earlier than the creation date'));\n      }\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Library Member - Validate",
@@ -272,7 +275,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Library Member', {\n  validate: function(frm) {\n    if (frm.doc.phone && !/^[0-9]{10}$/.test(frm.doc.phone)) {\n      frappe.throw(__('Phone number must be 10 digits'));\n    }\n    if (frm.doc.email && !/@/.test(frm.doc.email)) {\n      frappe.throw(__('Please enter a valid email address'));\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Library Member', {\n  validate: function(frm) {\n    if (frm.doc.phone && !/^[0-9]{10}$/.test(frm.doc.phone)) {\n      frappe.throw(__('Phone number must be 10 digits'));\n    }\n    if (frm.doc.email && !/@/.test(frm.doc.email)) {\n      frappe.throw(__('Please enter a valid email address'));\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Hostel Room - Occupancy Check",
@@ -280,7 +284,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Hostel Room', {\n  validate: function(frm) {\n    if (frm.doc.current_occupancy > frm.doc.capacity) {\n      frappe.throw(__('Current occupancy (' + frm.doc.current_occupancy + ') cannot exceed capacity (' + frm.doc.capacity + ')'));\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Hostel Room', {\n  validate: function(frm) {\n    if (frm.doc.current_occupancy > frm.doc.capacity) {\n      frappe.throw(__('Current occupancy (' + frm.doc.current_occupancy + ') cannot exceed capacity (' + frm.doc.capacity + ')'));\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Transport Allocation - Validate",
@@ -288,7 +293,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Transport Allocation', {\n  validate: function(frm) {\n    if (frm.doc.to_date && frm.doc.from_date && frm.doc.to_date < frm.doc.from_date) {\n      frappe.throw(__('To Date cannot be before From Date'));\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Transport Allocation', {\n  validate: function(frm) {\n    if (frm.doc.to_date && frm.doc.from_date && frm.doc.to_date < frm.doc.from_date) {\n      frappe.throw(__('To Date cannot be before From Date'));\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Grievance - Urgency Check",
@@ -296,7 +302,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Grievance', {\n  refresh: function(frm) {\n    if (frm.doc.urgency === 'Critical' && frm.doc.status !== 'Resolved') {\n      frm.set_intro(__('This is a CRITICAL grievance requiring immediate attention!'), 'red');\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Grievance', {\n  refresh: function(frm) {\n    if (frm.doc.urgency === 'Critical' && frm.doc.status !== 'Resolved') {\n      frm.set_intro(__('This is a CRITICAL grievance requiring immediate attention!'), 'red');\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Student Certificate - Auto Populate",
@@ -304,7 +311,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Student Certificate Request', {\n  student: function(frm) {\n    if (frm.doc.student) {\n      frappe.call({\n        method: 'frappe.client.get',\n        args: { doctype: 'Admission Student', name: frm.doc.student },\n        callback: function(r) {\n          if (r.message) {\n            frm.set_value('student_name', r.message.student_name);\n          }\n        }\n      });\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Student Certificate Request', {\n  student: function(frm) {\n    if (frm.doc.student) {\n      frappe.call({\n        method: 'frappe.client.get',\n        args: { doctype: 'Admission Student', name: frm.doc.student },\n        callback: function(r) {\n          if (r.message) {\n            frm.set_value('student_name', r.message.student_name);\n          }\n        }\n      });\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "Convocation - Attendance",
@@ -312,7 +320,8 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('Convocation Registration', {\n  refresh: function(frm) {\n    if (frm.doc.docstatus === 1 && !frm.doc.attended) {\n      frm.add_custom_button(__('Mark Attended'), function() {\n        frm.set_value('attended', 1);\n        frm.save();\n      });\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('Convocation Registration', {\n  refresh: function(frm) {\n    if (frm.doc.docstatus === 1 && !frm.doc.attended) {\n      frm.add_custom_button(__('Mark Attended'), function() {\n        frm.set_value('attended', 1);\n        frm.save();\n      });\n    }\n  }\n});",
+    "doctype": "Client Script"
   },
   {
     "name": "OMR Answer Key - Validate Format",
@@ -320,6 +329,7 @@
     "script_type": "Form",
     "enabled": 1,
     "docstatus": 0,
-    "script": "frappe.ui.form.on('OMR Answer Key', {\n  validate: function(frm) {\n    if (frm.doc.correct_answers) {\n      let parts = frm.doc.correct_answers.split(',');\n      if (parts.length !== frm.doc.total_questions) {\n        frappe.msgprint(__('Warning: Number of answers (' + parts.length + ') does not match total questions (' + frm.doc.total_questions + ')'));\n      }\n    }\n  }\n});"
+    "script": "frappe.ui.form.on('OMR Answer Key', {\n  validate: function(frm) {\n    if (frm.doc.correct_answers) {\n      let parts = frm.doc.correct_answers.split(',');\n      if (parts.length !== frm.doc.total_questions) {\n        frappe.msgprint(__('Warning: Number of answers (' + parts.length + ') does not match total questions (' + frm.doc.total_questions + ')'));\n      }\n    }\n  }\n});",
+    "doctype": "Client Script"
   }
 ]

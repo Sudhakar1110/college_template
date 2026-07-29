@@ -700,7 +700,8 @@
     "label": "Pending Revaluations",
     "document_type": "Revaluation Application",
     "function": "Count",
-    "filters_json": "[[\"Revaluation Application\",\"status\",\"=\",\"Pending\"]]"
+    "filters_json": "[[\"Revaluation Application\",\"status\",\"=\",\"Pending\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -715,7 +716,8 @@
     "label": "Total Revaluation Fee",
     "document_type": "Revaluation Application",
     "function": "Sum",
-    "filters_json": "[[\"Revaluation Application\",\"docstatus\",\"=\",1]]"
+    "filters_json": "[[\"Revaluation Application\",\"docstatus\",\"=\",1]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -730,7 +732,8 @@
     "label": "Open Surveys",
     "document_type": "Feedback Survey",
     "function": "Count",
-    "filters_json": "[[\"Feedback Survey\",\"status\",\"=\",\"Open\"]]"
+    "filters_json": "[[\"Feedback Survey\",\"status\",\"=\",\"Open\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -745,7 +748,8 @@
     "label": "Survey Responses",
     "document_type": "Feedback Survey Response",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -760,7 +764,8 @@
     "label": "Question Banks",
     "document_type": "Question Bank",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -775,7 +780,8 @@
     "label": "Active Assignments",
     "document_type": "Assignment",
     "function": "Count",
-    "filters_json": "[[\"Assignment\",\"due_date\",\">=\",\"Today\"]]"
+    "filters_json": "[[\"Assignment\",\"due_date\",\">=\",\"Today\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -790,7 +796,8 @@
     "label": "Overdue Assignments",
     "document_type": "Assignment",
     "function": "Count",
-    "filters_json": "[[\"Assignment\",\"due_date\",\"<\",\"Today\"]]"
+    "filters_json": "[[\"Assignment\",\"due_date\",\"<\",\"Today\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -805,7 +812,8 @@
     "label": "Assignment Submissions",
     "document_type": "Assignment Submission",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -820,7 +828,8 @@
     "label": "Library Books",
     "document_type": "Library Book",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -835,7 +844,8 @@
     "label": "Available Copies",
     "document_type": "Library Book",
     "function": "Sum",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -850,7 +860,8 @@
     "label": "Library Members",
     "document_type": "Library Member",
     "function": "Count",
-    "filters_json": "[[\"Library Member\",\"status\",\"=\",\"Active\"]]"
+    "filters_json": "[[\"Library Member\",\"status\",\"=\",\"Active\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -865,7 +876,8 @@
     "label": "Hostels",
     "document_type": "Hostel",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -880,7 +892,8 @@
     "label": "Hostel Rooms",
     "document_type": "Hostel Room",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -895,7 +908,8 @@
     "label": "Active Allocations",
     "document_type": "Hostel Allocation",
     "function": "Count",
-    "filters_json": "[[\"Hostel Allocation\",\"status\",\"=\",\"Active\"]]"
+    "filters_json": "[[\"Hostel Allocation\",\"status\",\"=\",\"Active\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -910,7 +924,8 @@
     "label": "Active Routes",
     "document_type": "Transport Route",
     "function": "Count",
-    "filters_json": "[[\"Transport Route\",\"status\",\"=\",\"Active\"]]"
+    "filters_json": "[[\"Transport Route\",\"status\",\"=\",\"Active\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -925,7 +940,8 @@
     "label": "Transport Allocations",
     "document_type": "Transport Allocation",
     "function": "Count",
-    "filters_json": "[[\"Transport Allocation\",\"status\",\"=\",\"Active\"]]"
+    "filters_json": "[[\"Transport Allocation\",\"status\",\"=\",\"Active\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -940,7 +956,8 @@
     "label": "OMR Answer Keys",
     "document_type": "OMR Answer Key",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -955,7 +972,8 @@
     "label": "OMR Sheets Graded",
     "document_type": "OMR Answer Sheet",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -970,7 +988,8 @@
     "label": "Upcoming Convocations",
     "document_type": "Convocation",
     "function": "Count",
-    "filters_json": "[[\"Convocation\",\"convocation_date\",\">=\",\"Today\"]]"
+    "filters_json": "[[\"Convocation\",\"convocation_date\",\">=\",\"Today\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -985,7 +1004,8 @@
     "label": "Convocation Registrations",
     "document_type": "Convocation Registration",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -1000,7 +1020,8 @@
     "label": "Accreditation Reports",
     "document_type": "Accreditation Report",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -1015,7 +1036,8 @@
     "label": "Open Grievances",
     "document_type": "Grievance",
     "function": "Count",
-    "filters_json": "[[\"Grievance\",\"status\",\"=\",\"Open\"]]"
+    "filters_json": "[[\"Grievance\",\"status\",\"=\",\"Open\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -1030,7 +1052,8 @@
     "label": "Critical Grievances",
     "document_type": "Grievance",
     "function": "Count",
-    "filters_json": "[[\"Grievance\",\"urgency\",\"=\",\"Critical\"],[\"Grievance\",\"status\",\"!=\",\"Resolved\"]]"
+    "filters_json": "[[\"Grievance\",\"urgency\",\"=\",\"Critical\"],[\"Grievance\",\"status\",\"!=\",\"Resolved\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -1045,7 +1068,8 @@
     "label": "Pending Certificates",
     "document_type": "Student Certificate Request",
     "function": "Count",
-    "filters_json": "[[\"Student Certificate Request\",\"status\",\"=\",\"Pending\"]]"
+    "filters_json": "[[\"Student Certificate Request\",\"status\",\"=\",\"Pending\"]]",
+    "doctype": "Number Card"
   },
   {
     "type": "Document Type",
@@ -1060,6 +1084,7 @@
     "label": "Auto Graded Results",
     "document_type": "Auto Grade Result",
     "function": "Count",
-    "filters_json": "[]"
+    "filters_json": "[]",
+    "doctype": "Number Card"
   }
 ]

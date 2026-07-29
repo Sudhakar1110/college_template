@@ -308,7 +308,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Assignment Due Reminder",
@@ -334,7 +335,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Library Book Overdue",
@@ -361,7 +363,8 @@
     "set_property_after_alert": "",
     "value_to_be_set": "",
     "send_to_all_assignees": 0,
-    "days_before": 0
+    "days_before": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Grievance Status Update",
@@ -387,7 +390,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Certificate Ready for Download",
@@ -413,7 +417,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Hostel Allocation Confirmed",
@@ -439,7 +444,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Feedback Survey Published",
@@ -465,7 +471,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Convocation Registration Confirmed",
@@ -491,7 +498,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "OMR Grading Complete",
@@ -517,7 +525,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Transport Allocation Confirmed",
@@ -543,7 +552,8 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   },
   {
     "name": "Accreditation Report Published",
@@ -569,6 +579,7 @@
     "sender_email": "",
     "set_property_after_alert": "",
     "value_to_be_set": "",
-    "send_to_all_assignees": 0
+    "send_to_all_assignees": 0,
+    "doctype": "Notification"
   }
 ]
