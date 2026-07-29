@@ -13,6 +13,8 @@ app_dependencies = ["education", "lms"]
 
 # Fixtures - non-doctype records only
 # DocTypes are auto-discovered from the doctype/ folder structure
+# Fixtures - non-doctype records only
+# DocTypes are auto-discovered from the doctype/ folder structure
 fixtures = [
     "Client Script",
     "Server Script",
@@ -23,6 +25,12 @@ fixtures = [
     "Workspace",
 ]
 
+# before_migrate hook - runs before DocType sync to fix Module Def
+# Ensures the 'Education' module points to college_template (not core education app)
+# This prevents orphan DocType deletion during migration
+before_migrate = ["college_template.setup.before_migrate.fix_education_module_def"]
+
+# DocType JS
 # DocType JS
 doctype_js = {}
 
