@@ -392,7 +392,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_type as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", COALESCE(fs.total_responses, 0) as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / CASE WHEN fs.total_responses = 0 THEN NULL ELSE fs.total_responses END, 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
+    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_type as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", COALESCE(fs.total_responses, 0) as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / CASE WHEN fs.total_responses = 0 THEN NULL ELSE fs.total_responses END, 1) as \"Completion %%:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -527,7 +527,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Hostel",
-    "query": "SELECT h.name as \"Hostel:Link/Hostel:120\", h.hostel_name as \"Name:Data:150\", h.total_capacity as \"Capacity:Int:80\", h.current_occupancy as \"Occupied:Int:80\", (h.total_capacity - h.current_occupancy) as \"Available:Int:80\", ROUND(h.current_occupancy * 100.0 / CASE WHEN h.total_capacity = 0 THEN NULL ELSE h.total_capacity END, 1) as \"Occupancy %:Percent:80\", h.hostel_type as \"Type:Data:100\" FROM `tabHostel` h ORDER BY `Occupancy %` DESC",
+    "query": "SELECT h.name as \"Hostel:Link/Hostel:120\", h.hostel_name as \"Name:Data:150\", h.total_capacity as \"Capacity:Int:80\", h.current_occupancy as \"Occupied:Int:80\", (h.total_capacity - h.current_occupancy) as \"Available:Int:80\", ROUND(h.current_occupancy * 100.0 / CASE WHEN h.total_capacity = 0 THEN NULL ELSE h.total_capacity END, 1) as \"Occupancy %%:Percent:80\", h.hostel_type as \"Type:Data:100\" FROM `tabHostel` h ORDER BY `Occupancy %%` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -602,7 +602,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT agr.name as \"Result:Link/Auto Grade Result:120\", agr.quiz as \"Quiz:Link/LMS Quiz:150\", agr.student as \"Student:Link/User:120\", agr.score as \"Score %:Percent:80\", agr.correct_answers as \"Correct:Int:60\", agr.wrong_answers as \"Wrong:Int:60\", agr.total_questions as \"Total:Int:60\", agr.grading_method as \"Method:Data:100\", agr.creation as \"Graded On:Datetime:140\" FROM `tabAuto Grade Result` agr ORDER BY agr.creation DESC",
+    "query": "SELECT agr.name as \"Result:Link/Auto Grade Result:120\", agr.quiz as \"Quiz:Link/LMS Quiz:150\", agr.student as \"Student:Link/User:120\", agr.score as \"Score %%:Percent:80\", agr.correct_answers as \"Correct:Int:60\", agr.wrong_answers as \"Wrong:Int:60\", agr.total_questions as \"Total:Int:60\", agr.grading_method as \"Method:Data:100\", agr.creation as \"Graded On:Datetime:140\" FROM `tabAuto Grade Result` agr ORDER BY agr.creation DESC",
     "roles": [
       {
         "role": "System Manager"
