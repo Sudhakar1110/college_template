@@ -179,7 +179,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", ac.academic_year as \"Academic Year:Link/Academic Year:100\", ac.status as \"Status:Data:100\", COUNT(ace.name) as \"Total Events:Int:100\", SUM(CASE WHEN ace.status = 'Pending' THEN 1 ELSE 0 END) as \"Pending:Int:80\", SUM(CASE WHEN ace.status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:90\" FROM `tabAcademic Calendar` ac LEFT JOIN `tabAcademic Calendar Event` ace ON ace.parent = ac.name GROUP BY ac.name ORDER BY ac.creation DESC",
+    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", ac.academic_year as \"Academic Year:Link/Academic Year:100\", COUNT(ace.name) as \"Total Events:Int:100\" FROM `tabAcademic Calendar` ac LEFT JOIN `tabAcademic Calendar Event` ace ON ace.parent = ac.name GROUP BY ac.name ORDER BY ac.creation DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -196,7 +196,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(CURDATE(), ace.start_date) as \"Days Overdue:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') AND ace.status = 'Pending' AND ace.start_date < CURDATE() ORDER BY ace.start_date ASC",
+    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(CURDATE(), ace.start_date) as \"Days Overdue:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ace.start_date < CURDATE() ORDER BY ace.start_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -213,7 +213,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(ace.start_date, CURDATE()) as \"Days Away:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') AND ace.status = 'Pending' AND ace.start_date > CURDATE() ORDER BY ace.start_date ASC",
+    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(ace.start_date, CURDATE()) as \"Days Away:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ace.start_date > CURDATE() ORDER BY ace.start_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -230,7 +230,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ace.parent as \"Calendar:Link/Academic Calendar:150\", ace.activity as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", ace.end_date as \"End Date:Date:100\", ace.status as \"Status:Data:100\", CASE WHEN ace.status = 'Pending' AND ace.start_date < CURDATE() THEN 'Overdue' WHEN ace.status = 'Pending' AND ace.start_date = CURDATE() THEN 'Today' WHEN ace.status = 'Pending' AND ace.start_date > CURDATE() THEN 'Upcoming' ELSE ace.status END as \"Timeline:Data:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ac.status IN ('Approved', 'Active') ORDER BY ace.start_date ASC",
+    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", ace.end_date as \"End Date:Date:100\", CASE WHEN ace.start_date < CURDATE() THEN 'Overdue' WHEN ace.start_date = CURDATE() THEN 'Today' WHEN ace.start_date > CURDATE() THEN 'Upcoming' ELSE 'Scheduled' END as \"Timeline:Data:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent ORDER BY ace.start_date ASC",
     "roles": [
       {
         "role": "System Manager"
