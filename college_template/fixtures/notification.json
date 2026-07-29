@@ -341,7 +341,7 @@
   {
     "name": "Library Book Overdue",
     "document_type": "Library Transaction",
-    "event": "Days Before",
+    "event": "Save",
     "subject": "Library Book Overdue - {{ doc.member_name }}",
     "message": "<div><h3>Library Book Overdue Notice</h3><p>Member: {{ doc.member_name }}</p><p>Please return the borrowed books at the earliest.</p></div>",
     "condition": "",
