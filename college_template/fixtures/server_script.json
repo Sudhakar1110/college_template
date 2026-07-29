@@ -337,7 +337,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_data",
-    "allow_guest": 0
+    "allow_guest": 1
   },
   {
     "doctype": "Server Script",
@@ -347,7 +347,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_fees",
-    "allow_guest": 0
+    "allow_guest": 1
   },
   {
     "doctype": "Server Script",
@@ -357,7 +357,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_attendance",
-    "allow_guest": 0
+    "allow_guest": 1
   },
   {
     "doctype": "Server Script",
@@ -367,7 +367,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_results",
-    "allow_guest": 0
+    "allow_guest": 1
   },
   {
     "doctype": "Server Script",
@@ -377,7 +377,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_submit_grievance",
-    "allow_guest": 0
+    "allow_guest": 1
   },
   {
     "doctype": "Server Script",
@@ -393,10 +393,20 @@
     "doctype": "Server Script",
     "name": "omr_grade_sheet",
     "script_type": "API",
-    "script": "# API endpoint to grade an OMR answer sheet\nimport json\nanswer_key_name = frappe.form_dict.get(\"answer_key\")\nstudent_answers = frappe.form_dict.get(\"answers\")  # Comma-separated: 1=A,2=B,3=C\n\nif not answer_key_name or not student_answers:\n    # Save graded sheet to OMR Answer Sheet for persistence\n    sheet = frappe.get_doc({\n        \"doctype\": \"OMR Answer Sheet\",\n        \"answer_key\": answer_key_name,\n        \"student_answers\": student_answers,\n        \"total_questions\": total,\n        \"correct_count\": correct_count,\n        \"wrong_count\": wrong_count,\n        \"score\": score,\n        \"passed\": 1 if score >= (key.passing_score or 0) else 0,\n        \"graded_on\": frappe.utils.now_datetime()\n    })\n    sheet.insert(ignore_permissions=True)\n    frappe.db.commit()\n\n    frappe.response[\"message\"] = {\"error\": \"Answer Key and Student Answers required\"}\nelse:\n    key = frappe.get_doc(\"OMR Answer Key\", answer_key_name)\n    correct_list = key.correct_answers.split(\",\")\n    student_list = student_answers.split(\",\")\n    \n    correct_count = 0\n    wrong_count = 0\n    total = min(len(correct_list), len(student_list))\n    \n    for i in range(total):\n        c = correct_list[i].strip().split(\"=\") if \"=\" in correct_list[i] else [\"\", correct_list[i].strip()]\n        s = student_list[i].strip().split(\"=\") if \"=\" in student_list[i] else [\"\", student_list[i].strip()]\n        if len(c) > 1 and len(s) > 1:\n            if c[1].strip().upper() == s[1].strip().upper():\n                correct_count = correct_count + 1\n            else:\n                wrong_count = wrong_count + 1\n    \n    score = (correct_count * key.mark_per_correct) - (wrong_count * key.negative_mark)\n    score = max(0, score)\n    \n    frappe.response[\"message\"] = {\n        \"status\": \"success\",\n        \"total_questions\": total,\n        \"correct\": correct_count,\n        \"wrong\": wrong_count,\n        \"score\": score,\n        \"passing\": score >= (key.passing_score or 0),\n        \"sheet_id\": sheet.name\n    }",
+    "script": "# API endpoint to grade an OMR answer sheet and persist the result\n# Called via: /api/method/omr_grade_sheet?answer_key=OMR-KEY-001&answers=1=A,2=B,3=C&student_name=John%20Doe\nimport json\nanswer_key_name = frappe.form_dict.get(\"answer_key\")\nstudent_answers = frappe.form_dict.get(\"answers\")\nstudent_name = frappe.form_dict.get(\"student_name\", \"\")\n\nif not answer_key_name or not student_answers:\n    frappe.response[\"message\"] = {\"error\": \"Answer Key and Student Answers required\"}\nelse:\n    key = frappe.get_doc(\"OMR Answer Key\", answer_key_name)\n    correct_list = key.correct_answers.split(\",\")\n    student_list = student_answers.split(\",\")\n    \n    correct_count = 0\n    wrong_count = 0\n    total = min(len(correct_list), len(student_list))\n    \n    for i in range(total):\n        c_part = correct_list[i].strip()\n        s_part = student_list[i].strip()\n        c = c_part.split(\"=\")[1].strip() if \"=\" in c_part else c_part.strip()\n        s = s_part.split(\"=\")[1].strip() if \"=\" in s_part else s_part.strip()\n        if c.upper() == s.upper():\n            correct_count += 1\n        else:\n            wrong_count += 1\n    \n    score = (correct_count * key.mark_per_correct) - (wrong_count * key.negative_mark)\n    score = max(0, score)\n    has_passed = 1 if score >= (key.passing_score or 0) else 0\n    \n    # Persist to OMR Answer Sheet\n    sheet = frappe.get_doc({\n        \"doctype\": \"OMR Answer Sheet\",\n        \"answer_key\": answer_key_name,\n        \"student_answers\": student_answers,\n        \"student_name\": student_name,\n        \"total_questions\": total,\n        \"correct_count\": correct_count,\n        \"wrong_count\": wrong_count,\n        \"score\": score,\n        \"passed\": has_passed,\n        \"graded_on\": frappe.utils.now_datetime()\n    })\n    sheet.insert(ignore_permissions=True)\n    frappe.db.commit()\n    \n    frappe.response[\"message\"] = {\n        \"status\": \"success\",\n        \"total_questions\": total,\n        \"correct\": correct_count,\n        \"wrong\": wrong_count,\n        \"score\": score,\n        \"passing\": bool(has_passed),\n        \"sheet_id\": sheet.name\n    }",
     "module": "",
     "disabled": 0,
     "api_method": "omr_grade_sheet",
     "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "send_whatsapp_notification",
+    "script_type": "API",
+    "script": "# API endpoint to send WhatsApp/SMS notification via MessageBird (Bird.com)\n# Called via: /api/method/send_whatsapp_notification\n# Requires MESSAGEBIRD_API_KEY to be set in site config\n# Environment: bench --site college.bizaxl.local set-config MESSAGEBIRD_API_KEY \"your_key\"\n\nimport json\n\nrecipient = frappe.form_dict.get(\"recipient\")  # Phone number with country code\nmessage = frappe.form_dict.get(\"message\")\nchannel = frappe.form_dict.get(\"channel\", \"sms\")  # sms or whatsapp\n\nif not recipient or not message:\n    frappe.response[\"message\"] = {\"error\": \"recipient and message are required\"}\nelse:\n    try:\n        import messagebird\n        api_key = frappe.conf.get(\"messagebird_api_key\") or frappe.conf.get(\"MESSAGEBIRD_API_KEY\")\n        if not api_key:\n            frappe.response[\"message\"] = {\"error\": \"MESSAGEBIRD_API_KEY not configured in site config\"}\n        else:\n            client = messagebird.Client(api_key)\n            if channel == \"whatsapp\":\n                msg = client.message_create(\n                    \"CollegeERP\",\n                    recipient,\n                    message,\n                    {\"reference\": \"CollegeERP_Notification\"}\n                )\n            else:\n                msg = client.message_create(\n                    \"CollegeERP\",\n                    recipient,\n                    message\n                )\n            frappe.response[\"message\"] = {\n                \"status\": \"sent\",\n                \"message_id\": getattr(msg, \"id\", \"unknown\"),\n                \"recipient\": recipient,\n                \"channel\": channel\n            }\n    except ImportError:\n        frappe.response[\"message\"] = {\"error\": \"messagebird package not installed. Run: pip install messagebird\"}\n    except Exception as e:\n        frappe.response[\"message\"] = {\"error\": str(e)[:300]}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "send_whatsapp_notification",
+    "allow_guest": 1
   }
 ]
