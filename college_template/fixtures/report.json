@@ -247,7 +247,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT po.name as \"Offer:Link/Placement Offer:120\", pr.student_name as \"Student:Data:150\", po.company as \"Company:Link/Placement Company:150\", po.package as \"Package:Currency:100\", po.offer_date as \"Offer Date:Date:100\", po.status as \"Status:Data:100\" FROM `tabPlacement Offer` po LEFT JOIN `tabPlacement Registration` pr ON po.registration = pr.name WHERE po.status = 'Offer Made' ORDER BY po.offer_date ASC",
+    "query": "SELECT po.name as \"Offer:Link/Placement Offer:120\", ast.student_name as \"Student:Data:150\", po.company as \"Company:Link/Placement Company:150\", po.package_lpa as \"Package:Currency:100\", po.offer_date as \"Offer Date:Date:100\" FROM `tabPlacement Offer` po LEFT JOIN `tabPlacement Registration` pr ON po.registration = pr.name LEFT JOIN `tabAdmission Student` ast ON ast.name = pr.admission_student WHERE po.status = 'Offer Made' ORDER BY po.offer_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -264,7 +264,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", COUNT(pr.name) as \"Total Applications:Int:120\", SUM(CASE WHEN pr.eligible=1 THEN 1 ELSE 0 END) as \"Eligible:Int:80\", SUM(CASE WHEN pr.eligible=0 THEN 1 ELSE 0 END) as \"Not Eligible:Int:100\" FROM `tabPlacement Drive` pd LEFT JOIN `tabPlacement Registration` pr ON pr.drive = pd.name GROUP BY pd.name ORDER BY pd.drive_date DESC",
+    "query": "SELECT pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", COUNT(pr.name) as \"Total Applications:Int:120\", SUM(CASE WHEN pr.eligible=1 THEN 1 ELSE 0 END) as \"Eligible:Int:80\", SUM(CASE WHEN pr.eligible=0 THEN 1 ELSE 0 END) as \"Not Eligible:Int:100\" FROM `tabPlacement Drive` pd LEFT JOIN `tabPlacement Registration` pr ON pr.placement_drive = pd.name GROUP BY pd.name ORDER BY pd.drive_date DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -281,7 +281,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT pc.company_name as \"Company:Data:150\", COUNT(DISTINCT pd.name) as \"Drives Conducted:Int:100\", COUNT(DISTINCT po.name) as \"Offers Made:Int:100\", ROUND(AVG(po.package),2) as \"Average Package:Currency:120\", MAX(po.package) as \"Highest Package:Currency:120\" FROM `tabPlacement Company` pc LEFT JOIN `tabPlacement Drive` pd ON pd.company = pc.name LEFT JOIN `tabPlacement Offer` po ON po.company = pc.name GROUP BY pc.name ORDER BY `Offers Made` DESC",
+    "query": "SELECT pc.company_name as \"Company:Data:150\", COUNT(DISTINCT pd.name) as \"Drives Conducted:Int:100\", COUNT(DISTINCT po.name) as \"Offers Made:Int:100\", ROUND(AVG(po.package_lpa),2) as \"Average Package:Currency:120\", MAX(po.package_lpa) as \"Highest Package:Currency:120\" FROM `tabPlacement Company` pc LEFT JOIN `tabPlacement Drive` pd ON pd.company = pc.name LEFT JOIN `tabPlacement Offer` po ON po.company = pc.name GROUP BY pc.name ORDER BY `Offers Made` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -298,7 +298,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", po.package as \"Package (LPA):Currency:100\", po.role as \"Role:Data:150\", po.offer_date as \"Offer Date:Date:100\", po.status as \"Offer Status:Data:100\", po.joining_status as \"Joining Status:Data:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabPlacement Drive` pd ON pr.drive = pd.name LEFT JOIN `tabPlacement Offer` po ON po.registration = pr.name WHERE pr.application_status IN ('Selected','Offer Released') ORDER BY po.offer_date DESC",
+    "query": "SELECT ast.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", po.package_lpa as \"Package (LPA):Currency:100\", po.role as \"Role:Data:150\", po.offer_date as \"Offer Date:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabAdmission Student` ast ON ast.name = pr.admission_student LEFT JOIN `tabPlacement Drive` pd ON pr.placement_drive = pd.name LEFT JOIN `tabPlacement Offer` po ON po.registration = pr.name WHERE pr.eligible = 1 ORDER BY po.offer_date DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -315,7 +315,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT pr.name as \"Registration:Link/Placement Registration:150\", pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pr.study_year as \"Study Year:Data:80\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", pr.percentage as \"Percentage:Percent:100\", pr.current_backlogs as \"Backlogs:Int:80\", pr.eligible as \"Eligible:Check:80\", pr.application_status as \"Status:Data:120\", pr.applied_on as \"Applied On:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabPlacement Drive` pd ON pr.drive = pd.name ORDER BY pr.applied_on DESC",
+    "query": "SELECT pr.name as \"Registration:Link/Placement Registration:150\", pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", pr.percentage_cumulative_published as \"Percentage:Percent:100\", pr.current_backlogs as \"Backlogs:Int:80\", CASE WHEN pr.eligible = 1 THEN 'Eligible' ELSE 'Not Eligible' END as \"Status:Data:120\", pr.applied_on as \"Applied On:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabAdmission Student` ast ON ast.name = pr.admission_student LEFT JOIN `tabPlacement Drive` pd ON pr.placement_drive = pd.name ORDER BY pr.applied_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -347,7 +347,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", creation as \"Submitted On:Datetime:140\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE status = 'Pending' ORDER BY submission_date ASC",
+    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", creation as \"Submitted On:Datetime:140\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE ra.status = 'Pending' ORDER BY application_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -377,7 +377,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", sr.submitted as \"Submitted:Datetime:140\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted DESC",
+    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", sr.submitted_on as \"Submitted:Datetime:140\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -392,7 +392,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_category as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", fs.target_responses as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / CASE WHEN fs.target_responses = 0 THEN NULL ELSE fs.target_responses END, 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
+    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_type as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", COALESCE(fs.total_responses, 0) as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / CASE WHEN fs.total_responses = 0 THEN NULL ELSE fs.total_responses END, 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -452,7 +452,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT ass.name as \"Submission:Link/Assignment Submission:120\", ass.student_name as \"Student:Data:150\", a.title as \"Assignment:Data:200\", ass.submitted_date as \"Submitted:Date:100\", ass.status as \"Status:Data:100\", ass.score as \"Score:Int:60\", ass.max_score as \"Max Score:Int:60\" FROM `tabAssignment Submission` ass LEFT JOIN `tabAssignment` a ON ass.assignment = a.name ORDER BY ass.submitted_date DESC",
+    "query": "SELECT ass.name as \"Submission:Link/Assignment Submission:120\", ass.student_name as \"Student:Data:150\", a.title as \"Assignment:Data:200\", ass.submitted_on as \"Submitted:Date:100\", ass.status as \"Status:Data:100\", ass.marks_obtained as \"Score:Int:60\", a.max_marks as \"Max Marks:Int:60\" FROM `tabAssignment Submission` ass LEFT JOIN `tabAssignment` a ON ass.assignment = a.name ORDER BY ass.submitted_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -572,7 +572,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "College Events",
-    "query": "SELECT c.name as \"Convocation:Link/Convocation:120\", c.title as \"Title:Data:200\", c.convocation_date as \"Date:Date:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name) as \"Registrations:Int:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name AND cr.attended = 1) as \"Attended:Int:80\" FROM `tabConvocation` c ORDER BY c.convocation_date DESC",
+    "query": "SELECT c.name as \"Convocation:Link/Convocation:120\", c.title as \"Title:Data:200\", c.convocation_date as \"Date:Date:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name) as \"Registrations:Int:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name AND cr.certificate_collected = 1) as \"Attended:Int:80\" FROM `tabConvocation` c ORDER BY c.convocation_date DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -587,7 +587,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT ar.name as \"Report:Link/Accreditation Report:120\", ar.title as \"Title:Data:200\", ar.body_name as \"Body:Data:120\", ar.academic_year as \"Year:Data:80\", ar.total_score as \"Total Score:Float:80\", ar.maximum_score as \"Max Score:Float:80\", ROUND(ar.total_score * 100.0 / CASE WHEN ar.maximum_score = 0 THEN NULL ELSE ar.maximum_score END, 1) as \"Percentage:Percent:80\", ar.grade as \"Grade:Data:60\" FROM `tabAccreditation Report` ar ORDER BY ar.creation DESC",
+    "query": "SELECT ar.name as \"Report:Link/Accreditation Report:120\", ar.title as \"Title:Data:200\", ar.accreditation_body as \"Body:Data:120\", ar.academic_year as \"Year:Data:80\", ar.overall_score as \"Total Score:Float:80\", 0 as \"Max Score:Float:80\", ROUND(ar.overall_score * 100.0 / NULLIF(100, 0), 1) as \"Percentage:Percent:80\", ar.overall_grade as \"Grade:Data:60\" FROM `tabAccreditation Report` ar ORDER BY ar.creation DESC",
     "roles": [
       {
         "role": "System Manager"
