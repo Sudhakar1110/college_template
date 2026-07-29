@@ -315,7 +315,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT pr.name as \"Registration:Link/Placement Registration:150\", pr.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", pr.percentage_cumulative_published as \"Percentage:Percent:100\", pr.current_backlogs as \"Backlogs:Int:80\", CASE WHEN pr.eligible = 1 THEN 'Eligible' ELSE 'Not Eligible' END as \"Status:Data:120\", pr.applied_on as \"Applied On:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabAdmission Student` ast ON ast.name = pr.admission_student LEFT JOIN `tabPlacement Drive` pd ON pr.placement_drive = pd.name ORDER BY pr.applied_on DESC",
+    "query": "SELECT pr.name as \"Registration:Link/Placement Registration:150\", ast.student_name as \"Student:Data:150\", pr.program as \"Program:Link/Program:120\", pd.drive_title as \"Drive:Link/Placement Drive:150\", pd.company as \"Company:Link/Placement Company:150\", pr.percentage_cumulative_published as \"Percentage:Percent:100\", pr.current_backlogs as \"Backlogs:Int:80\", CASE WHEN pr.eligible = 1 THEN 'Eligible' ELSE 'Not Eligible' END as \"Status:Data:120\", pr.applied_on as \"Applied On:Date:100\" FROM `tabPlacement Registration` pr LEFT JOIN `tabAdmission Student` ast ON ast.name = pr.admission_student LEFT JOIN `tabPlacement Drive` pd ON pr.placement_drive = pd.name ORDER BY pr.applied_on DESC",
     "roles": [
       {
         "role": "System Manager"
