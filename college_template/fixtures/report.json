@@ -179,7 +179,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", ac.academic_year as \"Academic Year:Link/Academic Year:100\", COUNT(ace.name) as \"Total Events:Int:100\" FROM `tabAcademic Calendar` ac LEFT JOIN `tabAcademic Calendar Event` ace ON ace.parent = ac.name GROUP BY ac.name ORDER BY ac.creation DESC",
+    "query": "SELECT name as \"Calendar:Link/Academic Calendar:150\", academic_year as \"Academic Year:Link/Academic Year:100\" FROM `tabAcademic Calendar` ORDER BY creation DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -196,7 +196,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(CURDATE(), ace.start_date) as \"Days Overdue:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ace.start_date < CURDATE() ORDER BY ace.start_date ASC",
+    "query": "SELECT name as \"Event ID:Data:120\", start_date as \"Start Date:Date:100\", DATEDIFF(CURDATE(), start_date) as \"Days Overdue:Int:100\" FROM `tabAcademic Calendar Event` WHERE start_date < CURDATE() ORDER BY start_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -213,7 +213,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", DATEDIFF(ace.start_date, CURDATE()) as \"Days Away:Int:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent WHERE ace.start_date > CURDATE() ORDER BY ace.start_date ASC",
+    "query": "SELECT name as \"Event ID:Data:120\", start_date as \"Start Date:Date:100\", DATEDIFF(start_date, CURDATE()) as \"Days Away:Int:100\" FROM `tabAcademic Calendar Event` WHERE start_date > CURDATE() ORDER BY start_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -230,7 +230,7 @@
     "module": "Education",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ac.name as \"Calendar:Link/Academic Calendar:150\", SUBSTRING(ace.target_doctype, 1, 50) as \"Activity:Data:180\", ace.start_date as \"Start Date:Date:100\", ace.end_date as \"End Date:Date:100\", CASE WHEN ace.start_date < CURDATE() THEN 'Overdue' WHEN ace.start_date = CURDATE() THEN 'Today' WHEN ace.start_date > CURDATE() THEN 'Upcoming' ELSE 'Scheduled' END as \"Timeline:Data:100\" FROM `tabAcademic Calendar Event` ace INNER JOIN `tabAcademic Calendar` ac ON ac.name = ace.parent ORDER BY ace.start_date ASC",
+    "query": "SELECT name as \"Event ID:Data:120\", start_date as \"Start Date:Date:100\", end_date as \"End Date:Date:100\", CASE WHEN start_date < CURDATE() THEN 'Overdue' WHEN start_date = CURDATE() THEN 'Today' WHEN start_date > CURDATE() THEN 'Upcoming' ELSE 'Scheduled' END as \"Status:Data:100\" FROM `tabAcademic Calendar Event` ORDER BY start_date ASC",
     "roles": [
       {
         "role": "System Manager"
