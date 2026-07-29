@@ -1,34 +1,24 @@
 # Copyright (c) 2026, Bizaxl and contributors
 # For license information, please see license.txt
 
-COLLEGE_APP_MODULES = [
-    "Education",
-    "College Custom",
-    "College Events",
-    "Academic Calendar",
-    "Placement",
-    "LMS",
-    "Setup",
-    "Student Services",
-    "Library",
-    "Hostel",
+# Modules known to conflict with other installed apps (education, lms, etc.)
+# When both apps define a module with the same name, Frappe's Module Def
+# may point to the wrong app, causing custom DocTypes to be detected as
+# "orphaned" and deleted during migration.
+# Only add modules here that are CONFIRMED to have this issue.
+CONFLICTING_MODULES = [
+    "Education",      # Conflicts with the core 'education' app
+    "College Custom",  # Conflicts with frappe's built-in 'Custom' module
 ]
 
 
-def fix_education_module_def():
+def fix_module_defs():
     """
-    Ensures all college_template Module Defs point to 'college_template' app.
-
-    When both the core 'education'/'lms' app and 'college_template' define
-    modules with the same name (Education, LMS, Setup, Library, etc.),
-    Frappe's Module Def may point to the wrong app. This causes DocTypes
-    to be detected as "orphaned" and deleted during migration.
-
-    This hook runs *before* DocType sync, so the fix is in place before any
-    DocType JSON files are imported.
+    Ensures college_template Module Defs point to 'college_template' app.
+    Runs *before* DocType sync to prevent orphan DocType detection/deletion.
     """
     fixed = []
-    for module_name in COLLEGE_APP_MODULES:
+    for module_name in CONFLICTING_MODULES:
         module_def_app = frappe.db.get_value("Module Def", module_name, "app_name")
         if module_def_app and module_def_app != "college_template":
             frappe.db.set_value("Module Def", module_name, "app_name", "college_template")

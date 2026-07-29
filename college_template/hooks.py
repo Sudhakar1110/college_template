@@ -28,7 +28,7 @@ fixtures = [
 # before_migrate hook - runs before DocType sync to fix Module Def
 # Ensures the 'Education' module points to college_template (not core education app)
 # This prevents orphan DocType deletion during migration
-before_migrate = ["college_template.setup.before_migrate.fix_education_module_def"]
+before_migrate = ["college_template.setup.before_migrate.fix_module_defs"]
 
 # DocType JS
 # DocType JS
