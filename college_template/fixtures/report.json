@@ -512,7 +512,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Library",
-    "query": "SELECT lt.name as \"Transaction:Link/Library Transaction:120\", lt.member as \"Member:Link/Library Member:150\", lt.transaction_date as \"Issued On:Date:100\", lt.status as \"Status:Data:100\" FROM `tabLibrary Transaction` lt WHERE lt.docstatus = 1 AND lt.transaction_type = 'Issue'  ORDER BY lt.transaction_date ASC",
+    "query": "SELECT lt.name as \"Transaction:Link/Library Transaction:120\", lt.member as \"Member:Link/Library Member:150\", lt.transaction_date as \"Issued On:Date:100\", lt.status as \"Status:Data:100\"FROM `tabLibrary Transaction` lt WHERE lt.docstatus = 1 AND lt.transaction_type = 'Issue' AND lt.status = 'Issued' ORDER BY lt.transaction_date ASC",
     "roles": [
       {
         "role": "System Manager"
