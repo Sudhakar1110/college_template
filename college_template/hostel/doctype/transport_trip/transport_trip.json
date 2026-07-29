@@ -1,0 +1,117 @@
+{
+  "doctype": "DocType",
+  "name": "Transport Trip",
+  "module": "Hostel",
+  "custom": 1,
+  "is_submittable": 1,
+  "is_child_table": 0,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "max_attachments": 0,
+  "title_field": "title",
+  "sort_field": "date",
+  "sort_order": "DESC",
+  "naming_rule": "Expression",
+  "autoname": "TR-TRIP-.YYYY.-.#####",
+  "search_fields": "route,vehicle_number,driver_name",
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Title",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "date",
+      "label": "Trip Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "default": "Today",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "route",
+      "label": "Route",
+      "fieldtype": "Link",
+      "options": "Transport Route",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "vehicle",
+      "label": "Vehicle",
+      "fieldtype": "Link",
+      "options": "Transport Vehicle",
+      "reqd": 1
+    },
+    {
+      "fieldname": "vehicle_number",
+      "label": "Vehicle Number",
+      "fieldtype": "Data",
+      "fetch_from": "vehicle.vehicle_number",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "driver_name",
+      "label": "Driver Name",
+      "fieldtype": "Data",
+      "fetch_from": "vehicle.driver_name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "driver_phone",
+      "label": "Driver Phone",
+      "fieldtype": "Data",
+      "fetch_from": "vehicle.driver_phone",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_tt",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "departure_time",
+      "label": "Departure Time",
+      "fieldtype": "Time",
+      "reqd": 1
+    },
+    {
+      "fieldname": "arrival_time",
+      "label": "Arrival Time",
+      "fieldtype": "Time"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Scheduled\nIn Progress\nCompleted\nCancelled",
+      "default": "Scheduled",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Small Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1
+    }
+  ]
+}

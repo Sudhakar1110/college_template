@@ -337,7 +337,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_data",
-    "allow_guest": 1
+    "allow_guest": 0
   },
   {
     "doctype": "Server Script",
@@ -347,7 +347,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_fees",
-    "allow_guest": 1
+    "allow_guest": 0
   },
   {
     "doctype": "Server Script",
@@ -357,7 +357,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_attendance",
-    "allow_guest": 1
+    "allow_guest": 0
   },
   {
     "doctype": "Server Script",
@@ -367,7 +367,7 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_get_results",
-    "allow_guest": 1
+    "allow_guest": 0
   },
   {
     "doctype": "Server Script",
@@ -377,13 +377,13 @@
     "module": "",
     "disabled": 0,
     "api_method": "student_api_submit_grievance",
-    "allow_guest": 1
+    "allow_guest": 0
   },
   {
     "doctype": "Server Script",
     "name": "auto_grade_lms_quiz",
     "script_type": "API",
-    "script": "# API endpoint to auto-grade an LMS Quiz Submission\nimport json\nsubmission_name = frappe.form_dict.get(\"submission\")\n\nif not submission_name:\n    frappe.response[\"message\"] = {\"error\": \"Quiz Submission ID required\"}\nelse:\n    submission = frappe.get_doc(\"LMS Quiz Submission\", submission_name)\n    quiz = frappe.get_doc(\"LMS Quiz\", submission.quiz)\n    \n    # Score calculation\n    correct = 0\n    total = len(quiz.questions) if quiz.questions else 0\n    details = []\n    \n    for i, q in enumerate(quiz.questions):\n        question_data = json.loads(q.question) if isinstance(q.question, str) else q.question\n        correct_answer = question_data.get(\"answer\", \"\") if question_data else \"\"\n        user_answer = \"\"  # This depends on LMS Quiz Submission structure\n        \n        is_correct = str(user_answer).strip().lower() == str(correct_answer).strip().lower() if correct_answer else False\n        if is_correct:\n            correct = correct + 1\n        details.append({\"question_no\": i+1, \"correct\": correct_answer, \"user_answer\": user_answer, \"is_correct\": is_correct})\n    \n    score = (correct / total * 100) if total > 0 else 0\n    \n    # Save auto-grade result\n    grade_result = frappe.get_doc({\n        \"doctype\": \"Auto Grade Result\",\n        \"quiz_submission\": submission_name,\n        \"student\": submission.member,\n        \"quiz\": submission.quiz,\n        \"score\": score,\n        \"total_questions\": total,\n        \"correct_answers\": correct,\n        \"wrong_answers\": total - correct,\n        \"grading_method\": \"Auto (Exact Match)\",\n        \"grading_details\": json.dumps(details)\n    })\n    grade_result.insert(ignore_permissions=True)\n    frappe.db.commit()\n    \n    frappe.response[\"message\"] = {\"status\": \"success\", \"score\": score, \"correct\": correct, \"total\": total, \"grade_id\": grade_result.name}",
+    "script": "# API endpoint to auto-grade an LMS Quiz Submission\nimport json\nsubmission_name = frappe.form_dict.get(\"submission\")\n\nif not submission_name:\n    frappe.response[\"message\"] = {\"error\": \"Quiz Submission ID required\"}\nelse:\n    submission = frappe.get_doc(\"LMS Quiz Submission\", submission_name)\n    quiz = frappe.get_doc(\"LMS Quiz\", submission.quiz)\n    \n    # Score calculation\n    correct = 0\n    total = len(quiz.questions) if quiz.questions else 0\n    details = []\n    \n    for i, q in enumerate(quiz.questions):\n        question_data = json.loads(q.question) if isinstance(q.question, str) else q.question\n        correct_answer = question_data.get(\"answer\", \"\") if question_data else \"\"\n        # Extract user answer from LMS Quiz Result child table (selected_option field)\n        user_answer = \"\"\n        results_table = submission.get(\"result\") or []\n        if i < len(results_table):\n            r = results_table[i]\n            user_answer = r.get(\"selected_option\") or r.get(\"answer\") or r.get(\"response\") or \"\"\n        \n        is_correct = str(user_answer).strip().lower() == str(correct_answer).strip().lower() if correct_answer else False\n        if is_correct:\n            correct = correct + 1\n        details.append({\"question_no\": i+1, \"correct\": correct_answer, \"user_answer\": user_answer, \"is_correct\": is_correct})\n    \n    score = (correct / total * 100) if total > 0 else 0\n    \n    # Save auto-grade result\n    grade_result = frappe.get_doc({\n        \"doctype\": \"Auto Grade Result\",\n        \"quiz_submission\": submission_name,\n        \"student\": submission.member,\n        \"quiz\": submission.quiz,\n        \"score\": score,\n        \"total_questions\": total,\n        \"correct_answers\": correct,\n        \"wrong_answers\": total - correct,\n        \"grading_method\": \"Auto (Exact Match)\",\n        \"grading_details\": json.dumps(details)\n    })\n    grade_result.insert(ignore_permissions=True)\n    frappe.db.commit()\n    \n    frappe.response[\"message\"] = {\"status\": \"success\", \"score\": score, \"correct\": correct, \"total\": total, \"grade_id\": grade_result.name}",
     "module": "",
     "disabled": 0,
     "api_method": "auto_grade_lms_quiz",
@@ -393,7 +393,7 @@
     "doctype": "Server Script",
     "name": "omr_grade_sheet",
     "script_type": "API",
-    "script": "# API endpoint to grade an OMR answer sheet\nimport json\nanswer_key_name = frappe.form_dict.get(\"answer_key\")\nstudent_answers = frappe.form_dict.get(\"answers\")  # Comma-separated: 1=A,2=B,3=C\n\nif not answer_key_name or not student_answers:\n    frappe.response[\"message\"] = {\"error\": \"Answer Key and Student Answers required\"}\nelse:\n    key = frappe.get_doc(\"OMR Answer Key\", answer_key_name)\n    correct_list = key.correct_answers.split(\",\")\n    student_list = student_answers.split(\",\")\n    \n    correct_count = 0\n    wrong_count = 0\n    total = min(len(correct_list), len(student_list))\n    \n    for i in range(total):\n        c = correct_list[i].strip().split(\"=\") if \"=\" in correct_list[i] else [\"\", correct_list[i].strip()]\n        s = student_list[i].strip().split(\"=\") if \"=\" in student_list[i] else [\"\", student_list[i].strip()]\n        if len(c) > 1 and len(s) > 1:\n            if c[1].strip().upper() == s[1].strip().upper():\n                correct_count = correct_count + 1\n            else:\n                wrong_count = wrong_count + 1\n    \n    score = (correct_count * key.mark_per_correct) - (wrong_count * key.negative_mark)\n    score = max(0, score)\n    \n    frappe.response[\"message\"] = {\n        \"status\": \"success\",\n        \"total_questions\": total,\n        \"correct\": correct_count,\n        \"wrong\": wrong_count,\n        \"score\": score,\n        \"passing\": score >= (key.passing_score or 0)\n    }",
+    "script": "# API endpoint to grade an OMR answer sheet\nimport json\nanswer_key_name = frappe.form_dict.get(\"answer_key\")\nstudent_answers = frappe.form_dict.get(\"answers\")  # Comma-separated: 1=A,2=B,3=C\n\nif not answer_key_name or not student_answers:\n    # Save graded sheet to OMR Answer Sheet for persistence\n    sheet = frappe.get_doc({\n        \"doctype\": \"OMR Answer Sheet\",\n        \"answer_key\": answer_key_name,\n        \"student_answers\": student_answers,\n        \"total_questions\": total,\n        \"correct_count\": correct_count,\n        \"wrong_count\": wrong_count,\n        \"score\": score,\n        \"passed\": 1 if score >= (key.passing_score or 0) else 0,\n        \"graded_on\": frappe.utils.now_datetime()\n    })\n    sheet.insert(ignore_permissions=True)\n    frappe.db.commit()\n\n    frappe.response[\"message\"] = {\"error\": \"Answer Key and Student Answers required\"}\nelse:\n    key = frappe.get_doc(\"OMR Answer Key\", answer_key_name)\n    correct_list = key.correct_answers.split(\",\")\n    student_list = student_answers.split(\",\")\n    \n    correct_count = 0\n    wrong_count = 0\n    total = min(len(correct_list), len(student_list))\n    \n    for i in range(total):\n        c = correct_list[i].strip().split(\"=\") if \"=\" in correct_list[i] else [\"\", correct_list[i].strip()]\n        s = student_list[i].strip().split(\"=\") if \"=\" in student_list[i] else [\"\", student_list[i].strip()]\n        if len(c) > 1 and len(s) > 1:\n            if c[1].strip().upper() == s[1].strip().upper():\n                correct_count = correct_count + 1\n            else:\n                wrong_count = wrong_count + 1\n    \n    score = (correct_count * key.mark_per_correct) - (wrong_count * key.negative_mark)\n    score = max(0, score)\n    \n    frappe.response[\"message\"] = {\n        \"status\": \"success\",\n        \"total_questions\": total,\n        \"correct\": correct_count,\n        \"wrong\": wrong_count,\n        \"score\": score,\n        \"passing\": score >= (key.passing_score or 0),\n        \"sheet_id\": sheet.name\n    }",
     "module": "",
     "disabled": 0,
     "api_method": "omr_grade_sheet",

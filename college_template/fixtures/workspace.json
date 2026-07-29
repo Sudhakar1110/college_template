@@ -109,7 +109,13 @@
       {"type": "Link", "label": "Course Lesson", "link_type": "DocType", "link_to": "Course Lesson"},
       {"type": "Card Break", "label": "Setup"},
       {"type": "Link", "label": "Promote Students", "link_type": "DocType", "link_to": "Promote Students"},
-      {"type": "Link", "label": "Print Heading", "link_type": "DocType", "link_to": "Print Heading"}
+      {"type": "Link", "label": "Print Heading", "link_type": "DocType", "link_to": "Print Heading"},
+      {"type": "Card Break", "label": "System Config"},
+      {"type": "Link", "label": "Approval Chain", "link_type": "DocType", "link_to": "Approval Chain"},
+      {"type": "Link", "label": "Device Config", "link_type": "DocType", "link_to": "Device Config"},
+      {"type": "Link", "label": "AI Integration Config", "link_type": "DocType", "link_to": "AI Integration Config"},
+      {"type": "Link", "label": "Proctoring Config", "link_type": "DocType", "link_to": "Proctoring Config"},
+      {"type": "Link", "label": "Virtual Classroom Config", "link_type": "DocType", "link_to": "Virtual Classroom Config"}
     ],
     "shortcuts": [
       {"label": "New Admission Student", "type": "DocType", "link_to": "Admission Student", "doc_type": "Admission Student", "format": "{}"},
@@ -232,7 +238,10 @@
       {"type": "Card Break", "label": "Certificates"},
       {"type": "Link", "label": "Student Certificate Request", "link_type": "DocType", "link_to": "Student Certificate Request"},
       {"type": "Card Break", "label": "Grievances"},
-      {"type": "Link", "label": "Grievance", "link_type": "DocType", "link_to": "Grievance"}
+      {"type": "Link", "label": "Grievance", "link_type": "DocType", "link_to": "Grievance"},
+      {"type": "Card Break", "label": "Services"},
+      {"type": "Link", "label": "Communication Log", "link_type": "DocType", "link_to": "Communication Log"},
+      {"type": "Link", "label": "Digital Signature Request", "link_type": "DocType", "link_to": "Digital Signature Request"}
     ],
     "shortcuts": [
       {"label": "New Certificate Request", "type": "DocType", "link_to": "Student Certificate Request", "doc_type": "Student Certificate Request", "format": "{}"},
@@ -295,12 +304,19 @@
       {"type": "Card Break", "label": "Rooms"},
       {"type": "Link", "label": "Hostel Room", "link_type": "DocType", "link_to": "Hostel Room"},
       {"type": "Card Break", "label": "Allocations"},
-      {"type": "Link", "label": "Hostel Allocation", "link_type": "DocType", "link_to": "Hostel Allocation"}
+      {"type": "Link", "label": "Hostel Allocation", "link_type": "DocType", "link_to": "Hostel Allocation"},
+      {"type": "Card Break", "label": "Transport"},
+      {"type": "Link", "label": "Transport Route", "link_type": "DocType", "link_to": "Transport Route"},
+      {"type": "Link", "label": "Transport Vehicle", "link_type": "DocType", "link_to": "Transport Vehicle"},
+      {"type": "Link", "label": "Transport Allocation", "link_type": "DocType", "link_to": "Transport Allocation"},
+      {"type": "Link", "label": "Transport Trip", "link_type": "DocType", "link_to": "Transport Trip"}
     ],
     "shortcuts": [
       {"label": "New Hostel", "type": "DocType", "link_to": "Hostel", "doc_type": "Hostel", "format": "{}"},
       {"label": "New Hostel Room", "type": "DocType", "link_to": "Hostel Room", "doc_type": "Hostel Room", "format": "{}"},
-      {"label": "Allocate Room", "type": "DocType", "link_to": "Hostel Allocation", "doc_type": "Hostel Allocation", "format": "{}"}
+      {"label": "Allocate Room", "type": "DocType", "link_to": "Hostel Allocation", "doc_type": "Hostel Allocation", "format": "{}"},
+      {"label": "New Route", "type": "DocType", "link_to": "Transport Route", "doc_type": "Transport Route", "format": "{}"},
+      {"label": "New Trip", "type": "DocType", "link_to": "Transport Trip", "doc_type": "Transport Trip", "format": "{}"}
     ],
     "roles": [{"role": "System Manager"}]
   },
@@ -327,6 +343,35 @@
     ],
     "shortcuts": [
       {"label": "New Accreditation Report", "type": "DocType", "link_to": "Accreditation Report", "doc_type": "Accreditation Report", "format": "{}"}
+    ],
+    "roles": [{"role": "System Manager"}]
+  },
+  {
+    "doctype": "Workspace",
+    "name": "Auto Grading & OMR",
+    "label": "Auto Grading & OMR",
+    "title": "Auto Grading & OMR",
+    "type": "Workspace",
+    "app": "college_template",
+    "module": "Education",
+    "icon": "octicon octicon-checklist",
+    "indicator_color": "blue",
+    "is_standard": 1,
+    "public": 1,
+    "parent_page": "College ERP",
+    "sequence_id": 9,
+    "hide_custom": 0,
+    "is_hidden": 0,
+    "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Auto Grading & OMR\",\"level\":1}},{\"type\":\"card\",\"data\":{\"card_name\":\"OMR\"}},{\"type\":\"card\",\"data\":{\"card_name\":\"Auto Grading\"}}]",
+    "links": [
+      {"type": "Card Break", "label": "OMR"},
+      {"type": "Link", "label": "OMR Answer Key", "link_type": "DocType", "link_to": "OMR Answer Key"},
+      {"type": "Link", "label": "OMR Answer Sheet", "link_type": "DocType", "link_to": "OMR Answer Sheet"},
+      {"type": "Card Break", "label": "Auto Grading"},
+      {"type": "Link", "label": "Auto Grade Result", "link_type": "DocType", "link_to": "Auto Grade Result"}
+    ],
+    "shortcuts": [
+      {"label": "New OMR Answer Key", "type": "DocType", "link_to": "OMR Answer Key", "doc_type": "OMR Answer Key", "format": "{}"}
     ],
     "roles": [{"role": "System Manager"}]
   }

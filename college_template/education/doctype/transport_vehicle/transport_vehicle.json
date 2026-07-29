@@ -1,19 +1,93 @@
 {
-  "doctype": "DocType", "name": "Transport Vehicle", "module": "Education", "custom": 1,
-  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
-  "track_changes": 1, "allow_rename": 1, "max_attachments": 0,
-  "title_field": "vehicle_number", "sort_field": "modified", "sort_order": "DESC",
-  "naming_rule": "Expression", "autoname": "TR-VH-.#####", "search_fields": "vehicle_number",
+  "doctype": "DocType",
+  "name": "Transport Vehicle",
+  "module": "Hostel",
+  "custom": 1,
+  "is_submittable": 0,
+  "is_child_table": 0,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "max_attachments": 0,
+  "title_field": "vehicle_number",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "naming_rule": "Expression",
+  "autoname": "TR-VH-.#####",
+  "search_fields": "vehicle_number",
   "fields": [
-    {"fieldname": "vehicle_number", "label": "Vehicle Number", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "unique": 1},
-    {"fieldname": "vehicle_type", "label": "Type", "fieldtype": "Select", "options": "Bus\nVan\nAuto\nOther", "reqd": 1, "in_list_view": 1},
-    {"fieldname": "capacity", "label": "Seating Capacity", "fieldtype": "Int", "reqd": 1, "in_list_view": 1},
-    {"fieldname": "driver_name", "label": "Driver Name", "fieldtype": "Data"},
-    {"fieldname": "driver_phone", "label": "Driver Phone", "fieldtype": "Data"},
-    {"fieldname": "column_break_vh", "label": "", "fieldtype": "Column Break"},
-    {"fieldname": "route", "label": "Assigned Route", "fieldtype": "Link", "options": "Transport Route"},
-    {"fieldname": "insurance_valid_until", "label": "Insurance Valid Until", "fieldtype": "Date"},
-    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Active\nUnder Maintenance\nRetired", "default": "Active", "in_list_view": 1}
+    {
+      "fieldname": "vehicle_number",
+      "label": "Vehicle Number",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "vehicle_type",
+      "label": "Type",
+      "fieldtype": "Select",
+      "options": "Bus\nVan\nAuto\nOther",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "capacity",
+      "label": "Seating Capacity",
+      "fieldtype": "Int",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "driver_name",
+      "label": "Driver Name",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "driver_phone",
+      "label": "Driver Phone",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "column_break_vh",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "route",
+      "label": "Assigned Route",
+      "fieldtype": "Link",
+      "options": "Transport Route"
+    },
+    {
+      "fieldname": "insurance_valid_until",
+      "label": "Insurance Valid Until",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Active\nUnder Maintenance\nRetired",
+      "default": "Active",
+      "in_list_view": 1
+    }
   ],
-  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1
+    }
+  ]
 }

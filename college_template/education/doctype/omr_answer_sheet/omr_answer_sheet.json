@@ -1,0 +1,104 @@
+{
+  "doctype": "DocType",
+  "name": "OMR Answer Sheet",
+  "module": "Education",
+  "custom": 1,
+  "is_submittable": 0,
+  "is_child_table": 0,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "allow_rename": 1,
+  "max_attachments": 0,
+  "title_field": "title",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "naming_rule": "Expression",
+  "autoname": "OMR-SHT-.YYYY.-.#####",
+  "search_fields": "answer_key,student_name",
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Title",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "answer_key",
+      "label": "Answer Key",
+      "fieldtype": "Link",
+      "options": "OMR Answer Key",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "student_name",
+      "label": "Student Name",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "student_answers",
+      "label": "Student Answers",
+      "fieldtype": "Small Text",
+      "description": "Comma-separated: 1=A,2=B,3=C..."
+    },
+    {
+      "fieldname": "column_break_omrs",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "total_questions",
+      "label": "Total Questions",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "correct_count",
+      "label": "Correct",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "wrong_count",
+      "label": "Wrong",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "score",
+      "label": "Score",
+      "fieldtype": "Float",
+      "read_only": 1
+    },
+    {
+      "fieldname": "passed",
+      "label": "Passed",
+      "fieldtype": "Check",
+      "read_only": 1
+    },
+    {
+      "fieldname": "graded_on",
+      "label": "Graded On",
+      "fieldtype": "Datetime",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1
+    }
+  ]
+}
