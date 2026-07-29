@@ -1,15 +1,77 @@
 {
-  "doctype": "DocType", "name": "Feedback Response Answer", "module": "Education", "custom": 1,
-  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
-  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
-  "max_attachments": 0, "title_field": "question", "sort_field": "idx", "sort_order": "ASC",
-  "naming_rule": "By script", "autoname": "", "search_fields": "question",
+  "doctype": "DocType",
+  "name": "Feedback Response Answer",
+  "module": "Education",
+  "custom": 0,
+  "is_submittable": 0,
+  "is_child_table": 1,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 0,
+  "track_seen": 0,
+  "track_views": 0,
+  "allow_rename": 0,
+  "allow_import": 0,
+  "max_attachments": 0,
+  "title_field": "question",
+  "sort_field": "idx",
+  "sort_order": "ASC",
+  "naming_rule": "By script",
+  "autoname": "",
+  "search_fields": "question",
   "fields": [
-    {"fieldname": "question", "label": "Question", "fieldtype": "Text", "reqd": 1, "in_list_view": 1, "columns": 4},
-    {"fieldname": "question_type", "label": "Type", "fieldtype": "Data", "read_only": 1, "in_list_view": 1, "columns": 1},
-    {"fieldname": "rating_value", "label": "Rating", "fieldtype": "Int", "non_negative": 1, "columns": 1},
-    {"fieldname": "column_break_ans", "label": "", "fieldtype": "Column Break"},
-    {"fieldname": "text_response", "label": "Text Response", "fieldtype": "Small Text"},
-    {"fieldname": "choice_value", "label": "Choice", "fieldtype": "Data"}
-  ], "permissions": []
+    {
+      "fieldname": "question",
+      "label": "Question",
+      "fieldtype": "Text",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 4
+    },
+    {
+      "fieldname": "question_type",
+      "label": "Type",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "rating_value",
+      "label": "Rating",
+      "fieldtype": "Int",
+      "non_negative": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "column_break_ans",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "text_response",
+      "label": "Text Response",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "choice_value",
+      "label": "Choice",
+      "fieldtype": "Data"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 0,
+      "share": 0
+    }
+  ]
 }

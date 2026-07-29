@@ -1,18 +1,97 @@
 {
-  "doctype": "DocType", "name": "Question Bank Item", "module": "Education", "custom": 1,
-  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
-  "track_changes": 1, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
-  "max_attachments": 0, "title_field": "question_text", "sort_field": "idx", "sort_order": "ASC",
-  "autoname": "", "search_fields": "question_text",
+  "doctype": "DocType",
+  "name": "Question Bank Item",
+  "module": "Education",
+  "custom": 0,
+  "is_submittable": 0,
+  "is_child_table": 1,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "track_seen": 0,
+  "track_views": 0,
+  "allow_rename": 0,
+  "allow_import": 0,
+  "max_attachments": 0,
+  "title_field": "question_text",
+  "sort_field": "idx",
+  "sort_order": "ASC",
+  "autoname": "",
+  "search_fields": "question_text",
   "fields": [
-    {"fieldname": "question_text", "label": "Question", "fieldtype": "Text Editor", "reqd": 1, "in_list_view": 1, "columns": 4},
-    {"fieldname": "mark", "label": "Marks", "fieldtype": "Select", "options": "2\n5\n10\n15", "reqd": 1, "in_list_view": 1, "columns": 1},
-    {"fieldname": "difficulty", "label": "Difficulty", "fieldtype": "Select", "options": "Low\nMedium\nHigh", "reqd": 1, "in_list_view": 1, "columns": 1},
-    {"fieldname": "unit", "label": "Unit/Module", "fieldtype": "Data", "columns": 1},
-    {"fieldname": "bloom_taxonomy", "label": "Bloom's Level", "fieldtype": "Select", "options": "Remember\nUnderstand\nApply\nAnalyze\nEvaluate\nCreate", "in_list_view": 1},
-    {"fieldname": "column_break_ans", "label": "", "fieldtype": "Column Break"},
-    {"fieldname": "answer", "label": "Answer Key", "fieldtype": "Text Editor"},
-    {"fieldname": "hint", "label": "Hint", "fieldtype": "Small Text"},
-    {"fieldname": "attachment", "label": "Attachment (Diagram)", "fieldtype": "Attach"}
-  ], "permissions": []
+    {
+      "fieldname": "question_text",
+      "label": "Question",
+      "fieldtype": "Text Editor",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 4
+    },
+    {
+      "fieldname": "mark",
+      "label": "Marks",
+      "fieldtype": "Select",
+      "options": "2\n5\n10\n15",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "difficulty",
+      "label": "Difficulty",
+      "fieldtype": "Select",
+      "options": "Low\nMedium\nHigh",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "unit",
+      "label": "Unit/Module",
+      "fieldtype": "Data",
+      "columns": 1
+    },
+    {
+      "fieldname": "bloom_taxonomy",
+      "label": "Bloom's Level",
+      "fieldtype": "Select",
+      "options": "Remember\nUnderstand\nApply\nAnalyze\nEvaluate\nCreate",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_ans",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "answer",
+      "label": "Answer Key",
+      "fieldtype": "Text Editor"
+    },
+    {
+      "fieldname": "hint",
+      "label": "Hint",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "attachment",
+      "label": "Attachment (Diagram)",
+      "fieldtype": "Attach"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 0,
+      "share": 0
+    }
+  ]
 }

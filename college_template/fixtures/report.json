@@ -347,7 +347,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", submission_date as \"Submitted On:Date:100\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE status = 'Pending' ORDER BY submission_date ASC",
+    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", creation as \"Submitted On:Datetime:140\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE status = 'Pending' ORDER BY submission_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -377,7 +377,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", CAST(sr.submitted AS CHAR) as \"Submitted:Date:100\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted DESC",
+    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", sr.submitted as \"Submitted:Datetime:140\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -392,7 +392,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_category as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", fs.target_responses as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / NULLIF(fs.target_responses, 0), 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
+    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_category as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", fs.target_responses as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / CASE WHEN fs.target_responses = 0 THEN NULL ELSE fs.target_responses END, 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -497,7 +497,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Library",
-    "query": "SELECT category as \"Category:Data:150\", COUNT(name) as \"Total Books:Int:100\", SUM(quantity) as \"Total Copies:Int:100\", SUM(available_copies) as \"Available Copies:Int:100\", (SUM(quantity) - SUM(available_copies)) as \"Issued Copies:Int:100\" FROM `tabLibrary Book` GROUP BY category ORDER BY `Total Books` DESC",
+    "query": "SELECT IFNULL(category,'Uncategorized') as \"Category:Data:150\", COUNT(name) as \"Total Books:Int:100\", SUM(quantity) as \"Total Copies:Int:100\", SUM(available_copies) as \"Available Copies:Int:100\", (SUM(quantity) - SUM(available_copies)) as \"Issued Copies:Int:100\" FROM `tabLibrary Book` GROUP BY category ORDER BY `Total Books` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -527,7 +527,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Hostel",
-    "query": "SELECT h.name as \"Hostel:Link/Hostel:120\", h.hostel_name as \"Name:Data:150\", h.total_capacity as \"Capacity:Int:80\", h.current_occupancy as \"Occupied:Int:80\", (h.total_capacity - h.current_occupancy) as \"Available:Int:80\", ROUND(h.current_occupancy * 100.0 / NULLIF(h.total_capacity, 0), 1) as \"Occupancy %:Percent:80\", h.hostel_type as \"Type:Data:100\" FROM `tabHostel` h ORDER BY `Occupancy %` DESC",
+    "query": "SELECT h.name as \"Hostel:Link/Hostel:120\", h.hostel_name as \"Name:Data:150\", h.total_capacity as \"Capacity:Int:80\", h.current_occupancy as \"Occupied:Int:80\", (h.total_capacity - h.current_occupancy) as \"Available:Int:80\", ROUND(h.current_occupancy * 100.0 / CASE WHEN h.total_capacity = 0 THEN NULL ELSE h.total_capacity END, 1) as \"Occupancy %:Percent:80\", h.hostel_type as \"Type:Data:100\" FROM `tabHostel` h ORDER BY `Occupancy %` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -542,7 +542,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Hostel",
-    "query": "SELECT ta.route as \"Route:Link/Transport Route:150\", COUNT(ta.name) as \"Students:Int:100\", tv.vehicle_number as \"Vehicle:Data:120\", tv.capacity as \"Capacity:Int:80\" FROM `tabTransport Allocation` ta LEFT JOIN `tabTransport Vehicle` tv ON tv.name = ta.vehicle WHERE ta.status = 'Active' GROUP BY ta.route, tv.vehicle_number ORDER BY `Students` DESC",
+    "query": "SELECT ta.route as \"Route:Link/Transport Route:150\", COUNT(ta.name) as \"Students:Int:100\", tv.vehicle_number as \"Vehicle:Data:120\" FROM `tabTransport Allocation` ta LEFT JOIN `tabTransport Vehicle` tv ON tv.name = ta.vehicle WHERE ta.status = 'Active' GROUP BY ta.route ORDER BY `Students` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -557,7 +557,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT oas.name as \"Sheet:Link/OMR Answer Sheet:120\", oas.answer_key as \"Key:Link/OMR Answer Key:120\", oas.student_name as \"Student:Data:150\", oas.total_questions as \"Total:Int:60\", oas.correct_count as \"Correct:Int:60\", oas.wrong_count as \"Wrong:Int:60\", oas.score as \"Score:Float:80\", oas.passed as \"Passed:Check:60\", oas.graded_on as \"Graded On:Datetime:140\" FROM `tabOMR Answer Sheet` oas ORDER BY oas.graded_on DESC",
+    "query": "SELECT oas.name as \"Sheet:Link/OMR Answer Sheet:120\", oas.answer_key as \"Key:Link/OMR Answer Key:120\", oas.student_name as \"Student:Data:150\", oas.total_questions as \"Total:Int:60\", oas.correct_count as \"Correct:Int:60\", oas.wrong_count as \"Wrong:Int:60\", oas.score as \"Score:Float:80\", CASE WHEN oas.passed = 1 THEN 'Yes' ELSE 'No' END as \"Passed:Data:60\", oas.graded_on as \"Graded On:Datetime:140\" FROM `tabOMR Answer Sheet` oas ORDER BY oas.graded_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -587,7 +587,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT ar.name as \"Report:Link/Accreditation Report:120\", ar.title as \"Title:Data:200\", ar.body_name as \"Body:Data:120\", ar.academic_year as \"Year:Data:80\", ar.total_score as \"Total Score:Float:80\", ar.maximum_score as \"Max Score:Float:80\", ROUND(ar.total_score * 100.0 / NULLIF(ar.maximum_score, 0), 1) as \"Percentage:Percent:80\", ar.grade as \"Grade:Data:60\" FROM `tabAccreditation Report` ar ORDER BY ar.creation DESC",
+    "query": "SELECT ar.name as \"Report:Link/Accreditation Report:120\", ar.title as \"Title:Data:200\", ar.body_name as \"Body:Data:120\", ar.academic_year as \"Year:Data:80\", ar.total_score as \"Total Score:Float:80\", ar.maximum_score as \"Max Score:Float:80\", ROUND(ar.total_score * 100.0 / CASE WHEN ar.maximum_score = 0 THEN NULL ELSE ar.maximum_score END, 1) as \"Percentage:Percent:80\", ar.grade as \"Grade:Data:60\" FROM `tabAccreditation Report` ar ORDER BY ar.creation DESC",
     "roles": [
       {
         "role": "System Manager"
