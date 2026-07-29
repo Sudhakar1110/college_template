@@ -14,6 +14,7 @@
     {"fieldname": "transaction_date", "label": "Transaction Date", "fieldtype": "Date", "reqd": 1, "default": "Today", "in_list_view": 1},
     {"fieldname": "due_date", "label": "Due Date", "fieldtype": "Date"},
     {"fieldname": "handled_by", "label": "Handled By", "fieldtype": "Link", "options": "User", "default": "__user"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Issued\nReturned\nOverdue\nLost", "default": "Issued", "in_list_view": 1, "in_standard_filter": 1},
     {"fieldname": "section_items", "label": "Books", "fieldtype": "Section Break"},
     {"fieldname": "items", "label": "Books", "fieldtype": "Table", "options": "Library Transaction Item", "reqd": 1},
     {"fieldname": "total_fine", "label": "Total Fine", "fieldtype": "Currency", "read_only": 1},

@@ -44,6 +44,15 @@
       "in_list_view": 1
     },
     {
+      "fieldname": "event",
+      "label": "Event",
+      "fieldtype": "Link",
+      "options": "College Event",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
       "fieldname": "column_break_ew",
       "label": "",
       "fieldtype": "Column Break"
