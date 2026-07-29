@@ -338,5 +338,275 @@
         "role": "System Manager"
       }
     ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Revaluation - Pending Applications",
+    "report_name": "Revaluation - Pending Applications",
+    "ref_doctype": "Revaluation Application",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", submission_date as \"Submitted On:Date:100\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE status = 'Pending' ORDER BY submission_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Revaluation - Fee Summary",
+    "report_name": "Revaluation - Fee Summary",
+    "ref_doctype": "Revaluation Application",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT revaluation_type as \"Type:Data:120\", COUNT(name) as \"Applications:Int:100\", SUM(total_fee) as \"Total Fee Collected:Currency:140\" FROM `tabRevaluation Application` WHERE docstatus = 1 GROUP BY revaluation_type ORDER BY `Applications` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Feedback - Survey Responses",
+    "report_name": "Feedback - Survey Responses",
+    "ref_doctype": "Feedback Survey Response",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", CAST(sr.submitted AS CHAR) as \"Submitted:Date:100\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Feedback - Survey Completion Rate",
+    "report_name": "Feedback - Survey Completion Rate",
+    "ref_doctype": "Feedback Survey",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT fs.name as \"Survey:Link/Feedback Survey:150\", fs.survey_title as \"Title:Data:200\", fs.survey_category as \"Category:Data:100\", fs.status as \"Status:Data:100\", (SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) as \"Responses:Int:100\", fs.target_responses as \"Target:Int:80\", ROUND((SELECT COUNT(*) FROM `tabFeedback Survey Response` sr WHERE sr.survey = fs.name) * 100.0 / NULLIF(fs.target_responses, 0), 1) as \"Completion %:Percent:80\" FROM `tabFeedback Survey` fs ORDER BY fs.creation DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Question Bank - Questions by Subject",
+    "report_name": "Question Bank - Questions by Subject",
+    "ref_doctype": "Question Bank",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT qb.name as \"Bank:Link/Question Bank:150\", qb.subject as \"Subject:Link/Course:150\", (SELECT COUNT(*) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Total Questions:Int:100\", (SELECT SUM(CASE WHEN qi.difficulty = 'Low' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Low:Int:60\", (SELECT SUM(CASE WHEN qi.difficulty = 'Medium' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Medium:Int:60\", (SELECT SUM(CASE WHEN qi.difficulty = 'High' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"High:Int:60\" FROM `tabQuestion Bank` qb ORDER BY `Total Questions` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Question Bank - Generated Papers",
+    "report_name": "Question Bank - Generated Papers",
+    "ref_doctype": "Question Paper Template",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT qpt.name as \"Template:Link/Question Paper Template:150\", qpt.title as \"Title:Data:200\", qpt.subject as \"Subject:Link/Course:150\", qpt.question_bank as \"Bank:Link/Question Bank:120\", qpt.total_marks as \"Total Marks:Int:80\", CASE WHEN qpt.generated_on IS NOT NULL THEN 'Generated' ELSE 'Draft' END as \"Status:Data:80\", qpt.generated_on as \"Last Generated:Datetime:150\" FROM `tabQuestion Paper Template` qpt ORDER BY qpt.modified DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Assignments - Submission Status",
+    "report_name": "Assignments - Submission Status",
+    "ref_doctype": "Assignment",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT a.name as \"Assignment:Link/Assignment:120\", a.title as \"Title:Data:200\", a.course as \"Course:Link/Course:120\", a.due_date as \"Due Date:Date:100\", (SELECT COUNT(*) FROM `tabAssignment Submission` ass WHERE ass.assignment = a.name) as \"Submissions:Int:80\", (SELECT COUNT(*) FROM `tabAssignment Submission` ass WHERE ass.assignment = a.name AND ass.status = 'Graded') as \"Graded:Int:80\" FROM `tabAssignment` a ORDER BY a.due_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Assignments - Student Performance",
+    "report_name": "Assignments - Student Performance",
+    "ref_doctype": "Assignment Submission",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT ass.name as \"Submission:Link/Assignment Submission:120\", ass.student_name as \"Student:Data:150\", a.title as \"Assignment:Data:200\", ass.submitted_date as \"Submitted:Date:100\", ass.status as \"Status:Data:100\", ass.score as \"Score:Int:60\", ass.max_score as \"Max Score:Int:60\" FROM `tabAssignment Submission` ass LEFT JOIN `tabAssignment` a ON ass.assignment = a.name ORDER BY ass.submitted_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Student Certificates - Issuance Log",
+    "report_name": "Student Certificates - Issuance Log",
+    "ref_doctype": "Student Certificate Request",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Student Services",
+    "query": "SELECT name as \"Request:Link/Student Certificate Request:120\", student_name as \"Student:Data:150\", certificate_type as \"Type:Data:120\", request_date as \"Request Date:Date:100\", status as \"Status:Data:100\", issued_date as \"Issued On:Date:100\" FROM `tabStudent Certificate Request` ORDER BY request_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Grievance - Pending Cases",
+    "report_name": "Grievance - Pending Cases",
+    "ref_doctype": "Grievance",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Student Services",
+    "query": "SELECT name as \"Grievance:Link/Grievance:120\", subject as \"Subject:Data:200\", student as \"Student:Link/Admission Student:120\", grievance_type as \"Type:Data:100\", urgency as \"Urgency:Data:80\", status as \"Status:Data:100\", creation as \"Opened On:Datetime:140\" FROM `tabGrievance` WHERE status IN ('Open','In Progress') ORDER BY CASE urgency WHEN 'Critical' THEN 0 WHEN 'High' THEN 1 WHEN 'Medium' THEN 2 ELSE 3 END, creation ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Library - Books by Category",
+    "report_name": "Library - Books by Category",
+    "ref_doctype": "Library Book",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Library",
+    "query": "SELECT category as \"Category:Data:150\", COUNT(name) as \"Total Books:Int:100\", SUM(quantity) as \"Total Copies:Int:100\", SUM(available_copies) as \"Available Copies:Int:100\", (SUM(quantity) - SUM(available_copies)) as \"Issued Copies:Int:100\" FROM `tabLibrary Book` GROUP BY category ORDER BY `Total Books` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Library - Overdue Books",
+    "report_name": "Library - Overdue Books",
+    "ref_doctype": "Library Transaction",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Library",
+    "query": "SELECT lt.name as \"Transaction:Link/Library Transaction:120\", lt.member as \"Member:Link/Library Member:150\", lt.transaction_date as \"Issued On:Date:100\", lt.status as \"Status:Data:100\" FROM `tabLibrary Transaction` lt WHERE lt.docstatus = 1 AND lt.transaction_type = 'Issue' AND lt.status = 'Issued' ORDER BY lt.transaction_date ASC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Hostel - Occupancy Report",
+    "report_name": "Hostel - Occupancy Report",
+    "ref_doctype": "Hostel",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Hostel",
+    "query": "SELECT h.name as \"Hostel:Link/Hostel:120\", h.hostel_name as \"Name:Data:150\", h.total_capacity as \"Capacity:Int:80\", h.current_occupancy as \"Occupied:Int:80\", (h.total_capacity - h.current_occupancy) as \"Available:Int:80\", ROUND(h.current_occupancy * 100.0 / NULLIF(h.total_capacity, 0), 1) as \"Occupancy %:Percent:80\", h.hostel_type as \"Type:Data:100\" FROM `tabHostel` h ORDER BY `Occupancy %` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Transport - Allocations by Route",
+    "report_name": "Transport - Allocations by Route",
+    "ref_doctype": "Transport Allocation",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Hostel",
+    "query": "SELECT ta.route as \"Route:Link/Transport Route:150\", COUNT(ta.name) as \"Students:Int:100\", tv.vehicle_number as \"Vehicle:Data:120\", tv.capacity as \"Capacity:Int:80\" FROM `tabTransport Allocation` ta LEFT JOIN `tabTransport Vehicle` tv ON tv.name = ta.vehicle WHERE ta.status = 'Active' GROUP BY ta.route, tv.vehicle_number ORDER BY `Students` DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "OMR - Grading Results",
+    "report_name": "OMR - Grading Results",
+    "ref_doctype": "OMR Answer Sheet",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT oas.name as \"Sheet:Link/OMR Answer Sheet:120\", oas.answer_key as \"Key:Link/OMR Answer Key:120\", oas.student_name as \"Student:Data:150\", oas.total_questions as \"Total:Int:60\", oas.correct_count as \"Correct:Int:60\", oas.wrong_count as \"Wrong:Int:60\", oas.score as \"Score:Float:80\", oas.passed as \"Passed:Check:60\", oas.graded_on as \"Graded On:Datetime:140\" FROM `tabOMR Answer Sheet` oas ORDER BY oas.graded_on DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Convocation - Registration Summary",
+    "report_name": "Convocation - Registration Summary",
+    "ref_doctype": "Convocation Registration",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "College Events",
+    "query": "SELECT c.name as \"Convocation:Link/Convocation:120\", c.title as \"Title:Data:200\", c.convocation_date as \"Date:Date:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name) as \"Registrations:Int:100\", (SELECT COUNT(*) FROM `tabConvocation Registration` cr WHERE cr.convocation = c.name AND cr.attended = 1) as \"Attended:Int:80\" FROM `tabConvocation` c ORDER BY c.convocation_date DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Accreditation - Scores Summary",
+    "report_name": "Accreditation - Scores Summary",
+    "ref_doctype": "Accreditation Report",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT ar.name as \"Report:Link/Accreditation Report:120\", ar.title as \"Title:Data:200\", ar.body_name as \"Body:Data:120\", ar.academic_year as \"Year:Data:80\", ar.total_score as \"Total Score:Float:80\", ar.maximum_score as \"Max Score:Float:80\", ROUND(ar.total_score * 100.0 / NULLIF(ar.maximum_score, 0), 1) as \"Percentage:Percent:80\", ar.grade as \"Grade:Data:60\" FROM `tabAccreditation Report` ar ORDER BY ar.creation DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  },
+  {
+    "doctype": "Report",
+    "name": "Auto Grading - Quiz Results",
+    "report_name": "Auto Grading - Quiz Results",
+    "ref_doctype": "Auto Grade Result",
+    "report_type": "Query Report",
+    "is_standard": "No",
+    "module": "Education",
+    "query": "SELECT agr.name as \"Result:Link/Auto Grade Result:120\", agr.quiz as \"Quiz:Link/LMS Quiz:150\", agr.student as \"Student:Link/User:120\", agr.score as \"Score %:Percent:80\", agr.correct_answers as \"Correct:Int:60\", agr.wrong_answers as \"Wrong:Int:60\", agr.total_questions as \"Total:Int:60\", agr.grading_method as \"Method:Data:100\", agr.creation as \"Graded On:Datetime:140\" FROM `tabAuto Grade Result` agr ORDER BY agr.creation DESC",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
   }
 ]

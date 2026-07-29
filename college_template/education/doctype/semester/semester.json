@@ -8,25 +8,79 @@
   "is_single": 0,
   "is_tree": 0,
   "editable_grid": 1,
-  "track_changes": 0,
+  "track_changes": 1,
   "track_seen": 0,
   "track_views": 0,
   "allow_rename": 1,
-  "allow_import": 0,
+  "allow_import": 1,
   "max_attachments": 0,
-  "title_field": "",
-  "image_field": "",
-  "timeline_field": "",
+  "title_field": "semester_name",
   "sort_field": "modified",
   "sort_order": "DESC",
-  "default_view": "",
-  "search_fields": "",
   "naming_rule": "By fieldname",
   "autoname": "field:semester_name",
-  "description": "",
-  "icon": "",
-  "color": "",
-  "fields": [],
+  "search_fields": "semester_name,program",
+  "fields": [
+    {
+      "fieldname": "semester_name",
+      "label": "Semester Name",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "unique": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "program",
+      "label": "Program",
+      "fieldtype": "Link",
+      "options": "Program",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "academic_year",
+      "label": "Academic Year",
+      "fieldtype": "Link",
+      "options": "Academic Year",
+      "reqd": 1,
+      "in_standard_filter": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "column_break_sem",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "semester_code",
+      "label": "Semester Code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "start_date",
+      "label": "Start Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "end_date",
+      "label": "End Date",
+      "fieldtype": "Date"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Active\nInactive\nCompleted",
+      "default": "Active",
+      "in_list_view": 1
+    }
+  ],
   "permissions": [
     {
       "role": "System Manager",
@@ -39,6 +93,18 @@
       "print": 1,
       "report": 1,
       "share": 1
+    },
+    {
+      "role": "Instructor",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 1,
+      "share": 0
     }
   ]
 }

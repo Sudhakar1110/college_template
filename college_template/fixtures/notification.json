@@ -161,7 +161,6 @@
       }
     ]
   },
-
   {
     "doctype": "Notification",
     "name": "Scholarship Payment Completed - Student",
@@ -284,5 +283,292 @@
     "value_to_be_set": "",
     "send_to_all_assignees": 0,
     "attach_print": 0
+  },
+  {
+    "name": "Revaluation Status Update",
+    "document_type": "Revaluation Application",
+    "event": "Save",
+    "subject": "Revaluation Update - {{ doc.title }}",
+    "message": "<div><h3>Revaluation Request Update</h3><p>Status: {{ doc.status }}</p><p>Total Fee: {{ doc.total_fee }}</p></div>",
+    "condition": "doc.status != 'Draft'",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Education",
+    "value_changed": "status",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Assignment Due Reminder",
+    "document_type": "Assignment",
+    "event": "Save",
+    "subject": "Assignment: {{ doc.title }} - Due {{ doc.due_date }}",
+    "message": "<div><h3>New Assignment</h3><p>{{ doc.title }}</p><p>Due Date: {{ doc.due_date }}</p><p>Course: {{ doc.course }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Education",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Library Book Overdue",
+    "document_type": "Library Transaction",
+    "event": "Days Before",
+    "subject": "Library Book Overdue - {{ doc.member_name }}",
+    "message": "<div><h3>Library Book Overdue Notice</h3><p>Member: {{ doc.member_name }}</p><p>Please return the borrowed books at the earliest.</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "System Manager"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Library",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0,
+    "days_before": 0
+  },
+  {
+    "name": "Grievance Status Update",
+    "document_type": "Grievance",
+    "event": "Value Change",
+    "subject": "Grievance Update - {{ doc.subject }}",
+    "message": "<div><h3>Grievance Status Updated</h3><p>Subject: {{ doc.subject }}</p><p>Status: {{ doc.status }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "System Manager"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Student Services",
+    "value_changed": "status",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Certificate Ready for Download",
+    "document_type": "Student Certificate Request",
+    "event": "Save",
+    "subject": "Certificate Ready - {{ doc.student_name }}",
+    "message": "<div><h3>Certificate Issued</h3><p>{{ doc.certificate_type }} for {{ doc.student_name }} is ready.</p><p>Issued on: {{ doc.issued_date }}</p></div>",
+    "condition": "doc.status == 'Issued'",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Student Services",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Hostel Allocation Confirmed",
+    "document_type": "Hostel Allocation",
+    "event": "Submit",
+    "subject": "Hostel Allocated - {{ doc.student_name }}",
+    "message": "<div><h3>Hostel Allocation</h3><p>Student: {{ doc.student_name }}</p><p>Hostel: {{ doc.hostel }}</p><p>Room: {{ doc.room }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Hostel",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Feedback Survey Published",
+    "document_type": "Feedback Survey",
+    "event": "Save",
+    "subject": "New Feedback Survey: {{ doc.survey_title }}",
+    "message": "<div><h3>Feedback Survey Open</h3><p>{{ doc.survey_title }}</p><p>Category: {{ doc.survey_category }}</p></div>",
+    "condition": "doc.status == 'Open'",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Education",
+    "value_changed": "status",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Convocation Registration Confirmed",
+    "document_type": "Convocation Registration",
+    "event": "Save",
+    "subject": "Convocation Registered - {{ doc.student_name }}",
+    "message": "<div><h3>Convocation Registration Confirmed</h3><p>Student: {{ doc.student_name }}</p><p>Convocation: {{ doc.convocation }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "College Events",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "OMR Grading Complete",
+    "document_type": "OMR Answer Sheet",
+    "event": "Save",
+    "subject": "OMR Graded - {{ doc.student_name }}",
+    "message": "<div><h3>OMR Sheet Graded</h3><p>Student: {{ doc.student_name }}</p><p>Score: {{ doc.score }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "System Manager"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Education",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Transport Allocation Confirmed",
+    "document_type": "Transport Allocation",
+    "event": "Submit",
+    "subject": "Transport Allocated - {{ doc.student_name }}",
+    "message": "<div><h3>Transport Allocation</h3><p>Student: {{ doc.student_name }}</p><p>Route: {{ doc.route }}</p><p>Vehicle: {{ doc.vehicle }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "Student"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Hostel",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
+  },
+  {
+    "name": "Accreditation Report Published",
+    "document_type": "Accreditation Report",
+    "event": "Submit",
+    "subject": "Accreditation Report - {{ doc.title }}",
+    "message": "<div><h3>Accreditation Report</h3><p>Title: {{ doc.title }}</p><p>Score: {{ doc.total_score }}/{{ doc.maximum_score }}</p><p>Grade: {{ doc.grade }}</p></div>",
+    "condition": "",
+    "recipients": [
+      {
+        "receiver_by_document_field": "",
+        "receiver_by_role": "System Manager"
+      }
+    ],
+    "channel": "System Notification",
+    "enabled": 1,
+    "is_standard": 0,
+    "module": "Education",
+    "value_changed": "",
+    "send_system_notification": 1,
+    "attach_print": 0,
+    "message_type": "Markdown",
+    "sender_email": "",
+    "set_property_after_alert": "",
+    "value_to_be_set": "",
+    "send_to_all_assignees": 0
   }
 ]
