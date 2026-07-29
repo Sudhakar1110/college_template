@@ -1,0 +1,29 @@
+{
+  "doctype": "DocType", "name": "Assignment Submission", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 3,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "ASN-SUB-.YYYY.-.#####",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "read_only": 1, "in_list_view": 1},
+    {"fieldname": "assignment", "label": "Assignment", "fieldtype": "Link", "options": "Assignment", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "fetch_from": "assignment.title"},
+    {"fieldname": "student", "label": "Student", "fieldtype": "Link", "options": "Admission Student", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "student_name", "label": "Student Name", "fieldtype": "Data", "fetch_from": "student.student_name", "read_only": 1},
+    {"fieldname": "column_break_sub", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "submitted_on", "label": "Submitted On", "fieldtype": "Datetime", "read_only": 1, "default": "Now"},
+    {"fieldname": "attachment", "label": "Submission File", "fieldtype": "Attach", "reqd": 1},
+    {"fieldname": "notes", "label": "Student Notes", "fieldtype": "Small Text"},
+    {"fieldname": "section_grading", "label": "Grading", "fieldtype": "Section Break"},
+    {"fieldname": "marks_obtained", "label": "Marks Obtained", "fieldtype": "Float", "non_negative": 1},
+    {"fieldname": "feedback", "label": "Feedback", "fieldtype": "Text Editor"},
+    {"fieldname": "column_break_grading", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "graded_by", "label": "Graded By", "fieldtype": "Link", "options": "User", "read_only": 1},
+    {"fieldname": "graded_on", "label": "Graded On", "fieldtype": "Datetime", "read_only": 1},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Submitted\nGraded\nReturned", "default": "Submitted", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Instructor", "create": 0, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 0, "report": 1, "share": 0},
+    {"role": "Student", "create": 1, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}

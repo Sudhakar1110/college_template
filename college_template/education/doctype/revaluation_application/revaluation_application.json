@@ -1,0 +1,272 @@
+{
+  "doctype": "DocType",
+  "name": "Revaluation Application",
+  "module": "Education",
+  "custom": 1,
+  "is_submittable": 1,
+  "is_child_table": 0,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "track_seen": 0,
+  "track_views": 0,
+  "allow_rename": 1,
+  "allow_import": 0,
+  "max_attachments": 5,
+  "title_field": "title",
+  "image_field": "",
+  "timeline_field": "student",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "naming_rule": "Expression",
+  "autoname": "REVAL-.YYYY.-.#####",
+  "search_fields": "student_name,registration_number",
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Title",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2,
+      "description": "Auto-generated from student and exam details"
+    },
+    {
+      "fieldname": "student",
+      "label": "Student",
+      "fieldtype": "Link",
+      "options": "Admission Student",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 2,
+      "fetch_from": ""
+    },
+    {
+      "fieldname": "student_name",
+      "label": "Student Name",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "fetch_from": "student.student_name",
+      "fetch_if_empty": 1
+    },
+    {
+      "fieldname": "registration_number",
+      "label": "Registration Number",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "fetch_from": "student.registration_number",
+      "fetch_if_empty": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "program",
+      "label": "Program",
+      "fieldtype": "Link",
+      "options": "Program",
+      "reqd": 1,
+      "in_standard_filter": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "academic_year",
+      "label": "Academic Year",
+      "fieldtype": "Link",
+      "options": "Academic Year",
+      "reqd": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "semester",
+      "label": "Semester",
+      "fieldtype": "Link",
+      "options": "Semester",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_application_details",
+      "label": "Application Details",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "revaluation_type",
+      "label": "Revaluation Type",
+      "fieldtype": "Select",
+      "options": "Photo Copy\nRevaluation\nRevaluation + Photo Copy",
+      "reqd": 1,
+      "in_list_view": 1,
+      "default": "Revaluation"
+    },
+    {
+      "fieldname": "application_date",
+      "label": "Application Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "exam_schedule",
+      "label": "Exam Schedule",
+      "fieldtype": "Link",
+      "options": "Exam Schedule"
+    },
+    {
+      "fieldname": "column_break_app",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Draft\nSubmitted\nUnder Review\nApproved\nRejected\nCompleted",
+      "default": "Draft",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "fee_paid",
+      "label": "Fee Paid",
+      "fieldtype": "Check",
+      "read_only": 0
+    },
+    {
+      "fieldname": "total_fee",
+      "label": "Total Fee",
+      "fieldtype": "Currency",
+      "read_only": 1,
+      "description": "Auto-calculated from items"
+    },
+    {
+      "fieldname": "section_items",
+      "label": "Subjects for Revaluation",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "items",
+      "label": "Revaluation Items",
+      "fieldtype": "Table",
+      "options": "Revaluation Application Item",
+      "reqd": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "section_remarks",
+      "label": "Student Remarks",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Reason/Remarks",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "documents",
+      "label": "Supporting Documents",
+      "fieldtype": "Attach"
+    },
+    {
+      "fieldname": "section_review",
+      "label": "Review & Outcome",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "reviewed_by",
+      "label": "Reviewed By",
+      "fieldtype": "Link",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "review_date",
+      "label": "Review Date",
+      "fieldtype": "Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_review",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "review_remarks",
+      "label": "Review Remarks",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "revised_marks_upload",
+      "label": "Revised Marks Document",
+      "fieldtype": "Attach"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1
+    },
+    {
+      "role": "Student",
+      "create": 1,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 1,
+      "report": 0,
+      "share": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Instructor",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 0,
+      "share": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Examination Controller",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    }
+  ]
+}

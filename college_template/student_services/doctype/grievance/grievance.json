@@ -1,0 +1,30 @@
+{
+  "doctype": "DocType", "name": "Grievance", "module": "Student Services", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 5,
+  "title_field": "subject", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "GRV-.YYYY.-.#####", "search_fields": "subject,student_name",
+  "fields": [
+    {"fieldname": "subject", "label": "Subject", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "student", "label": "Student", "fieldtype": "Link", "options": "Admission Student", "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "student_name", "label": "Student Name", "fieldtype": "Data", "fetch_from": "student.student_name", "read_only": 1, "in_list_view": 1},
+    {"fieldname": "grievance_type", "label": "Grievance Type", "fieldtype": "Select", "options": "Academic\nAdministrative\nHarassment\nInfrastructure\nFee Related\nExamination\nOther", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "column_break_grv", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "urgency", "label": "Urgency", "fieldtype": "Select", "options": "Low\nMedium\nHigh\nCritical", "default": "Medium", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Open\nIn Progress\nResolved\nClosed\nRejected", "default": "Open", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "submitted_on", "label": "Submitted On", "fieldtype": "Datetime", "read_only": 1, "default": "Now"},
+    {"fieldname": "section_description", "label": "Description", "fieldtype": "Section Break"},
+    {"fieldname": "description", "label": "Detailed Description", "fieldtype": "Text Editor", "reqd": 1},
+    {"fieldname": "attachment", "label": "Supporting Documents", "fieldtype": "Attach"},
+    {"fieldname": "section_actions", "label": "Actions Taken", "fieldtype": "Section Break"},
+    {"fieldname": "actions", "label": "Action Log", "fieldtype": "Table", "options": "Grievance Action"},
+    {"fieldname": "resolved_on", "label": "Resolved On", "fieldtype": "Datetime", "read_only": 1},
+    {"fieldname": "resolved_by", "label": "Resolved By", "fieldtype": "Link", "options": "User", "read_only": 1},
+    {"fieldname": "resolution_summary", "label": "Resolution Summary", "fieldtype": "Small Text"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 1, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0},
+    {"role": "Instructor", "create": 0, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 0, "report": 1, "share": 0}
+  ]
+}

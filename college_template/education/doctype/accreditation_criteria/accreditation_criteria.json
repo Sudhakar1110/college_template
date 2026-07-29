@@ -1,0 +1,20 @@
+{
+  "doctype": "DocType", "name": "Accreditation Criteria", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 0, "title_field": "criterion", "sort_field": "idx", "sort_order": "ASC",
+  "autoname": "", "search_fields": "criterion",
+  "fields": [
+    {"fieldname": "criterion", "label": "Criterion", "fieldtype": "Select",
+     "options": "Curricular Aspects\nTeaching-Learning and Evaluation\nResearch and Innovation\nInfrastructure and Learning Resources\nStudent Support and Progression\nGovernance and Leadership\nInstitutional Values and Best Practices",
+     "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "key_indicator", "label": "Key Indicator", "fieldtype": "Data", "in_list_view": 1, "columns": 2},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Not Started\nIn Progress\nCompleted\nVerified", "default": "Not Started", "in_list_view": 1, "columns": 1},
+    {"fieldname": "score", "label": "Score", "fieldtype": "Float", "columns": 1},
+    {"fieldname": "max_score", "label": "Max Score", "fieldtype": "Float", "columns": 1},
+    {"fieldname": "column_break_ac", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "observations", "label": "Observations", "fieldtype": "Small Text"},
+    {"fieldname": "evidence", "label": "Evidence/Reference", "fieldtype": "Small Text"},
+    {"fieldname": "attachment", "label": "Evidence Document", "fieldtype": "Attach"}
+  ], "permissions": []
+}

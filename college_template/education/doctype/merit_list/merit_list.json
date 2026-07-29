@@ -1,0 +1,25 @@
+{
+  "doctype": "DocType", "name": "Merit List", "module": "Education", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 0,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "ML-.YYYY.-.#####", "search_fields": "title,program",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "admission_opening", "label": "Admission Opening", "fieldtype": "Link", "options": "Admission Opening", "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "program", "label": "Program", "fieldtype": "Link", "options": "Program", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "academic_year", "label": "Academic Year", "fieldtype": "Link", "options": "Academic Year", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_meta", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "criteria", "label": "Selection Criteria", "fieldtype": "Select", "options": "Marks Based\nFirst Come First Serve\nEntrance Exam\nMixed", "reqd": 1, "columns": 2},
+    {"fieldname": "total_applicants", "label": "Total Applicants", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "total_seats", "label": "Total Seats", "fieldtype": "Int"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Draft\nPublished", "default": "Draft", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "generated_on", "label": "Generated On", "fieldtype": "Datetime", "read_only": 1},
+    {"fieldname": "section_entries", "label": "Merit List Entries", "fieldtype": "Section Break"},
+    {"fieldname": "entries", "label": "Entries", "fieldtype": "Table", "options": "Merit List Entry"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Admission Officer", "create": 1, "read": 1, "write": 1, "delete": 0, "email": 1, "export": 1, "print": 1, "report": 1, "share": 0}
+  ]
+}

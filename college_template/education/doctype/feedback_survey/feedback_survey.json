@@ -1,0 +1,191 @@
+{
+  "doctype": "DocType",
+  "name": "Feedback Survey",
+  "module": "Education",
+  "custom": 1,
+  "is_submittable": 1,
+  "is_child_table": 0,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "track_seen": 0,
+  "track_views": 0,
+  "allow_rename": 1,
+  "allow_import": 0,
+  "max_attachments": 0,
+  "title_field": "survey_title",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "naming_rule": "Expression",
+  "autoname": "FB-.YYYY.-.#####",
+  "search_fields": "survey_title",
+  "fields": [
+    {
+      "fieldname": "survey_title",
+      "label": "Survey Title",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "survey_type",
+      "label": "Survey Type",
+      "fieldtype": "Select",
+      "options": "Stakeholder Satisfaction\nInstitutional Governance\nCurriculum Feedback\nFaculty Feedback\nInfrastructure Feedback",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "column_break_setup",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "academic_year",
+      "label": "Academic Year",
+      "fieldtype": "Link",
+      "options": "Academic Year",
+      "reqd": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "target_audience",
+      "label": "Target Audience",
+      "fieldtype": "Select",
+      "options": "Students\nFaculty\nAlumni\nParents\nAll Stakeholders",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "program",
+      "label": "Program (Optional)",
+      "fieldtype": "Link",
+      "options": "Program"
+    },
+    {
+      "fieldname": "section_dates",
+      "label": "Survey Period",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "open_date",
+      "label": "Open Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "close_date",
+      "label": "Close Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_dates",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Draft\nOpen\nClosed",
+      "default": "Draft",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "total_responses",
+      "label": "Total Responses",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_questions",
+      "label": "Survey Questions",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "questions",
+      "label": "Questions",
+      "fieldtype": "Table",
+      "options": "Feedback Survey Question",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_naac",
+      "label": "NAAC Mapping",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "naac_criterion",
+      "label": "NAAC Criterion",
+      "fieldtype": "Select",
+      "options": "\nCurricular Aspects\nTeaching-Learning and Evaluation\nResearch and Innovation\nInfrastructure and Learning Resources\nStudent Support and Progression\nGovernance and Leadership\nInstitutional Values and Best Practices"
+    },
+    {
+      "fieldname": "naac_key_indicator",
+      "label": "NAAC Key Indicator",
+      "fieldtype": "Data"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1
+    },
+    {
+      "role": "Instructor",
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 0,
+      "email": 0,
+      "export": 1,
+      "print": 1,
+      "report": 1,
+      "share": 0
+    },
+    {
+      "role": "Student",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 0,
+      "share": 0
+    },
+    {
+      "role": "Alumni",
+      "create": 0,
+      "read": 1,
+      "write": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "report": 0,
+      "share": 0
+    }
+  ]
+}

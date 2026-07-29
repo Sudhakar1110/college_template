@@ -1,0 +1,97 @@
+{
+  "doctype": "DocType",
+  "name": "Revaluation Application Item",
+  "module": "Education",
+  "custom": 1,
+  "is_submittable": 0,
+  "is_child_table": 1,
+  "is_single": 0,
+  "is_tree": 0,
+  "editable_grid": 1,
+  "track_changes": 1,
+  "track_seen": 0,
+  "track_views": 0,
+  "allow_rename": 0,
+  "allow_import": 0,
+  "max_attachments": 0,
+  "title_field": "course",
+  "image_field": "",
+  "timeline_field": "",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "naming_rule": "By script",
+  "autoname": "",
+  "search_fields": "course,subject_code",
+  "fields": [
+    {
+      "fieldname": "course",
+      "label": "Course/Subject",
+      "fieldtype": "Link",
+      "options": "Course",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "subject_code",
+      "label": "Subject Code",
+      "fieldtype": "Data",
+      "fetch_from": "course.code",
+      "fetch_if_empty": 1,
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "current_marks",
+      "label": "Current Marks",
+      "fieldtype": "Float",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 1,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "expected_marks",
+      "label": "Expected Marks",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "columns": 1,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "fee_amount",
+      "label": "Fee Amount",
+      "fieldtype": "Currency",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 1,
+      "non_negative": 1,
+      "default": "500"
+    },
+    {
+      "fieldname": "column_break_result",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Pending\nApproved\nRejected\nRevised",
+      "default": "Pending",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "revised_marks",
+      "label": "Revised Marks",
+      "fieldtype": "Float",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "remarks",
+      "label": "Remarks",
+      "fieldtype": "Small Text"
+    }
+  ],
+  "permissions": []
+}

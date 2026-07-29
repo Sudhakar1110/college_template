@@ -1,0 +1,29 @@
+{
+  "doctype": "DocType", "name": "Question Paper Template", "module": "Education", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 0,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "QPT-.YYYY.-.#####", "search_fields": "title,subject",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "subject", "label": "Subject", "fieldtype": "Link", "options": "Course", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "columns": 2},
+    {"fieldname": "program", "label": "Program", "fieldtype": "Link", "options": "Program", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "semester", "label": "Semester", "fieldtype": "Link", "options": "Semester", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_stats", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "total_marks", "label": "Total Marks", "fieldtype": "Int", "reqd": 1, "default": "100"},
+    {"fieldname": "duration_minutes", "label": "Duration (Minutes)", "fieldtype": "Int", "reqd": 1, "default": "180"},
+    {"fieldname": "question_bank", "label": "Question Bank", "fieldtype": "Link", "options": "Question Bank"},
+    {"fieldname": "section_sections", "label": "Paper Sections", "fieldtype": "Section Break"},
+    {"fieldname": "sections", "label": "Sections", "fieldtype": "Table", "options": "Question Paper Section", "reqd": 1},
+    {"fieldname": "section_instructions", "label": "Instructions", "fieldtype": "Section Break", "collapsible": 1},
+    {"fieldname": "instructions", "label": "Instructions", "fieldtype": "Text Editor", "default": "Answer all questions.\nMarks are indicated against each question.\nWrite clearly and legibly."},
+    {"fieldname": "generated_paper", "label": "Generated Paper", "fieldtype": "Section Break", "collapsible": 1},
+    {"fieldname": "generated_questions", "label": "Generated Questions", "fieldtype": "Long Text", "read_only": 1, "description": "JSON output of auto-generated paper"},
+    {"fieldname": "generated_on", "label": "Last Generated", "fieldtype": "Datetime", "read_only": 1},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Draft\nGenerated\nApproved", "default": "Draft", "reqd": 1, "in_list_view": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Instructor", "create": 1, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 1, "report": 1, "share": 1}
+  ]
+}

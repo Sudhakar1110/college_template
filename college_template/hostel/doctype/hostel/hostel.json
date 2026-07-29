@@ -1,0 +1,25 @@
+{
+  "doctype": "DocType", "name": "Hostel", "module": "Hostel", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 3,
+  "title_field": "hostel_name", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "HSTL-.#####", "search_fields": "hostel_name",
+  "fields": [
+    {"fieldname": "hostel_name", "label": "Hostel Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "hostel_type", "label": "Type", "fieldtype": "Select", "options": "Boys\nGirls\nCo-Ed", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "warden", "label": "Warden", "fieldtype": "Link", "options": "Employee"},
+    {"fieldname": "column_break_hst", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "address", "label": "Address", "fieldtype": "Small Text"},
+    {"fieldname": "phone", "label": "Phone", "fieldtype": "Data"},
+    {"fieldname": "total_rooms", "label": "Total Rooms", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "total_capacity", "label": "Total Capacity", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "current_occupancy", "label": "Current Occupancy", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "section_facilities", "label": "Facilities", "fieldtype": "Section Break", "collapsible": 1},
+    {"fieldname": "facilities", "label": "Facilities", "fieldtype": "Small Text",
+     "description": "List facilities (WiFi, Mess, Gym, Laundry, etc.)"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 0, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "doctype": "DocType", "name": "Question Bank", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 1, "max_attachments": 3,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "QB-.YYYY.-.#####", "search_fields": "title,subject",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "subject", "label": "Subject", "fieldtype": "Link", "options": "Course", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "columns": 2},
+    {"fieldname": "program", "label": "Program", "fieldtype": "Link", "options": "Program", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "semester", "label": "Semester", "fieldtype": "Link", "options": "Semester", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_stats", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "academic_year", "label": "Academic Year", "fieldtype": "Link", "options": "Academic Year", "in_standard_filter": 1},
+    {"fieldname": "total_questions", "label": "Total Questions", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "total_marks", "label": "Total Marks Available", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "section_questions", "label": "Questions", "fieldtype": "Section Break"},
+    {"fieldname": "questions", "label": "Question Items", "fieldtype": "Table", "options": "Question Bank Item", "reqd": 1, "columns": 3}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Instructor", "create": 1, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 1, "report": 1, "share": 1}
+  ]
+}

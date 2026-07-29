@@ -1,0 +1,14 @@
+{
+  "doctype": "DocType", "name": "Question Paper Section", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 0, "title_field": "section_title", "sort_field": "idx", "sort_order": "ASC",
+  "autoname": "", "search_fields": "section_title",
+  "fields": [
+    {"fieldname": "section_title", "label": "Section Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "mark_per_question", "label": "Marks per Question", "fieldtype": "Select", "options": "2\n5\n10\n15", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "number_of_questions", "label": "Number of Questions", "fieldtype": "Int", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "total_marks", "label": "Total Marks", "fieldtype": "Int", "read_only": 1, "columns": 1},
+    {"fieldname": "difficulty_distribution", "label": "Difficulty Distribution (%)", "fieldtype": "Data", "columns": 2, "description": "e.g. Low:30,Medium:50,High:20"}
+  ], "permissions": []
+}

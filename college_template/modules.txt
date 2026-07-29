@@ -5,3 +5,6 @@ Education
 LMS
 College Custom
 Setup
+Student Services
+Library
+Hostel

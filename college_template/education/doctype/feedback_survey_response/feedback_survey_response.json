@@ -1,0 +1,25 @@
+{
+  "doctype": "DocType", "name": "Feedback Survey Response", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 0, "title_field": "survey", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "FBR-.YYYY.-.#####", "search_fields": "survey,respondent_name",
+  "fields": [
+    {"fieldname": "survey", "label": "Survey", "fieldtype": "Link", "options": "Feedback Survey", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "columns": 2},
+    {"fieldname": "survey_title", "label": "Survey Title", "fieldtype": "Data", "fetch_from": "survey.survey_title", "read_only": 1},
+    {"fieldname": "survey_type", "label": "Survey Type", "fieldtype": "Data", "fetch_from": "survey.survey_type", "read_only": 1, "in_standard_filter": 1},
+    {"fieldname": "column_break_resp", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "respondent_type", "label": "Respondent Type", "fieldtype": "Select", "options": "Student\nFaculty\nAlumni\nParent\nOther", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "respondent", "label": "Respondent", "fieldtype": "Dynamic Link", "options": "respondent_type", "in_list_view": 1},
+    {"fieldname": "respondent_name", "label": "Respondent Name", "fieldtype": "Data", "in_list_view": 1, "columns": 2},
+    {"fieldname": "submitted_on", "label": "Submitted On", "fieldtype": "Datetime", "read_only": 1, "default": "Now"},
+    {"fieldname": "section_answers", "label": "Responses", "fieldtype": "Section Break"},
+    {"fieldname": "answers", "label": "Answers", "fieldtype": "Table", "options": "Feedback Response Answer"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 1, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0},
+    {"role": "Instructor", "create": 1, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 1, "print": 0, "report": 1, "share": 0},
+    {"role": "Alumni", "create": 1, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}

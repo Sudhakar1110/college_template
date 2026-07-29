@@ -1,0 +1,16 @@
+{
+  "doctype": "DocType", "name": "Student Certificate Request Item", "module": "Student Services", "custom": 1,
+  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 0, "title_field": "certificate_type", "sort_field": "idx", "sort_order": "ASC",
+  "autoname": "", "search_fields": "certificate_type",
+  "fields": [
+    {"fieldname": "certificate_type", "label": "Certificate Type", "fieldtype": "Select",
+     "options": "Bonafide\nStudy Certificate\nConduct Certificate\nTransfer Certificate\nCourse Completion\nFee Paid Certificate\nCharacter Certificate",
+     "reqd": 1, "in_list_view": 1, "columns": 3},
+    {"fieldname": "purpose", "label": "Purpose", "fieldtype": "Small Text", "in_list_view": 1, "columns": 3},
+    {"fieldname": "quantity", "label": "Quantity", "fieldtype": "Int", "default": "1", "in_list_view": 1, "columns": 1},
+    {"fieldname": "fee_amount", "label": "Fee", "fieldtype": "Currency", "default": "0", "in_list_view": 1, "columns": 1},
+    {"fieldname": "generated_document", "label": "Generated Document", "fieldtype": "Attach", "read_only": 1}
+  ], "permissions": []
+}

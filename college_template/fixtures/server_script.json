@@ -168,5 +168,145 @@
     "disabled": 0,
     "reference_doctype": "Admission Program Enrollment",
     "doctype_event": "After Save (Submitted Document)"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Revaluation Application - Before Save",
+    "script_type": "DocType Event",
+    "script": "if not doc.title:\n    doc.title = doc.student_name + \" - \" + doc.revaluation_type + \" (\" + (doc.academic_year or '') + \")\"\n\ntotal = 0\nfor item in doc.items:\n    total = total + (item.fee_amount or 0)\ndoc.total_fee = total",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Revaluation Application",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Revaluation Application - After Submit",
+    "script_type": "DocType Event",
+    "script": "# Notify examination controller about new revaluation request\nexam_controllers = frappe.get_all(\"Has Role\", filters={\"role\": \"Examination Controller\"}, fields=[\"parent\"])\nfor ec in exam_controllers:\n    frappe.get_doc({\n        \"doctype\": \"Notification Log\",\n        \"subject\": \"New Revaluation Request: \" + doc.title,\n        \"for_user\": ec.parent,\n        \"type\": \"Alert\",\n        \"document_type\": \"Revaluation Application\",\n        \"document_name\": doc.name\n    }).insert(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Revaluation Application",
+    "doctype_event": "After Submit"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Feedback Survey - Before Save",
+    "script_type": "DocType Event",
+    "script": "# Auto-update status based on dates\nif doc.status == \"Draft\" and doc.open_date and doc.close_date:\n    today = frappe.utils.getdate(frappe.utils.today())\n    if today >= frappe.utils.getdate(doc.open_date) and today <= frappe.utils.getdate(doc.close_date):\n        doc.status = \"Open\"\n    elif today > frappe.utils.getdate(doc.close_date):\n        doc.status = \"Closed\"",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Feedback Survey",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Assignment - Notify Students on Creation",
+    "script_type": "DocType Event",
+    "script": "# When a new assignment is created, notify enrolled students\nold_doc = doc.get_doc_before_save()\nif not old_doc and doc.course:\n    # Find enrolled students from Course Registration or Student Group\n    course_name = frappe.db.get_value(\"Course\", doc.course, \"course_name\")\n    enrolled = frappe.get_all(\"Course Registration Detail\",\n        filters={\"course\": doc.course},\n        fields=[\"parent\"])\n    \n    for reg_name in set([e.parent for e in enrolled]):\n        reg = frappe.get_doc(\"Course Registration\", reg_name)\n        if reg.student and reg.student_email:\n            if frappe.db.exists(\"User\", reg.student_email):\n                frappe.get_doc({\n                    \"doctype\": \"Notification Log\",\n                    \"subject\": \"New Assignment: \" + doc.title + \" (Due: \" + str(doc.due_date) + \")\",\n                    \"for_user\": reg.student_email,\n                    \"type\": \"Alert\",\n                    \"document_type\": \"Assignment\",\n                    \"document_name\": doc.name\n                }).insert(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Assignment",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Assignment Submission - Notify Instructor",
+    "script_type": "DocType Event",
+    "script": "# When student submits assignment, notify the instructor\nold = doc.get_doc_before_save()\nif not old and doc.assignment:\n    assignment = frappe.get_doc(\"Assignment\", doc.assignment)\n    if assignment.owner:\n        frappe.get_doc({\n            \"doctype\": \"Notification Log\",\n            \"subject\": \"Submission Received: \" + doc.student_name + \" submitted \" + assignment.title,\n            \"for_user\": assignment.owner,\n            \"type\": \"Alert\",\n            \"document_type\": \"Assignment Submission\",\n            \"document_name\": doc.name\n        }).insert(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Assignment Submission",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Student Certificate Request - Auto Set Title",
+    "script_type": "DocType Event",
+    "script": "if not doc.title:\n    doc.title = doc.student_name + \" - Certificate Request (\" + str(doc.request_date) + \")\"",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Student Certificate Request",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Library Transaction - Update Book Availability",
+    "script_type": "DocType Event",
+    "script": "old = doc.get_doc_before_save()\njust_submitted = (not old or old.docstatus != 1) and doc.docstatus == 1\n\nif just_submitted and doc.transaction_type == \"Issue\":\n    for item in doc.items:\n        if item.status == \"Issued\":\n            book = frappe.get_doc(\"Library Book\", item.book)\n            book.available_copies = (book.available_copies or book.quantity) - 1\n            if book.available_copies < 0:\n                book.available_copies = 0\n            book.save(ignore_permissions=True)\n\nelif just_submitted and doc.transaction_type == \"Return\":\n    for item in doc.items:\n        if item.status == \"Returned\":\n            book = frappe.get_doc(\"Library Book\", item.book)\n            book.available_copies = (book.available_copies or 0) + 1\n            if book.available_copies > book.quantity:\n                book.available_copies = book.quantity\n            book.save(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Library Transaction",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Hostel Allocation - Update Room Occupancy",
+    "script_type": "DocType Event",
+    "script": "old = doc.get_doc_before_save()\njust_submitted = (not old or old.docstatus != 1) and doc.docstatus == 1\n\nif just_submitted and doc.room:\n    room = frappe.get_doc(\"Hostel Room\", doc.room)\n    room.current_occupancy = (room.current_occupancy or 0) + 1\n    if room.current_occupancy >= room.capacity:\n        room.status = \"Full\"\n    else:\n        room.status = \"Occupied\"\n    room.save(ignore_permissions=True)\n\n    # Update hostel occupancy\n    hostel = frappe.get_doc(\"Hostel\", doc.hostel)\n    hostel.current_occupancy = (hostel.current_occupancy or 0) + 1\n    hostel.save(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Hostel Allocation",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Hostel Allocation - Update On Cancel",
+    "script_type": "DocType Event",
+    "script": "if doc.status != \"Active\" and doc.room:\n    room = frappe.get_doc(\"Hostel Room\", doc.room)\n    room.current_occupancy = max(0, (room.current_occupancy or 1) - 1)\n    if room.current_occupancy == 0:\n        room.status = \"Available\"\n    else:\n        room.status = \"Occupied\"\n    room.save(ignore_permissions=True)\n\n    hostel = frappe.get_doc(\"Hostel\", doc.hostel)\n    hostel.current_occupancy = max(0, (hostel.current_occupancy or 1) - 1)\n    hostel.save(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Hostel Allocation",
+    "doctype_event": "Before Cancel"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Convocation Registration - Auto Set Title",
+    "script_type": "DocType Event",
+    "script": "if not doc.title:\n    doc.title = doc.student_name + \" - \" + (doc.convocation or '')",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Convocation Registration",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Assessment Result - Prevent Edit When Locked",
+    "script_type": "DocType Event",
+    "script": "if doc.locked:\n    old = doc.get_doc_before_save()\n    if old:\n        # Allow only verification-related changes, block marks changes\n        allowed_fields = [\"student_verification_status\", \"student_remarks\", \"modified\", \"modified_by\"]\n        for field in doc.meta.fields:\n            fn = field.fieldname\n            if fn and fn not in allowed_fields:\n                if old.get(fn) != doc.get(fn):\n                    frappe.throw(\n                        \"Assessment Result is locked because the student has verified these marks. \"\n                        \"Contact the Examination Controller to unlock before making changes.\"\n                    )",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Assessment Result",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "assessment_student_verify",
+    "script_type": "API",
+    "script": "# API endpoint for students to verify their assessment results\n# Called via: /api/method/assessment_student_verify\nassessment_result = frappe.form_dict.get(\"assessment_result\")\nremarks = frappe.form_dict.get(\"remarks\", \"\")\nstatus = frappe.form_dict.get(\"status\", \"Verified\")\n\nif not assessment_result:\n    frappe.response[\"message\"] = {\"error\": \"Assessment Result name is required\"}\nelse:\n    doc = frappe.get_doc(\"Assessment Result\", assessment_result)\n    doc.student_verification_status = status\n    doc.student_verified_on = frappe.utils.now_datetime()\n    if remarks:\n        doc.student_remarks = remarks\n    if status == \"Verified\":\n        doc.locked = 1\n    doc.save(ignore_permissions=True)\n    frappe.db.commit()\n    frappe.response[\"message\"] = {\"status\": \"success\", \"verification\": status}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "assessment_student_verify",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "question_paper_generate",
+    "script_type": "API",
+    "script": "import json, random\n# API endpoint to auto-generate a question paper from the question bank\ntemplate_name = frappe.form_dict.get(\"template\")\n\nif not template_name:\n    frappe.response[\"message\"] = {\"error\": \"Question Paper Template is required\"}\nelse:\n    template = frappe.get_doc(\"Question Paper Template\", template_name)\n    \n    if not template.question_bank:\n        frappe.response[\"message\"] = {\"error\": \"No Question Bank linked to this template\"}\n    else:\n        qb = frappe.get_doc(\"Question Bank\", template.question_bank)\n        all_questions = qb.questions\n        \n        if not all_questions:\n            frappe.response[\"message\"] = {\"error\": \"Question Bank is empty\"}\n        else:\n            generated = {\"sections\": [], \"total_marks\": 0}\n            selected_questions = []\n            \n            for section in template.sections:\n                section_data = {\"title\": section.section_title, \"marks\": section.mark_per_question, \"questions\": [], \"count\": section.number_of_questions}\n                \n                # Parse difficulty distribution\n                diff_map = {\"Low\": 0, \"Medium\": 0, \"High\": 0}\n                if section.difficulty_distribution:\n                    parts = section.difficulty_distribution.split(\",\")\n                    for p in parts:\n                        kv = p.split(\":\")\n                        if len(kv) == 2:\n                            diff_map[kv[0].strip()] = int(kv[1].strip())\n                \n                # Filter questions by mark value\n                pool = [q for q in all_questions if str(q.mark) == str(section.mark_per_question)]\n                if not pool:\n                    continue\n                \n                # Select questions based on difficulty distribution\n                random.shuffle(pool)\n                selected = []\n                needed = section.number_of_questions\n                \n                for q in pool:\n                    if len(selected) >= needed:\n                        break\n                    if q.name not in selected_questions:\n                        selected.append({\"question\": q.question_text, \"marks\": q.mark, \"difficulty\": q.difficulty, \"answer\": q.answer})\n                        selected_questions.append(q.name)\n                \n                section_data[\"questions\"] = selected\n                generated[\"sections\"].append(section_data)\n                generated[\"total_marks\"] = generated[\"total_marks\"] + (section.mark_per_question * len(selected))\n            \n            # Save generated paper to template\n            template.generated_questions = json.dumps(generated, indent=2)\n            template.generated_on = frappe.utils.now_datetime()\n            template.status = \"Generated\"\n            template.save(ignore_permissions=True)\n            frappe.db.commit()\n            \n            frappe.response[\"message\"] = {\"status\": \"success\", \"paper\": generated}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "question_paper_generate",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Feedback Survey - Daily Scheduler",
+    "script_type": "Scheduler Event",
+    "script": "# Auto-update feedback survey statuses based on dates\ntoday = frappe.utils.today()\n\nsurveys = frappe.get_all(\"Feedback Survey\", filters={\"status\": \"Draft\"}, fields=[\"name\", \"open_date\", \"close_date\"])\nfor s in surveys:\n    if s.open_date and str(s.open_date) <= str(today):\n        survey = frappe.get_doc(\"Feedback Survey\", s.name)\n        if str(s.close_date) >= str(today):\n            survey.status = \"Open\"\n        else:\n            survey.status = \"Closed\"\n        survey.save(ignore_permissions=True)",
+    "module": "",
+    "disabled": 0,
+    "event_frequency": "Daily",
+    "cron_format": ""
   }
 ]

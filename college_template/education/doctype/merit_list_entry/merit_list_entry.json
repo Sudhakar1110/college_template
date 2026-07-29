@@ -1,0 +1,15 @@
+{
+  "doctype": "DocType", "name": "Merit List Entry", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 0, "title_field": "applicant_name", "sort_field": "idx", "sort_order": "ASC",
+  "autoname": "", "search_fields": "applicant_name",
+  "fields": [
+    {"fieldname": "applicant", "label": "Applicant", "fieldtype": "Link", "options": "Student Applicant", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "applicant_name", "label": "Applicant Name", "fieldtype": "Data", "fetch_from": "applicant.student_name", "fetch_if_empty": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "rank", "label": "Rank", "fieldtype": "Int", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "column_break_ml", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "total_marks", "label": "Total Marks", "fieldtype": "Float", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Selected\nWaitlisted\nNot Selected", "default": "Selected", "in_list_view": 1, "columns": 1}
+  ], "permissions": []
+}

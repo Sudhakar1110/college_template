@@ -1,0 +1,13 @@
+{
+  "doctype": "DocType", "name": "Grievance Action", "module": "Student Services", "custom": 1,
+  "is_submittable": 0, "is_child_table": 1, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 0, "track_seen": 0, "track_views": 0, "allow_rename": 0, "allow_import": 0,
+  "max_attachments": 1, "title_field": "action", "sort_field": "idx", "sort_order": "ASC",
+  "autoname": "", "search_fields": "action",
+  "fields": [
+    {"fieldname": "action", "label": "Action", "fieldtype": "Small Text", "reqd": 1, "in_list_view": 1, "columns": 4},
+    {"fieldname": "action_date", "label": "Action Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1, "columns": 1, "default": "Today"},
+    {"fieldname": "taken_by", "label": "Taken By", "fieldtype": "Link", "options": "User", "in_list_view": 1, "columns": 1},
+    {"fieldname": "attachment", "label": "Attachment", "fieldtype": "Attach"}
+  ], "permissions": []
+}

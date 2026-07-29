@@ -1,0 +1,26 @@
+{
+  "doctype": "DocType", "name": "Hostel Allocation", "module": "Hostel", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 0,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "HSTL-ALLOC-.YYYY.-.#####",
+  "search_fields": "student_name,hostel",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "read_only": 1, "in_list_view": 1},
+    {"fieldname": "student", "label": "Student", "fieldtype": "Link", "options": "Admission Student", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "student_name", "label": "Student Name", "fieldtype": "Data", "fetch_from": "student.student_name", "read_only": 1, "in_list_view": 1},
+    {"fieldname": "hostel", "label": "Hostel", "fieldtype": "Link", "options": "Hostel", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "room", "label": "Room", "fieldtype": "Link", "options": "Hostel Room", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "column_break_ha", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "academic_year", "label": "Academic Year", "fieldtype": "Link", "options": "Academic Year", "reqd": 1},
+    {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date", "reqd": 1, "default": "Today"},
+    {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Active\nVacated\nTransferred", "default": "Active", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "rent_amount", "label": "Rent Amount", "fieldtype": "Currency"},
+    {"fieldname": "remarks", "label": "Remarks", "fieldtype": "Small Text"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 0, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}

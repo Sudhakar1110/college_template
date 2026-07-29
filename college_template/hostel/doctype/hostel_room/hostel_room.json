@@ -1,0 +1,23 @@
+{
+  "doctype": "DocType", "name": "Hostel Room", "module": "Hostel", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 0,
+  "title_field": "room_number", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "RM-.hostel.-.#####", "search_fields": "room_number,hostel",
+  "fields": [
+    {"fieldname": "hostel", "label": "Hostel", "fieldtype": "Link", "options": "Hostel", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "columns": 2},
+    {"fieldname": "room_number", "label": "Room Number", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 1},
+    {"fieldname": "room_type", "label": "Room Type", "fieldtype": "Select", "options": "Single\nDouble\nTriple\nDormitory", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "floor", "label": "Floor", "fieldtype": "Data"},
+    {"fieldname": "column_break_rm", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "capacity", "label": "Capacity", "fieldtype": "Int", "reqd": 1, "default": "2", "in_list_view": 1},
+    {"fieldname": "current_occupancy", "label": "Occupied", "fieldtype": "Int", "read_only": 1, "default": "0"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Available\nOccupied\nFull\nUnder Maintenance", "default": "Available", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "rent_per_month", "label": "Rent/Month", "fieldtype": "Currency"},
+    {"fieldname": "amenities", "label": "Amenities", "fieldtype": "Small Text"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 0, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}

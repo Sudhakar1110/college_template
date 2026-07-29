@@ -1,0 +1,25 @@
+{
+  "doctype": "DocType", "name": "Library Member", "module": "Library", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 0,
+  "title_field": "member_name", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "LIB-MEM-.#####", "search_fields": "member_name,library_id",
+  "fields": [
+    {"fieldname": "member_name", "label": "Member Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "library_id", "label": "Library ID", "fieldtype": "Data", "unique": 1, "reqd": 1, "in_list_view": 1},
+    {"fieldname": "member_type", "label": "Member Type", "fieldtype": "Select", "options": "Student\nFaculty\nStaff\nExternal", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "student", "label": "Linked Student", "fieldtype": "Link", "options": "Admission Student"},
+    {"fieldname": "email", "label": "Email", "fieldtype": "Data"},
+    {"fieldname": "column_break_mem", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "phone", "label": "Phone", "fieldtype": "Data"},
+    {"fieldname": "department", "label": "Department", "fieldtype": "Link", "options": "Department"},
+    {"fieldname": "membership_status", "label": "Membership Status", "fieldtype": "Select", "options": "Active\nExpired\nSuspended", "default": "Active", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "valid_until", "label": "Valid Until", "fieldtype": "Date"},
+    {"fieldname": "max_books_allowed", "label": "Max Books Allowed", "fieldtype": "Int", "default": "5"},
+    {"fieldname": "outstanding_books", "label": "Outstanding Books", "fieldtype": "Int", "read_only": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Librarian", "create": 1, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 1, "report": 1, "share": 1}
+  ]
+}

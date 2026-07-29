@@ -1,0 +1,29 @@
+{
+  "doctype": "DocType", "name": "Assignment", "module": "Education", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "track_views": 0, "allow_rename": 1, "allow_import": 0, "max_attachments": 5,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "ASN-.YYYY.-.#####", "search_fields": "title,course",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "columns": 2},
+    {"fieldname": "course", "label": "Course", "fieldtype": "Link", "options": "Course", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1, "columns": 2},
+    {"fieldname": "program", "label": "Program", "fieldtype": "Link", "options": "Program", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "semester", "label": "Semester", "fieldtype": "Link", "options": "Semester", "reqd": 1, "in_standard_filter": 1},
+    {"fieldname": "batch", "label": "Batch", "fieldtype": "Link", "options": "Academic Batch"},
+    {"fieldname": "column_break_dates", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "due_date", "label": "Due Date", "fieldtype": "Date", "reqd": 1},
+    {"fieldname": "max_marks", "label": "Max Marks", "fieldtype": "Float", "reqd": 1, "default": "100"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Open\nClosed", "default": "Open", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "instructor", "label": "Assigned By", "fieldtype": "Link", "options": "User", "read_only": 1},
+    {"fieldname": "section_description", "label": "Description", "fieldtype": "Section Break"},
+    {"fieldname": "description", "label": "Description", "fieldtype": "Text Editor", "reqd": 1},
+    {"fieldname": "attachment", "label": "Reference Material", "fieldtype": "Attach"},
+    {"fieldname": "section_submissions", "label": "Submissions", "fieldtype": "Section Break"},
+    {"fieldname": "submissions", "label": "Student Submissions", "fieldtype": "Table", "options": "Assignment Submission", "read_only": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Instructor", "create": 1, "read": 1, "write": 1, "delete": 0, "email": 0, "export": 1, "print": 1, "report": 1, "share": 1},
+    {"role": "Student", "create": 0, "read": 1, "write": 0, "delete": 0, "email": 0, "export": 0, "print": 0, "report": 0, "share": 0}
+  ]
+}
