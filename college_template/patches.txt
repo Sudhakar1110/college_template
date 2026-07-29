@@ -4,3 +4,4 @@ college_template.patches.restore_orphaned_docs
 college_template.patches.fix_workspace_content
 college_template.patches.remove_child_table_links
 college_template.patches.fix_module_def
+college_template.patches.add_child_table_parent_columns

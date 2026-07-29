@@ -9,8 +9,9 @@ import frappe
 # "orphaned" and deleted during migration.
 # Only add modules here that are CONFIRMED to have this issue.
 CONFLICTING_MODULES = [
-    "Education",      # Conflicts with the core 'education' app
-    "College Custom",  # Conflicts with frappe's built-in 'Custom' module
+    "Education",       # Conflicts with the core 'education' app
+    "College Custom",   # Conflicts with frappe's built-in 'Custom' module
+    "College Events",   # Module Def may point to wrong app
 ]
 
 

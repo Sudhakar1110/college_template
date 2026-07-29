@@ -60,7 +60,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT name as \"Certificate No:Link/Event Certificate:150\", event as \"Event:Link/College Event:200\", student as \"Student:Link/Admission Student:150\", issue_date as \"Issue Date:Date:100\", 'Issued' as \"Status:Data:100\" FROM `tabEvent Certificate` ORDER BY issue_date DESC",
+    "query": "SELECT name as \"Certificate No:Link/Event Certificate:150\", event as \"Event:Link/College Event:200\", student as \"Student:Link/Admission Student:150\", issue_date as \"Issue Date:Date:100\", certificate_status as \"Status:Data:100\" FROM `tabEvent Certificate` ORDER BY issue_date DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -77,7 +77,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT ea.student as \"Student:Link/Admission Student:150\", ea.attendance as \"Attendance:Data:100\", ea.late_entry as \"Late Entry:Check:80\", ea.certificate_issued as \"Certificate Issued:Check:100\" FROM `tabEvent Attendance` ea ORDER BY ea.student",
+    "query": "SELECT ea.student as \"Student:Link/Admission Student:150\", ce.event_name as \"Event:Link/College Event:200\", ea.attendance as \"Attendance:Data:100\", ea.late_entry as \"Late Entry:Check:80\", ea.certificate_issued as \"Certificate Issued:Check:100\" FROM `tabEvent Attendance` ea INNER JOIN `tabCollege Event` ce ON ce.name = ea.parent ORDER BY ce.event_name",
     "roles": [
       {
         "role": "System Manager"
@@ -94,7 +94,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT er.student as \"Student:Link/Admission Student:150\", er.registration_date as \"Registered On:Date:100\", er.status as \"Status:Data:100\" FROM `tabEvent Registration` er ORDER BY er.registration_date DESC",
+    "query": "SELECT er.student as \"Student:Link/Admission Student:150\", ce.event_name as \"Event:Link/College Event:200\", ce.event_category as \"Category:Data:120\", er.registration_date as \"Registered On:Date:100\", er.status as \"Status:Data:100\" FROM `tabEvent Registration` er INNER JOIN `tabCollege Event` ce ON ce.name = er.parent ORDER BY er.registration_date DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -347,7 +347,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", 0 as \"Subjects:Int:80\", creation as \"Submitted On:Datetime:140\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE ra.status = 'Pending' ORDER BY application_date ASC",
+    "query": "SELECT name as \"Application:Link/Revaluation Application:150\", student_name as \"Student:Data:150\", revaluation_type as \"Type:Data:100\", total_fee as \"Total Fee:Currency:100\", (SELECT COUNT(*) FROM `tabRevaluation Application Item` ri WHERE ri.parent = ra.name) as \"Subjects:Int:80\", creation as \"Submitted On:Datetime:140\", status as \"Status:Data:100\" FROM `tabRevaluation Application` ra WHERE ra.status = 'Pending' ORDER BY application_date ASC",
     "roles": [
       {
         "role": "System Manager"
@@ -377,7 +377,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", sr.submitted_on as \"Submitted:Datetime:140\", 'N/A' as \"Questions Answered:Data:80\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted_on DESC",
+    "query": "SELECT sr.name as \"Response:Link/Feedback Survey Response:120\", sr.survey as \"Survey:Link/Feedback Survey:150\", sr.respondent_type as \"Type:Data:80\", sr.submitted_on as \"Submitted:Datetime:140\", (SELECT COUNT(*) FROM `tabFeedback Response Answer` ra WHERE ra.parent = sr.name) as \"Questions Answered:Int:120\" FROM `tabFeedback Survey Response` sr ORDER BY sr.submitted_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -407,7 +407,7 @@
     "report_type": "Query Report",
     "is_standard": "No",
     "module": "Education",
-    "query": "SELECT qb.name as \"Bank:Link/Question Bank:150\", qb.subject as \"Subject:Link/Course:150\", 0 as \"Total Questions:Int:100\", 0 as \"Low:Int:60\", 0 as \"Medium:Int:60\", 0 as \"High:Int:60\" FROM `tabQuestion Bank` qb ORDER BY `Total Questions:Int:100` DESC",
+    "query": "SELECT qb.name as \"Bank:Link/Question Bank:150\", qb.subject as \"Subject:Link/Course:150\", (SELECT COUNT(*) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Total Questions:Int:100\", (SELECT SUM(CASE WHEN qi.difficulty = 'Low' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Low:Int:60\", (SELECT SUM(CASE WHEN qi.difficulty = 'Medium' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"Medium:Int:60\", (SELECT SUM(CASE WHEN qi.difficulty = 'High' THEN 1 ELSE 0 END) FROM `tabQuestion Bank Item` qi WHERE qi.parent = qb.name) as \"High:Int:60\" FROM `tabQuestion Bank` qb ORDER BY `Total Questions:Int:100` DESC",
     "roles": [
       {
         "role": "System Manager"
