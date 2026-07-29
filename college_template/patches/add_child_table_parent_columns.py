@@ -36,7 +36,8 @@ def fix_child_table_columns(table):
     ]:
         if col not in existing:
             frappe.db.sql(
-                f"ALTER TABLE `{table}` ADD COLUMN `{col}` {col_type} DEFAULT ''"
+                f"ALTER TABLE `{table}` ADD COLUMN `{col}` {col_type} DEFAULT ''",
+                auto_commit=True
             )
             added.append(col)
 
