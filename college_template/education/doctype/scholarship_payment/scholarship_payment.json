@@ -28,6 +28,15 @@
   "color": "",
   "fields": [
     {
+      "fieldname": "sanction",
+      "label": "Sanction",
+      "fieldtype": "Link",
+      "options": "Scholarship Sanction",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
       "fieldname": "application",
       "label": "Application",
       "fieldtype": "Link",

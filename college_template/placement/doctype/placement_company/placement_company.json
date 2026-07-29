@@ -28,6 +28,16 @@
   "color": "",
   "fields": [
     {
+      "fieldname": "company_name",
+      "label": "Company Name",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 2
+    },
+    {
       "fieldname": "website",
       "label": "Website",
       "fieldtype": "Data",

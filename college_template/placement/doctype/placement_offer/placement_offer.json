@@ -28,6 +28,17 @@
   "color": "",
   "fields": [
     {
+      "fieldname": "registration",
+      "label": "Registration",
+      "fieldtype": "Link",
+      "options": "Placement Registration",
+      "reqd": 1,
+      "in_list_view": 1,
+      "unique": 0,
+      "read_only": 0,
+      "columns": 2
+    },
+    {
       "fieldname": "student",
       "label": "Student",
       "fieldtype": "Link",
