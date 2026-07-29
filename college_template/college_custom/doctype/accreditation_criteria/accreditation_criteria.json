@@ -1,7 +1,7 @@
 {
   "doctype": "DocType",
   "name": "Accreditation Criteria",
-  "module": "Education",
+  "module": "College Custom",
   "custom": 0,
   "is_submittable": 0,
   "is_child_table": 1,

@@ -1,7 +1,7 @@
 {
   "doctype": "DocType",
-  "name": "Feedback Response Answer",
-  "module": "Education",
+  "name": "Feedback Survey Question",
+  "module": "College Custom",
   "custom": 0,
   "is_submittable": 0,
   "is_child_table": 1,
@@ -31,33 +31,31 @@
     },
     {
       "fieldname": "question_type",
-      "label": "Type",
-      "fieldtype": "Data",
-      "read_only": 1,
+      "label": "Question Type",
+      "fieldtype": "Select",
+      "options": "Rating (1-5)\nYes/No\nText\nMultiple Choice",
+      "reqd": 1,
       "in_list_view": 1,
       "columns": 1
     },
     {
-      "fieldname": "rating_value",
-      "label": "Rating",
-      "fieldtype": "Int",
-      "non_negative": 1,
+      "fieldname": "is_mandatory",
+      "label": "Mandatory",
+      "fieldtype": "Check",
+      "default": 1,
+      "in_list_view": 1,
       "columns": 1
     },
     {
-      "fieldname": "column_break_ans",
+      "fieldname": "column_break_opts",
       "label": "",
       "fieldtype": "Column Break"
     },
     {
-      "fieldname": "text_response",
-      "label": "Text Response",
-      "fieldtype": "Small Text"
-    },
-    {
-      "fieldname": "choice_value",
-      "label": "Choice",
-      "fieldtype": "Data"
+      "fieldname": "options",
+      "label": "Options (comma separated)",
+      "fieldtype": "Small Text",
+      "description": "For Multiple Choice type, enter options separated by commas"
     }
   ],
   "permissions": [
