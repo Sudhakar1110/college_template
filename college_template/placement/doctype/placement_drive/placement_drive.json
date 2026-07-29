@@ -14,7 +14,7 @@
   "allow_rename": 1,
   "allow_import": 0,
   "max_attachments": 0,
-  "title_field": "",
+  "title_field": "drive_title",
   "image_field": "",
   "timeline_field": "",
   "sort_field": "modified",
@@ -27,6 +27,15 @@
   "icon": "",
   "color": "",
   "fields": [
+    {
+      "fieldname": "drive_title",
+      "label": "Drive Title",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 2
+    },
     {
       "fieldname": "company",
       "label": "Company",
