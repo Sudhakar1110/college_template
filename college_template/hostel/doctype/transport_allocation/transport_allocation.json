@@ -1,0 +1,22 @@
+{
+  "doctype": "DocType", "name": "Transport Allocation", "module": "Hostel", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 1, "max_attachments": 0,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "TR-AL-.YYYY.-.#####",
+  "search_fields": "student_name,route",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "read_only": 1},
+    {"fieldname": "student", "label": "Student", "fieldtype": "Link", "options": "Admission Student", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "student_name", "label": "Student Name", "fieldtype": "Data", "fetch_from": "student.student_name", "read_only": 1},
+    {"fieldname": "route", "label": "Route", "fieldtype": "Link", "options": "Transport Route", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "vehicle", "label": "Vehicle", "fieldtype": "Link", "options": "Transport Vehicle", "in_list_view": 1},
+    {"fieldname": "column_break_ta", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "pickup_point", "label": "Pickup Point", "fieldtype": "Data"},
+    {"fieldname": "academic_year", "label": "Academic Year", "fieldtype": "Link", "options": "Academic Year", "reqd": 1},
+    {"fieldname": "from_date", "label": "From Date", "fieldtype": "Date", "reqd": 1, "default": "Today"},
+    {"fieldname": "to_date", "label": "To Date", "fieldtype": "Date"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Active\nInactive", "default": "Active", "in_list_view": 1}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

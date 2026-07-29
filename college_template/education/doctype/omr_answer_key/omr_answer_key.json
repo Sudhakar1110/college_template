@@ -1,0 +1,20 @@
+{
+  "doctype": "DocType", "name": "OMR Answer Key", "module": "Education", "custom": 1,
+  "is_submittable": 1, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 1, "max_attachments": 1,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "OMR-.YYYY.-.#####",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "subject", "label": "Subject", "fieldtype": "Link", "options": "Course", "reqd": 1},
+    {"fieldname": "exam_schedule", "label": "Exam Schedule", "fieldtype": "Link", "options": "Exam Schedule"},
+    {"fieldname": "total_questions", "label": "Total Questions", "fieldtype": "Int", "reqd": 1, "default": "50"},
+    {"fieldname": "column_break_omr", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "correct_answers", "label": "Correct Answers", "fieldtype": "Small Text", "reqd": 1, "description": "Comma-separated: 1=A,2=B,3=C..."},
+    {"fieldname": "mark_per_correct", "label": "Marks per Correct", "fieldtype": "Float", "default": "1"},
+    {"fieldname": "negative_mark", "label": "Negative Mark", "fieldtype": "Float", "default": "0.25"},
+    {"fieldname": "passing_score", "label": "Passing Score", "fieldtype": "Float"},
+    {"fieldname": "bubble_template", "label": "Bubble Sheet Template", "fieldtype": "Attach"}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

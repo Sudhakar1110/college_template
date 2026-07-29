@@ -308,5 +308,95 @@
     "disabled": 0,
     "event_frequency": "Daily",
     "cron_format": ""
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Transport Allocation - Auto Set Title",
+    "script_type": "DocType Event",
+    "script": "if not doc.title:\n    doc.title = (doc.student_name or '') + \" - \" + (doc.route or '') + \" (\" + (doc.academic_year or '') + \")\"",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Transport Allocation",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "Auto Grade Result - Auto Grade Quiz",
+    "script_type": "DocType Event",
+    "script": "if not doc.title:\n    doc.title = \"Auto-Grade: \" + (doc.quiz or '') + \" - \" + (doc.student or '')",
+    "module": "",
+    "disabled": 0,
+    "reference_doctype": "Auto Grade Result",
+    "doctype_event": "Before Save"
+  },
+  {
+    "doctype": "Server Script",
+    "name": "student_api_get_data",
+    "script_type": "API",
+    "script": "# API endpoint for mobile app / parent portal - get student data\n# Called via: /api/method/student_api_get_data?student=STU-001\nstudent_id = frappe.form_dict.get(\"student\")\nemail = frappe.form_dict.get(\"email\")\n\nif student_id:\n    student = frappe.get_doc(\"Admission Student\", student_id)\n    data = {\n        \"name\": student.name,\n        \"student_name\": student.student_name,\n        \"registration_number\": student.registration_number,\n        \"program\": student.program,\n        \"batch\": student.batch,\n        \"email\": student.email,\n        \"phone\": student.phone,\n        \"attendance_percentage\": student.attendance_percentage,\n        \"annual_family_income\": student.annual_family_income\n    }\n    frappe.response[\"message\"] = data\nelif email:\n    students = frappe.get_all(\"Admission Student\", filters={\"email\": email}, fields=[\"name\", \"student_name\", \"program\", \"registration_number\"])\n    frappe.response[\"message\"] = students\nelse:\n    frappe.response[\"message\"] = {\"error\": \"Provide student name or email\"}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "student_api_get_data",
+    "allow_guest": 1
+  },
+  {
+    "doctype": "Server Script",
+    "name": "student_api_get_fees",
+    "script_type": "API",
+    "script": "# API endpoint for mobile app - get student fee details\nstudent_id = frappe.form_dict.get(\"student\")\n\nif not student_id:\n    frappe.response[\"message\"] = {\"error\": \"Student ID required\"}\nelse:\n    assignments = frappe.get_all(\"Student Fee Assignment\", filters={\"student\": student_id},\n        fields=[\"name\", \"total_amount\", \"paid_amount\", \"balance\", \"due_date\", \"fee_type\", \"status\"])\n    enrollments = frappe.get_all(\"Admission Program Enrollment\", filters={\"student\": student_id},\n        fields=[\"name\", \"program\", \"academic_year\", \"enrollment_date\", \"status\"])\n    frappe.response[\"message\"] = {\"fees\": assignments, \"enrollments\": enrollments}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "student_api_get_fees",
+    "allow_guest": 1
+  },
+  {
+    "doctype": "Server Script",
+    "name": "student_api_get_attendance",
+    "script_type": "API",
+    "script": "# API endpoint for mobile app - get student attendance\nstudent_id = frappe.form_dict.get(\"student\")\n\nif not student_id:\n    frappe.response[\"message\"] = {\"error\": \"Student ID required\"}\nelse:\n    attendance = frappe.get_all(\"Student Attendance\", filters={\"admission_student\": student_id},\n        fields=[\"name\", \"date\", \"status\", \"course\", \"student_group\"], order_by=\"date DESC\", limit=50)\n    frappe.response[\"message\"] = {\"attendance\": attendance}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "student_api_get_attendance",
+    "allow_guest": 1
+  },
+  {
+    "doctype": "Server Script",
+    "name": "student_api_get_results",
+    "script_type": "API",
+    "script": "# API endpoint for mobile app - get student assessment results\nstudent_id = frappe.form_dict.get(\"student\")\n\nif not student_id:\n    frappe.response[\"message\"] = {\"error\": \"Student ID required\"}\nelse:\n    results = frappe.get_all(\"Assessment Result\", filters={\"admission_student\": student_id, \"is_published\": 1},\n        fields=[\"name\", \"assessment_plan\", \"student\", \"total_score\", \"grade\", \"comment\", \"published_on\"],\n        order_by=\"published_on DESC\", limit=50)\n    frappe.response[\"message\"] = {\"results\": results}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "student_api_get_results",
+    "allow_guest": 1
+  },
+  {
+    "doctype": "Server Script",
+    "name": "student_api_submit_grievance",
+    "script_type": "API",
+    "script": "# API endpoint for mobile app - submit grievance\nimport json\nsubject = frappe.form_dict.get(\"subject\")\ndescription = frappe.form_dict.get(\"description\")\nstudent = frappe.form_dict.get(\"student\")\ntype = frappe.form_dict.get(\"type\", \"Academic\")\n\nif not subject or not student:\n    frappe.response[\"message\"] = {\"error\": \"Subject and Student are required\"}\nelse:\n    grievance = frappe.get_doc({\n        \"doctype\": \"Grievance\",\n        \"subject\": subject,\n        \"description\": description,\n        \"student\": student,\n        \"grievance_type\": type,\n        \"status\": \"Open\"\n    })\n    grievance.insert(ignore_permissions=True)\n    frappe.db.commit()\n    frappe.response[\"message\"] = {\"status\": \"success\", \"grievance_id\": grievance.name}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "student_api_submit_grievance",
+    "allow_guest": 1
+  },
+  {
+    "doctype": "Server Script",
+    "name": "auto_grade_lms_quiz",
+    "script_type": "API",
+    "script": "# API endpoint to auto-grade an LMS Quiz Submission\nimport json\nsubmission_name = frappe.form_dict.get(\"submission\")\n\nif not submission_name:\n    frappe.response[\"message\"] = {\"error\": \"Quiz Submission ID required\"}\nelse:\n    submission = frappe.get_doc(\"LMS Quiz Submission\", submission_name)\n    quiz = frappe.get_doc(\"LMS Quiz\", submission.quiz)\n    \n    # Score calculation\n    correct = 0\n    total = len(quiz.questions) if quiz.questions else 0\n    details = []\n    \n    for i, q in enumerate(quiz.questions):\n        question_data = json.loads(q.question) if isinstance(q.question, str) else q.question\n        correct_answer = question_data.get(\"answer\", \"\") if question_data else \"\"\n        user_answer = \"\"  # This depends on LMS Quiz Submission structure\n        \n        is_correct = str(user_answer).strip().lower() == str(correct_answer).strip().lower() if correct_answer else False\n        if is_correct:\n            correct = correct + 1\n        details.append({\"question_no\": i+1, \"correct\": correct_answer, \"user_answer\": user_answer, \"is_correct\": is_correct})\n    \n    score = (correct / total * 100) if total > 0 else 0\n    \n    # Save auto-grade result\n    grade_result = frappe.get_doc({\n        \"doctype\": \"Auto Grade Result\",\n        \"quiz_submission\": submission_name,\n        \"student\": submission.member,\n        \"quiz\": submission.quiz,\n        \"score\": score,\n        \"total_questions\": total,\n        \"correct_answers\": correct,\n        \"wrong_answers\": total - correct,\n        \"grading_method\": \"Auto (Exact Match)\",\n        \"grading_details\": json.dumps(details)\n    })\n    grade_result.insert(ignore_permissions=True)\n    frappe.db.commit()\n    \n    frappe.response[\"message\"] = {\"status\": \"success\", \"score\": score, \"correct\": correct, \"total\": total, \"grade_id\": grade_result.name}",
+    "module": "",
+    "disabled": 0,
+    "api_method": "auto_grade_lms_quiz",
+    "allow_guest": 0
+  },
+  {
+    "doctype": "Server Script",
+    "name": "omr_grade_sheet",
+    "script_type": "API",
+    "script": "# API endpoint to grade an OMR answer sheet\nimport json\nanswer_key_name = frappe.form_dict.get(\"answer_key\")\nstudent_answers = frappe.form_dict.get(\"answers\")  # Comma-separated: 1=A,2=B,3=C\n\nif not answer_key_name or not student_answers:\n    frappe.response[\"message\"] = {\"error\": \"Answer Key and Student Answers required\"}\nelse:\n    key = frappe.get_doc(\"OMR Answer Key\", answer_key_name)\n    correct_list = key.correct_answers.split(\",\")\n    student_list = student_answers.split(\",\")\n    \n    correct_count = 0\n    wrong_count = 0\n    total = min(len(correct_list), len(student_list))\n    \n    for i in range(total):\n        c = correct_list[i].strip().split(\"=\") if \"=\" in correct_list[i] else [\"\", correct_list[i].strip()]\n        s = student_list[i].strip().split(\"=\") if \"=\" in student_list[i] else [\"\", student_list[i].strip()]\n        if len(c) > 1 and len(s) > 1:\n            if c[1].strip().upper() == s[1].strip().upper():\n                correct_count = correct_count + 1\n            else:\n                wrong_count = wrong_count + 1\n    \n    score = (correct_count * key.mark_per_correct) - (wrong_count * key.negative_mark)\n    score = max(0, score)\n    \n    frappe.response[\"message\"] = {\n        \"status\": \"success\",\n        \"total_questions\": total,\n        \"correct\": correct_count,\n        \"wrong\": wrong_count,\n        \"score\": score,\n        \"passing\": score >= (key.passing_score or 0)\n    }",
+    "module": "",
+    "disabled": 0,
+    "api_method": "omr_grade_sheet",
+    "allow_guest": 0
   }
 ]

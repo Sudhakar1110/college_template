@@ -1,0 +1,21 @@
+{
+  "doctype": "DocType", "name": "Device Config", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 1, "max_attachments": 0,
+  "title_field": "device_name", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "DEV-.#####",
+  "fields": [
+    {"fieldname": "device_name", "label": "Device Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "device_type", "label": "Type", "fieldtype": "Select", "options": "Biometric\nRFID\nFace Recognition\nCard Reader\nOther", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "serial_number", "label": "Serial Number", "fieldtype": "Data", "unique": 1},
+    {"fieldname": "ip_address", "label": "IP Address", "fieldtype": "Data"},
+    {"fieldname": "port", "label": "Port", "fieldtype": "Data"},
+    {"fieldname": "column_break_dc", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "location", "label": "Location", "fieldtype": "Data"},
+    {"fieldname": "api_endpoint", "label": "API Endpoint", "fieldtype": "Data", "description": "URL for device API integration"},
+    {"fieldname": "auth_token", "label": "Auth Token", "fieldtype": "Password"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Active\nInactive\nOffline", "default": "Active", "in_list_view": 1},
+    {"fieldname": "last_sync", "label": "Last Sync", "fieldtype": "Datetime", "read_only": 1}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

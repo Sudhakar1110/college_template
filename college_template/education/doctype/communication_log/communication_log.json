@@ -1,0 +1,22 @@
+{
+  "doctype": "DocType", "name": "Communication Log", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 0, "max_attachments": 0,
+  "title_field": "subject", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "COMM-.YYYY.-.#####",
+  "search_fields": "subject,recipient",
+  "fields": [
+    {"fieldname": "subject", "label": "Subject", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "channel", "label": "Channel", "fieldtype": "Select", "options": "Email\nSMS\nWhatsApp\nPush Notification", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "recipient", "label": "Recipient", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "recipient_type", "label": "Recipient Type", "fieldtype": "Link", "options": "DocType"},
+    {"fieldname": "recipient_name", "label": "Recipient Name", "fieldtype": "Dynamic Link", "options": "recipient_type"},
+    {"fieldname": "column_break_cl", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "message", "label": "Message", "fieldtype": "Text Editor", "reqd": 1},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Pending\nSent\nFailed\nDelivered\nRead", "default": "Pending", "in_list_view": 1, "in_standard_filter": 1},
+    {"fieldname": "sent_on", "label": "Sent On", "fieldtype": "Datetime", "read_only": 1},
+    {"fieldname": "delivery_provider", "label": "Provider", "fieldtype": "Select", "options": "Frappe Email\nTwilio SMS\nWhatsApp Business\nFCM", "default": "Frappe Email"},
+    {"fieldname": "error_log", "label": "Error Log", "fieldtype": "Small Text", "read_only": 1}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

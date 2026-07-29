@@ -1,0 +1,23 @@
+{
+  "doctype": "DocType", "name": "AI Integration Config", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 1, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 0, "max_attachments": 0,
+  "title_field": "", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "By script", "autoname": "",
+  "fields": [
+    {"fieldname": "ai_provider", "label": "AI Provider", "fieldtype": "Select", "options": "OpenAI\nAnthropic\nGoogle AI\nAzure AI\nCustom", "default": "OpenAI"},
+    {"fieldname": "api_key", "label": "API Key", "fieldtype": "Password"},
+    {"fieldname": "api_endpoint", "label": "API Endpoint", "fieldtype": "Data"},
+    {"fieldname": "column_break_ai", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "enable_chatbot", "label": "Enable Chatbot", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_auto_grading", "label": "Enable Auto Grading", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_content_generation", "label": "Enable Content Generation", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_plagiarism_check", "label": "Enable Plagiarism Check", "fieldtype": "Check", "default": 0},
+    {"fieldname": "section_models", "label": "Model Settings", "fieldtype": "Section Break"},
+    {"fieldname": "grading_model", "label": "Grading Model", "fieldtype": "Data", "default": "gpt-4"},
+    {"fieldname": "chatbot_model", "label": "Chatbot Model", "fieldtype": "Data", "default": "gpt-3.5-turbo"},
+    {"fieldname": "max_tokens", "label": "Max Tokens", "fieldtype": "Int", "default": "2048"},
+    {"fieldname": "temperature", "label": "Temperature", "fieldtype": "Float", "default": "0.3"}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

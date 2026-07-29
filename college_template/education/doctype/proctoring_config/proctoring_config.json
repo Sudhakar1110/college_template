@@ -1,0 +1,17 @@
+{
+  "doctype": "DocType", "name": "Proctoring Config", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 1, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 0, "max_attachments": 0,
+  "fields": [
+    {"fieldname": "proctoring_provider", "label": "Provider", "fieldtype": "Select", "options": "Built-in\nProctorU\nHonorlock\nExamSoft\nCustom", "default": "Built-in"},
+    {"fieldname": "api_key", "label": "API Key", "fieldtype": "Password"},
+    {"fieldname": "api_endpoint", "label": "API Endpoint", "fieldtype": "Data"},
+    {"fieldname": "column_break_pc", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "enable_video_proctoring", "label": "Enable Video Proctoring", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_screen_recording", "label": "Enable Screen Recording", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_face_detection", "label": "Enable Face Detection", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_audio_monitoring", "label": "Enable Audio Monitoring", "fieldtype": "Check", "default": 0},
+    {"fieldname": "flag_threshold", "label": "Flag Threshold", "fieldtype": "Int", "default": "3", "description": "Number of violations before auto-flagging"}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

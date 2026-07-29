@@ -1,0 +1,22 @@
+{
+  "doctype": "DocType", "name": "Auto Grade Result", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 0, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 1, "max_attachments": 0,
+  "title_field": "title", "sort_field": "modified", "sort_order": "DESC",
+  "naming_rule": "Expression", "autoname": "GRADE-.YYYY.-.#####",
+  "fields": [
+    {"fieldname": "title", "label": "Title", "fieldtype": "Data", "reqd": 1, "read_only": 1},
+    {"fieldname": "quiz_submission", "label": "Quiz Submission", "fieldtype": "Link", "options": "LMS Quiz Submission", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "student", "label": "Student", "fieldtype": "Link", "options": "Student", "fetch_from": "quiz_submission.member", "read_only": 1},
+    {"fieldname": "quiz", "label": "Quiz", "fieldtype": "Link", "options": "LMS Quiz", "fetch_from": "quiz_submission.quiz", "read_only": 1},
+    {"fieldname": "column_break_ag", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "score", "label": "Score", "fieldtype": "Float", "read_only": 1},
+    {"fieldname": "total_questions", "label": "Total Questions", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "correct_answers", "label": "Correct", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "wrong_answers", "label": "Wrong", "fieldtype": "Int", "read_only": 1},
+    {"fieldname": "grading_method", "label": "Grading Method", "fieldtype": "Select", "options": "Auto (Exact Match)\nAuto (Keyword)\nAI Assisted\nManual", "default": "Auto (Exact Match)"},
+    {"fieldname": "grading_details", "label": "Grading Detail (JSON)", "fieldtype": "Long Text", "read_only": 1},
+    {"fieldname": "graded_on", "label": "Graded On", "fieldtype": "Datetime", "read_only": 1, "default": "Now"}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}

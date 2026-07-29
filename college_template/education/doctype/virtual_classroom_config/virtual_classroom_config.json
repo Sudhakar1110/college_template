@@ -1,0 +1,16 @@
+{
+  "doctype": "DocType", "name": "Virtual Classroom Config", "module": "Education", "custom": 1,
+  "is_submittable": 0, "is_child_table": 0, "is_single": 1, "is_tree": 0, "editable_grid": 1,
+  "track_changes": 1, "allow_rename": 0, "max_attachments": 0,
+  "fields": [
+    {"fieldname": "provider", "label": "Provider", "fieldtype": "Select", "options": "Zoom\nGoogle Meet\nMicrosoft Teams\nJitsi\nCustom", "default": "Jitsi"},
+    {"fieldname": "api_key", "label": "API Key", "fieldtype": "Password"},
+    {"fieldname": "api_secret", "label": "API Secret", "fieldtype": "Password"},
+    {"fieldname": "column_break_vc", "label": "", "fieldtype": "Column Break"},
+    {"fieldname": "default_meeting_duration", "label": "Default Duration (mins)", "fieldtype": "Int", "default": "60"},
+    {"fieldname": "auto_record", "label": "Auto Record", "fieldtype": "Check", "default": 0},
+    {"fieldname": "enable_chat", "label": "Enable Chat", "fieldtype": "Check", "default": 1},
+    {"fieldname": "enable_whiteboard", "label": "Enable Whiteboard", "fieldtype": "Check", "default": 1}
+  ],
+  "permissions": [{"role": "System Manager", "create": 1, "read": 1, "write": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "report": 1, "share": 1}]
+}
