@@ -267,8 +267,8 @@
     ],
     "shortcuts": [
       {"label": "New Library Book", "type": "DocType", "link_to": "Library Book", "doc_type": "Library Book", "format": "{}"},
-      {"label": "New Issue", "type": "DocType", "link_to": "Library Transaction", "doc_type": "Library Transaction", "format": "{{transaction_type:Issue}}"},
-      {"label": "New Return", "type": "DocType", "link_to": "Library Transaction", "doc_type": "Library Transaction", "format": "{{transaction_type:Return}}"}
+      {"label": "New Issue", "type": "DocType", "link_to": "Library Transaction", "doc_type": "Library Transaction", "format": "{}"},
+      {"label": "New Return", "type": "DocType", "link_to": "Library Transaction", "doc_type": "Library Transaction", "format": "{}"}
     ],
     "roles": [{"role": "System Manager"}]
   },
