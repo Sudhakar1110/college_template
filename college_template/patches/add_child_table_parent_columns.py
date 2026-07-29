@@ -17,6 +17,11 @@ AFFECTED_TABLES = [
 
 def execute():
     """Add missing parent, parenttype, parentfield columns to child tables."""
+    # Commit any pending transaction writes first.
+    # ALTER TABLE causes an implicit commit in MySQL, which Frappe blocks
+    # when transaction_writes > 0. By committing first, we reset the flag
+    # so check_transaction_status allows the DDL statement.
+    frappe.db.commit()
     for table in AFFECTED_TABLES:
         fix_child_table_columns(table)
 
