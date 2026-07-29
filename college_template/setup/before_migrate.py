@@ -1,6 +1,8 @@
 # Copyright (c) 2026, Bizaxl and contributors
 # For license information, please see license.txt
 
+import frappe
+
 # Modules known to conflict with other installed apps (education, lms, etc.)
 # When both apps define a module with the same name, Frappe's Module Def
 # may point to the wrong app, causing custom DocTypes to be detected as
