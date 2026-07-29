@@ -684,19 +684,19 @@
     ],
     "number_cards": [
       {
-        "card_name": "Revaluation - Pending",
+        "number_card_name": "Revaluation - Pending",
         "label": "Revaluation - Pending"
       },
       {
-        "card_name": "Revaluation - Total Fee Collected",
+        "number_card_name": "Revaluation - Total Fee Collected",
         "label": "Revaluation - Total Fee Collected"
       },
       {
-        "card_name": "Feedback - Open Surveys",
+        "number_card_name": "Feedback - Open Surveys",
         "label": "Feedback - Open Surveys"
       },
       {
-        "card_name": "Feedback - Total Responses",
+        "number_card_name": "Feedback - Total Responses",
         "label": "Feedback - Total Responses"
       }
     ]
@@ -763,7 +763,7 @@
     ],
     "number_cards": [
       {
-        "card_name": "Question Bank - Total Banks",
+        "number_card_name": "Question Bank - Total Banks",
         "label": "Question Bank - Total Banks"
       }
     ]
@@ -823,15 +823,15 @@
     ],
     "number_cards": [
       {
-        "card_name": "Assignments - Active",
+        "number_card_name": "Assignments - Active",
         "label": "Assignments - Active"
       },
       {
-        "card_name": "Assignments - Overdue",
+        "number_card_name": "Assignments - Overdue",
         "label": "Assignments - Overdue"
       },
       {
-        "card_name": "Assignments - Submissions",
+        "number_card_name": "Assignments - Submissions",
         "label": "Assignments - Submissions"
       }
     ]
@@ -914,15 +914,15 @@
     ],
     "number_cards": [
       {
-        "card_name": "Grievance - Open",
+        "number_card_name": "Grievance - Open",
         "label": "Grievance - Open"
       },
       {
-        "card_name": "Grievance - Critical",
+        "number_card_name": "Grievance - Critical",
         "label": "Grievance - Critical"
       },
       {
-        "card_name": "Certificate - Pending",
+        "number_card_name": "Certificate - Pending",
         "label": "Certificate - Pending"
       }
     ]
@@ -1006,15 +1006,15 @@
     ],
     "number_cards": [
       {
-        "card_name": "Library - Total Books",
+        "number_card_name": "Library - Total Books",
         "label": "Library - Total Books"
       },
       {
-        "card_name": "Library - Available Copies",
+        "number_card_name": "Library - Available Copies",
         "label": "Library - Available Copies"
       },
       {
-        "card_name": "Library - Active Members",
+        "number_card_name": "Library - Active Members",
         "label": "Library - Active Members"
       }
     ]
@@ -1140,23 +1140,23 @@
     ],
     "number_cards": [
       {
-        "card_name": "Hostel - Total Hostels",
+        "number_card_name": "Hostel - Total Hostels",
         "label": "Hostel - Total Hostels"
       },
       {
-        "card_name": "Hostel - Total Rooms",
+        "number_card_name": "Hostel - Total Rooms",
         "label": "Hostel - Total Rooms"
       },
       {
-        "card_name": "Hostel - Active Allocations",
+        "number_card_name": "Hostel - Active Allocations",
         "label": "Hostel - Active Allocations"
       },
       {
-        "card_name": "Transport - Active Routes",
+        "number_card_name": "Transport - Active Routes",
         "label": "Transport - Active Routes"
       },
       {
-        "card_name": "Transport - Active Allocations",
+        "number_card_name": "Transport - Active Allocations",
         "label": "Transport - Active Allocations"
       }
     ]
@@ -1206,7 +1206,7 @@
     ],
     "number_cards": [
       {
-        "card_name": "Accreditation - Reports",
+        "number_card_name": "Accreditation - Reports",
         "label": "Accreditation - Reports"
       }
     ]
@@ -1272,23 +1272,23 @@
     ],
     "number_cards": [
       {
-        "card_name": "OMR - Answer Keys",
+        "number_card_name": "OMR - Answer Keys",
         "label": "OMR - Answer Keys"
       },
       {
-        "card_name": "OMR - Sheets Graded",
+        "number_card_name": "OMR - Sheets Graded",
         "label": "OMR - Sheets Graded"
       },
       {
-        "card_name": "Auto Grade - Results",
+        "number_card_name": "Auto Grade - Results",
         "label": "Auto Grade - Results"
       },
       {
-        "card_name": "Convocation - Upcoming",
+        "number_card_name": "Convocation - Upcoming",
         "label": "Convocation - Upcoming"
       },
       {
-        "card_name": "Convocation - Registrations",
+        "number_card_name": "Convocation - Registrations",
         "label": "Convocation - Registrations"
       }
     ]
