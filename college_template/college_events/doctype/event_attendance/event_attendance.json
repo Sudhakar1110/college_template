@@ -3,8 +3,8 @@
   "name": "Event Attendance",
   "module": "College Events",
   "custom": 1,
-  "is_submittable": 1,
-  "is_child_table": 0,
+  "is_submittable": 0,
+  "is_child_table": 1,
   "is_single": 0,
   "is_tree": 0,
   "editable_grid": 0,
@@ -27,6 +27,34 @@
   "icon": "",
   "color": "",
   "fields": [
+    {
+      "fieldname": "student",
+      "label": "Student",
+      "fieldtype": "Link",
+      "options": "Admission Student",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "attendance",
+      "label": "Attendance",
+      "fieldtype": "Select",
+      "options": "Present\nAbsent\nLate",
+      "reqd": 1,
+      "default": "Present",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "late_entry",
+      "label": "Late Entry",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "column_break_att",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
     {
       "fieldname": "check_in",
       "label": "Check In",

@@ -28,6 +28,27 @@
   "color": "",
   "fields": [
     {
+      "fieldname": "student",
+      "label": "Student",
+      "fieldtype": "Link",
+      "options": "Admission Student",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "rank",
+      "label": "Rank",
+      "fieldtype": "Select",
+      "options": "1st\n2nd\n3rd\nConsolation\nParticipation",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_ew",
+      "label": "",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "prize",
       "label": "Prize",
       "fieldtype": "Data",

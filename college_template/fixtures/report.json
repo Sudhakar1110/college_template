@@ -111,7 +111,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT club as \"Club:Link/Student Club:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE club IS NOT NULL AND club != '' GROUP BY club ORDER BY `Total Events` DESC",
+    "query": "SELECT club as \"Club:Link/Student Club:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN event_status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE event_status = 'Completed' AND club IS NOT NULL AND club != '' GROUP BY club ORDER BY `Total Events` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -128,7 +128,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT organizing_department as \"Department:Link/Department:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE organizing_department IS NOT NULL AND organizing_department != '' GROUP BY organizing_department ORDER BY `Total Events` DESC",
+    "query": "SELECT department as \"Department:Link/Department:150\", COUNT(name) as \"Total Events:Int:100\", SUM(CASE WHEN event_status = 'Completed' THEN 1 ELSE 0 END) as \"Completed:Int:100\", SUM(current_participants) as \"Total Participants:Int:120\" FROM `tabCollege Event` WHERE organizing_department IS NOT NULL AND organizing_department != '' GROUP BY organizing_department ORDER BY `Total Events` DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -145,7 +145,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", current_participants as \"Participants:Int:100\", actual_expense as \"Actual Expense:Currency:120\" FROM `tabCollege Event` WHERE status = 'Completed' ORDER BY starts_on DESC",
+    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", current_participants as \"Participants:Int:100\", actual_expense as \"Actual Expense:Currency:120\" FROM `tabCollege Event` WHERE event_status = 'Completed' ORDER BY starts_on DESC",
     "roles": [
       {
         "role": "System Manager"
@@ -162,7 +162,7 @@
     "module": "College Events",
     "add_total_row": 0,
     "disabled": 0,
-    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", venue as \"Venue:Data:120\", registration_status as \"Registration:Data:100\" FROM `tabCollege Event` WHERE status = 'Upcoming' AND approval_status = 'Approved' ORDER BY starts_on ASC",
+    "query": "SELECT name as \"Event:Link/College Event:150\", event_name as \"Event Name:Data:200\", event_category as \"Category:Data:120\", starts_on as \"Starts On:Datetime:150\", venue as \"Venue:Data:120\", registration_status as \"Registration:Data:100\" FROM `tabCollege Event` WHERE event_status IN ('Upcoming','Ongoing') ORDER BY starts_on ASC",
     "roles": [
       {
         "role": "System Manager"

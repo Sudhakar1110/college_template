@@ -490,6 +490,26 @@
       "placeholder": ""
     },
     {
+      "fieldname": "event_category",
+      "label": "Event Category",
+      "fieldtype": "Select",
+      "options": "Academic\nCultural\nSports\nTechnical\nWorkshop\nSeminar\nOther",
+      "reqd": 0,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "event_status",
+      "label": "Event Status",
+      "fieldtype": "Select",
+      "options": "Planning\nUpcoming\nOngoing\nCompleted\nCancelled",
+      "reqd": 1,
+      "default": "Planning",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
       "fieldname": "audience_registration",
       "label": "Audience & Registration",
       "fieldtype": "Section Break",
@@ -622,6 +642,15 @@
       "placeholder": ""
     },
     {
+      "fieldname": "registration_status",
+      "label": "Registration Status",
+      "fieldtype": "Select",
+      "options": "Open\nClosed\nFull",
+      "reqd": 0,
+      "default": "Open",
+      "in_list_view": 1
+    },
+    {
       "fieldname": "maximum_participants",
       "label": "Maximum Participants",
       "fieldtype": "Int",
@@ -653,6 +682,16 @@
       "read_only_depends_on": "",
       "description": "",
       "placeholder": ""
+    },
+    {
+      "fieldname": "approval_status",
+      "label": "Approval Status",
+      "fieldtype": "Select",
+      "options": "Pending\nApproved\nRejected",
+      "reqd": 0,
+      "default": "Pending",
+      "in_list_view": 0,
+      "in_standard_filter": 1
     },
     {
       "fieldname": "current_participants",
@@ -886,8 +925,8 @@
       "placeholder": ""
     },
     {
-      "fieldname": "status",
-      "label": "Status",
+      "fieldname": "event_status_section",
+      "label": "Event Status Section",
       "fieldtype": "Section Break",
       "options": "",
       "default": "",
